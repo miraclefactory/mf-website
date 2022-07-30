@@ -17,7 +17,7 @@ You can make suggestions and contributions on the website's:
 > * Code optimizations (bad coding style, bugs, loopholes, etc.)
 > * And more...
 
-### Repository Maintenace 🔨
+### Repository Maintenance 🔨
 **ANY FORM** of content / style change should be submitted via Pull Requests.   
 If you have any suggestions regarding this repo, please submit your idea via Issues.   
 Feel free to make any reasonable improvements and suggestions!
