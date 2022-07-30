@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The home of creators and dreamers. An AI development and research community.">
+	<meta name="google-site-verification" content="jMgOBqBBFyfaG2rFQDOeJtQ-NSCTNWZgg5yIPA-5Bbk" />
+    <title>Email Verification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/main.css')}}">
+	<link rel="icon" href="{{ url_for('static', filename='images/square-logo.png')}}">
+    <style>
+        body
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Helvetica, sans-serif;
+            margin: 0 auto;
+        }
+
+        #btn_back
+        {
+            padding: 30px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            color: white;
+            background-color: rgb(132, 78, 235);
+            border-radius: 8px;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        #btn_back:hover
+        {
+            background-color: rgb(112, 58, 215);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center; padding: 30px;">
+        <h2>Thank you for your attention to our community, {{ name }}</h2>
+        <p>
+            Please click on the button below to verify your email address.
+        </p>
+        <br/>
+        <a href="{{ link }}">
+            <button id="btn_back">
+                <span>Verify</span>
+            </button>
+        </a>
+    </div>
+</body>
