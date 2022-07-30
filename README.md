@@ -6,7 +6,7 @@
 ### Visit Our Site 🌐
 You can visit our website at [**miraclefactory.co**](https://miraclefactory.co/).   
 Learn our goals and ideals, help us build a better community and a better world!  
-Feel free to join our community at the bottom of our website.
+Feel free to join our community at the bottom of our website :)
 
 ### You Can Contribute! 🌟
 This is the public repo for the official website of MiracleFactory. We welcome every good idea, what ever the form. 
@@ -18,8 +18,9 @@ You can make suggestions and contributions on the website's:
 > * And more...
 
 ### Repository Maintenace 🔨
-ANY FORM of content / style change should be submitted via a Pull Request.   
-If you have any suggestions regarding this repo, please submit your idea via an Issue.   
+**ANY FORM** of content / style change should be submitted via Pull Requests.   
+If you have any suggestions regarding this repo, please submit your idea via Issues.   
+Feel free to make any reasonable improvements and suggestions!
 
 ### Security Notice ⚠️
 This repo does not contain any of our secret app configs, please bear that in mind when you are running the website at your local development server. 
