@@ -18,6 +18,6 @@ setup(
     packages=['application'],
     include_package_data=True,
     install_requires=[
-        'flask', 'flask-sqlalchemy', 'flask-mail', 'python-decouple', 
+        'flask', 'flask-sqlalchemy', 'flask-mail', 'python-decouple', 'itsdangerous', 
     ],
 )
