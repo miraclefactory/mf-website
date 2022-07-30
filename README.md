@@ -9,7 +9,7 @@ Learn our goals and ideals, help us build a better community and a better world!
 Feel free to join our community at the bottom of our website :)
 
 ### You Can Contribute! 🌟
-This is the public repo for the official website of MiracleFactory. We welcome every good idea, what ever the form. 
+This is the public repo for the official website of Miracle Factory. We welcome every good idea, what ever the form. 
 You can make suggestions and contributions on the website's:    
 > * Content (writing style, typo, etc.)
 > * Style (color, font, incompatibility with devices, smoothness optmization, etc.)
