@@ -10,6 +10,8 @@
 # ///////////////////////////////////////////////////////////////////////////
 # flask import
 from flask import redirect, render_template, url_for, request
+# enviromental config import
+from decouple import config
 # module import
 from application import app
 from application.email import send_email, confirm_token
@@ -95,7 +97,7 @@ def confirm_email(token):
 # the database portal
 @app.route('/database/authorization-code=<code>')
 def database(code):
-    if code == '11A2B' or code == '27A1T' or code == '65A9C':
+    if code == config('auth_1') or code == config('auth_2') or code == config('auth_3'):
         info = contacts.query.all()
         return render_template('database.html', contacts = info)
     else:
