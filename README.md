@@ -40,7 +40,7 @@ check it out in case you don't know how to use `python-decouple`.
 
 ### How to Run ▶️
 You can simply run the website in your local development server (your terminal or shell) using `run.sh`: `sh run.sh`.   
-You will need to have a sqlite database under `/application/database/` to access the database functionalities.
+You will need to have a sqlite database matching your SQLALCHEMY_DATABASE_URI config to access the database functionalities.
 > **Notice:**   
 > If you are using macOS Monterey or newer (macOS Ventura), please avoid using the Flask default port 5000, 
 this will cause trouble because this port is already taken by AirPlay in these systems.   
