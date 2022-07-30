@@ -37,3 +37,13 @@ You can simply run the website in your local development server (your terminal o
 > ##### Notice
 > If you are using macOS Monterey or newer (macOS Ventura), please avoid using the Flask default port 5000, 
 this will cause trouble because this port is already taken by AirPlay in these systems.   
+
+### TO DO List
+> 1. concurrency control(Threadpool executor) ✓
+> 2. database connection and query ✓
+> 3. python file restructuring ✓
+> 4. spam protection ✓
+> 5. speed optimization
+> 6. security enhancement
+> 7. deployment ✓
+> 8. database functions
