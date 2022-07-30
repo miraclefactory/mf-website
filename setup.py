@@ -1,0 +1,23 @@
+# ///////////////////////////////////////////////////////////////////////////
+# @file: setup.py
+# @time: 2022/07/15
+# @author: Yuelin Xin
+# @email: yuelinxin@miraclefactory.co
+# @organisation: Miracle Factory
+# @url: https://miraclefactory.co
+# ///////////////////////////////////////////////////////////////////////////
+
+# ///////////////////////////////////////////////////////////////////////////
+# library import
+from setuptools import setup
+# ///////////////////////////////////////////////////////////////////////////
+
+
+setup(
+    name='application',
+    packages=['application'],
+    include_package_data=True,
+    install_requires=[
+        'flask', 'flask-sqlalchemy', 'flask-mail', 'python-decouple', 
+    ],
+)
