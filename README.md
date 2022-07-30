@@ -1,5 +1,8 @@
 # Official Website of Miracle Factory
 
+![www miraclefactory co_](https://user-images.githubusercontent.com/89094576/181905465-13b919fb-b708-4ab3-b7d1-cda12a4d5537.png)
+---
+
 ### Visit Our Site 🌐
 You can visit our website at [**Miracle Factory**](https://miraclefactory.co/).   
 Learn our goals and ideals, help us build a better community and a better world!  
@@ -21,6 +24,8 @@ If you have any suggestions regarding this repo, please submit your idea via an 
 ### Security Notice ⚠️
 This repo does not contain any of our secret app configs, please bear that in mind when you are running the website at your local development server. 
 If you want to test all the app config related functionalities, please config your own:   
+> * MAIL_SERVER
+> * MAIL_PORT
 > * MAIL_USERNAME
 > * MAIL_PASSWORD
 > * SECRET_KEY
