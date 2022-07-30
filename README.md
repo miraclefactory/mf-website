@@ -45,7 +45,7 @@ You will need to have a sqlite database under `/application/database/` to access
 > If you are using macOS Monterey or newer (macOS Ventura), please avoid using the Flask default port 5000, 
 this will cause trouble because this port is already taken by AirPlay in these systems.   
 
-### TO DO List
+### TO DO List ☑️
 > 1. concurrency control(Threadpool executor) ✓
 > 2. database connection and query ✓
 > 3. python file restructuring ✓
