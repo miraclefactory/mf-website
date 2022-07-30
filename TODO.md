@@ -6,4 +6,6 @@
 > 5. speed optimization
 > 6. security enhancement
 > 7. deployment ✓
-> 8. database functions
+> 8. database functions(*)
+> 9. build research page(*)
+> 10. build campus page(*)
