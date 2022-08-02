@@ -122,6 +122,44 @@ svg
     text-overflow: ellipsis;
 }
 
+.dialog-button-yes
+{
+    border-radius: 7px;
+    background-color: rgb(83, 162, 88);
+    color: white;
+    border: 1px solid rgb(82, 153, 87);
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 13px;
+    line-height: 27px;
+    font-weight: bold;
+}
+
+.dialog-button-yes:hover
+{
+    background-color: rgb(78, 149, 83);
+}
+
+.dialog-button-no
+{
+    border-radius: 7px;
+    background-color: rgb(186, 71, 62);
+    color: white;
+    border: 1px solid rgb(220, 96, 85);
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 13px;
+    line-height: 27px;
+    font-weight: bold;
+}
+
+.dialog-button-no:hover
+{
+    background-color: rgb(180, 63, 56);
+}
+
 #header
 {
     animation: 
@@ -198,6 +236,29 @@ svg
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     animation: clear-up 1.5s 0.5s ease-in-out forwards;
+}
+
+#bookmark
+{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: fit-content;
+    height: fit-content;
+    padding: 7px;
+    background-color: white;
+    border: 0.5px solid rgb(200, 200, 200);
+    border-radius: 10px;
+    z-index: 99999;
+    opacity: 1;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    transform: translateX(calc(100% - 28px));
+    transition: all 0.4s ease-in-out;
+}
+
+#bookmark:hover
+{
+    transform: translateX(0);
 }
 
 #intro
@@ -579,6 +640,12 @@ textarea:focus
         background-color: rgb(240, 240, 240);
     }
 
+    #bookmark
+    {
+        background-color: rgb(55, 59, 64);
+        border-color: rgb(122, 123, 127);
+    }
+
     #intro
     {
         background-color: rgb(33, 33, 33);
@@ -777,6 +844,11 @@ textarea:focus
 }
 
 @media screen and (max-width: 400px) {
+
+    #bookmark
+    {
+        display: none;
+    }
 
     .dialog-content
     {

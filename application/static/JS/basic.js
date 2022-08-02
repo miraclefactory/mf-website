@@ -65,3 +65,8 @@ function closeDialog()
     document.getElementById("dialog-contact-bk").style.display = "none";
     document.body.style.overflowY = "auto";
 }
+
+function closeBookmark()
+{
+    document.getElementById("bookmark").style.opacity = 0;
+}
