@@ -18,7 +18,8 @@ You can make suggestions and contributions on the website's:
 > * And more...
 
 ### Repository Maintenance 🔨
-**ANY FORM** of content / style change should be submitted via Pull Requests.   
+**ANY FORM** of content / style change should be submitted via Pull Requests.  
+If you wish to make adjustments to this repo, please commit your change to branch **dev** first, then create a PR to merge it into our main branch.  
 If you have any suggestions regarding this repo, please submit your idea via Issues.   
 Feel free to make any reasonable improvements and suggestions!
 
@@ -39,7 +40,8 @@ You should write something like: `email_username = "xxxx"` in your `.env` file, 
 check it out in case you don't know how to use `python-decouple`.   
 
 ### How to Run ▶️
-You can simply run the website in your local development server (your terminal or shell) using `run.sh`: `sh run.sh`.   
+Before you run the application, please make sure that all the required python libraries are installed using: `pip install -r requirements.txt`.  
+After that, you can simply run the website in your local development server (your terminal or shell) using `run.sh`: `sh run.sh`.   
 You will need to have a sqlite database matching your SQLALCHEMY_DATABASE_URI config to access the database functionalities.
 > **Notice:**   
 > If you are using macOS Monterey or newer (macOS Ventura), please avoid using the Flask default port 5000, this will cause trouble because this port is already taken by AirPlay in these systems.   
