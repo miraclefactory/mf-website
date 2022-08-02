@@ -68,5 +68,5 @@ function closeDialog()
 
 function closeBookmark()
 {
-    document.getElementById("bookmark").style.opacity = 0;
+    document.getElementById("bookmark").style.display = "none";
 }
