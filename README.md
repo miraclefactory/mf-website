@@ -19,7 +19,7 @@ You can make suggestions and contributions on the website's:
 
 ### Repository Maintenance 🔨
 **ANY FORM** of content / style change should be submitted via Pull Requests.  
-If you wish to make adjustments to this repo, please commit your change to branch **dev** first, then create a PR to merge it into our main branch.  
+If you wish to make adjustments to this repo, please fork this repo and commit your change to branch **main** in your fork first, then create a PR to merge it into our **main** branch.  
 If you have any suggestions regarding this repo, please submit your idea via Issues.   
 Feel free to make any reasonable improvements and suggestions!
 
