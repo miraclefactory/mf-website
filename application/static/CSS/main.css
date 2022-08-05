@@ -31,6 +31,11 @@ body
     color: #444;
 }
 
+br
+{
+    user-select: none;
+}
+
 .main
 {
     background-color: white;
@@ -1084,7 +1089,7 @@ textarea:focus
 {
     position: absolute;
     right: 5vw;
-    top: 30vh;
+    top: 27vh;
     width: 4vw;
 }
 
