@@ -1,0 +1,29 @@
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Helvetica, sans-serif;
+    margin: 0 auto;
+}
+
+#btn_back
+{
+    padding: 30px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: white;
+    background-color: rgb(132, 78, 235);
+    border-radius: 8px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#btn_back:hover
+{
+    background-color: rgb(112, 58, 215);
+    color: white;
+}
