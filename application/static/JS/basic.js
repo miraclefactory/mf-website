@@ -44,7 +44,7 @@ window.onload = function()
 function showDialogJoin()
 {
     document.getElementById("dialog-join").style.display = "block";
-    document.getElementById("dialog-join-bk").style.display = "block";
+    document.getElementById("dialog-bk").style.display = "block";
     document.body.style.overflowY = "hidden";
     document.getElementById("dialog-join-name").focus();
 }
@@ -52,7 +52,7 @@ function showDialogJoin()
 function showDialogContact()
 {
     document.getElementById("dialog-contact").style.display = "block";
-    document.getElementById("dialog-contact-bk").style.display = "block";
+    document.getElementById("dialog-bk").style.display = "block";
     document.body.style.overflowY = "hidden";
     document.getElementById("dialog-contact-name").focus();
 }
@@ -60,9 +60,8 @@ function showDialogContact()
 function closeDialog()
 {
     document.getElementById("dialog-join").style.display = "none";
-    document.getElementById("dialog-join-bk").style.display = "none";
+    document.getElementById("dialog-bk").style.display = "none";
     document.getElementById("dialog-contact").style.display = "none";
-    document.getElementById("dialog-contact-bk").style.display = "none";
     document.body.style.overflowY = "auto";
 }
 

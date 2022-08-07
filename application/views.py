@@ -27,7 +27,7 @@ def index():
 # render temp
 @app.route('/temp')
 def temp():
-    return render_template('central-content-back.html',
+    return render_template('central-content.html',
                            page_title = 'Coming Soon',
                            headline = 'Coming Soon 😊',
                            message = 'We are doing our best to make this content available to you ASAP.',
@@ -69,7 +69,7 @@ def verification(user, email):
     # generate and send email
     send_email(user, email)
     # render verification.html
-    return render_template('central-content-back.html',
+    return render_template('central-content.html',
                            page_title = 'Email Verification', 
                            headline = f'Thank you {user}, just one more step to go 😊',
                            message = 'We have sent you an confirmation email. Please check your inbox.',
@@ -83,12 +83,13 @@ def confirm_email(token):
         # activate the contact
         contact = contacts.query.filter_by(email = email).first()
         contact.activate_contact()
-        return render_template('central-content-close.html',
+        return render_template('central-content.html',
                                page_title = 'Success!',
                                headline = 'Success! Your message has been received ☑️',
-                               message = 'We will get in touch with you as soon as possible. You can close this page now.')
+                               message = 'We will get in touch with you as soon as possible. You can close this page now.',
+                               button_text = 'Close')
     else:
-        return render_template('central-content-back.html',
+        return render_template('central-content.html',
                                page_title = 'Oops!', 
                                headline = 'Sorry, your link seems to be invalid or expired 😢',
                                message = 'We apologise for the inconvenience. Please try to send your message again.',
@@ -101,7 +102,7 @@ def database(code):
         info = contacts.query.all()
         return render_template('database.html', contacts = info)
     else:
-        return render_template('central-content-back.html', 
+        return render_template('central-content.html', 
                                page_title = '401 Unauthorized', 
                                headline = '401 Unauthorized ❌',
                                message = 'Sorry, you are not authorized to access this page.',
@@ -110,7 +111,7 @@ def database(code):
 # end database session
 @app.route('/database/end-session')
 def end_session():
-    return render_template('central-content-back.html',
+    return render_template('central-content.html',
                            page_title = 'Database Session Terminated',
                            headline = 'Your database session is terminated',
                            message = 'You can close this page now.',
