@@ -40,21 +40,20 @@ window.onload = function()
     document.getElementById("contact-form").innerHTML = form_contact;
 }
 
-
-function showDialogJoin()
+function showDialog(obj)
 {
-    document.getElementById("dialog-join").style.display = "block";
     document.getElementById("dialog-bk").style.display = "block";
     document.body.style.overflowY = "hidden";
-    document.getElementById("dialog-join-name").focus();
-}
-
-function showDialogContact()
-{
-    document.getElementById("dialog-contact").style.display = "block";
-    document.getElementById("dialog-bk").style.display = "block";
-    document.body.style.overflowY = "hidden";
-    document.getElementById("dialog-contact-name").focus();
+    if(obj.innerHTML == "Join Us")
+    {
+        document.getElementById("dialog-join").style.display = "block";
+        document.getElementById("dialog-join-name").focus();
+    }
+    else
+    {
+        document.getElementById("dialog-contact").style.display = "block";
+        document.getElementById("dialog-contact-name").focus();
+    }
 }
 
 function closeDialog()
