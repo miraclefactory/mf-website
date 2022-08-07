@@ -18,11 +18,19 @@
             {{message}}
         </p>
         <br/>
-        <a href="{{ url_for('index') }}">
-            <button id="btn_back">
-                <span>{{button_text}}</span>
-            </button>
-        </a>
+            {% if button_text == "Close" %}
+            <a href="javascript:;">
+                <button id="btn_back" onclick="window.close();">
+                    <span>{{button_text}}</span>
+                </button>
+            </a>
+            {% else %}
+            <a href="{{url_for('index')}}">
+                <button id="btn_back">
+                    <span>{{button_text}}</span>
+                </button>
+            </a>
+            {% endif %}
     </div>
 </body>
 </html>
