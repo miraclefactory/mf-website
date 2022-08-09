@@ -205,6 +205,7 @@ svg
     transition-timing-function: ease-in-out;
     text-align: center;
     line-height: 110px;
+    letter-spacing: -3px;
 }
 
 #cover
