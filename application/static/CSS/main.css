@@ -380,19 +380,31 @@ svg
     overflow: hidden;
 }
 
-#development-box-1 img
+/* #development-box-1 img
+{
+    width: 80%;
+    margin-left: 10%;
+    content: url("../images/github.png");
+} */
+
+#img-github
 {
     width: 80%;
     margin-left: 10%;
     content: url("../images/github.png");
 }
 
-#development-box-2 img
+/* #development-box-2 img
 {
     width: calc(100% - 60px);
     margin: 30px;
-    /* width: 100%; */
-    /* margin-bottom: -30px; */
+    content: url("../images/start.png");
+} */
+
+#img-project
+{
+    width: calc(100% - 60px);
+    margin: 30px;
     content: url("../images/start.png");
 }
 

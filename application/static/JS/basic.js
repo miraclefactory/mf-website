@@ -38,6 +38,8 @@ window.onload = function()
     // anti-spam protection: honeypot and dynamic html content
     document.getElementById("join-form").innerHTML = form_join;
     document.getElementById("contact-form").innerHTML = form_contact;
+    document.getElementById("img-github").alt = "Github-Homepage-img";
+    document.getElementById("img-project").alt = "Project-Submarine-img";
 }
 
 function showDialog(obj)
