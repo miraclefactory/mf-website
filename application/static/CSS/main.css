@@ -384,28 +384,28 @@ svg
 {
     width: 80%;
     margin-left: 10%;
-    content: url("../images/github.png");
+    content: url("../images/github.webp");
 } */
 
 #img-github
 {
     width: 80%;
     margin-left: 10%;
-    content: url("../images/github.png");
+    content: url("../images/github.webp");
 }
 
 /* #development-box-2 img
 {
     width: calc(100% - 60px);
     margin: 30px;
-    content: url("../images/start.png");
+    content: url("../images/start.webp");
 } */
 
 #img-project
 {
     width: calc(100% - 60px);
     margin: 30px;
-    content: url("../images/start.png");
+    content: url("../images/start.webp");
 }
 
 #join-contact
@@ -688,12 +688,12 @@ textarea:focus
 
     #development-box-1 img
     {
-        content: url("../images/github-dark.png");
+        content: url("../images/github-dark.webp");
     }
 
     #development-box-2 img
     {
-        content: url("../images/start-dark.png");
+        content: url("../images/start-dark.webp");
     }
 
     #join-contact
