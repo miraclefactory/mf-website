@@ -368,7 +368,7 @@ svg
     font-style: italic; */
 }
 
-#development
+#main-content
 {
     width: 100vw;
     z-index: 999;
@@ -380,26 +380,12 @@ svg
     overflow: hidden;
 }
 
-/* #development-box-1 img
-{
-    width: 80%;
-    margin-left: 10%;
-    content: url("../images/github.webp");
-} */
-
 #img-github
 {
     width: 80%;
     margin-left: 10%;
     content: url("../images/github.webp");
 }
-
-/* #development-box-2 img
-{
-    width: calc(100% - 60px);
-    margin: 30px;
-    content: url("../images/start.webp");
-} */
 
 #img-project
 {
@@ -680,18 +666,18 @@ textarea:focus
         background-color: rgba(0, 0, 0, 0.90);
     }
 
-    #development
+    #main-content
     {
         border-top: 1px dashed rgb(50, 50, 50);
         background-color: rgb(33, 33, 33);
     }
 
-    #development-box-1 img
+    #img-github
     {
         content: url("../images/github-dark.webp");
     }
 
-    #development-box-2 img
+    #img-project
     {
         content: url("../images/start-dark.webp");
     }
@@ -830,6 +816,11 @@ textarea:focus
 
 @media screen and (max-width: 767px) {
 
+    #bookmark
+    {
+        display: none;
+    }
+
     #header
     {
         font-size: 60px;
@@ -862,11 +853,6 @@ textarea:focus
 }
 
 @media screen and (max-width: 400px) {
-
-    #bookmark
-    {
-        display: none;
-    }
 
     .dialog-content
     {
