@@ -21,6 +21,10 @@ from decouple import config
 # initialize flask app
 app = Flask(__name__)
 
+# app cache config
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = -1        #debug(disable cache)
+# app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 43200     #deploy(12 hours cache)
+
 # mail configuration and initialization
 app.config['MAIL_SERVER'] = config('email_server', '')
 app.config['MAIL_PORT'] = config('email_port', '')
