@@ -368,7 +368,7 @@ svg
     font-style: italic; */
 }
 
-#development
+#main-content
 {
     width: 100vw;
     z-index: 999;
@@ -380,32 +380,19 @@ svg
     overflow: hidden;
 }
 
-/* #development-box-1 img
-{
-    width: 80%;
-    margin-left: 10%;
-    content: url("../images/github.png");
-} */
-
 #img-github
 {
     width: 80%;
     margin-left: 10%;
-    content: url("../images/github.png");
+    content: url("../images/github.webp");
 }
-
-/* #development-box-2 img
-{
-    width: calc(100% - 60px);
-    margin: 30px;
-    content: url("../images/start.png");
-} */
 
 #img-project
 {
     width: calc(100% - 60px);
     margin: 30px;
-    content: url("../images/start.png");
+    content: url("../images/start.webp");
+    /* max-width: 500px; */
 }
 
 #join-contact
@@ -680,20 +667,20 @@ textarea:focus
         background-color: rgba(0, 0, 0, 0.90);
     }
 
-    #development
+    #main-content
     {
         border-top: 1px dashed rgb(50, 50, 50);
         background-color: rgb(33, 33, 33);
     }
 
-    #development-box-1 img
+    #img-github
     {
-        content: url("../images/github-dark.png");
+        content: url("../images/github-dark.webp");
     }
 
-    #development-box-2 img
+    #img-project
     {
-        content: url("../images/start-dark.png");
+        content: url("../images/start-dark.webp");
     }
 
     #join-contact
@@ -830,6 +817,11 @@ textarea:focus
 
 @media screen and (max-width: 767px) {
 
+    #bookmark
+    {
+        display: none;
+    }
+
     #header
     {
         font-size: 60px;
@@ -859,14 +851,31 @@ textarea:focus
         padding: 10px !important;
         font-size: 13px !important;
     }
+
+    #main-content
+    {
+        padding: 16px;
+    }
+
+    .box
+    {
+        margin-bottom: 16px;
+    }
+
+    #img-github
+    {
+        margin-left: 5%;
+        width: 120%;
+    }
+
+    #img-project
+    {
+        margin-left: 30px;
+        width: 110%;
+    }
 }
 
 @media screen and (max-width: 400px) {
-
-    #bookmark
-    {
-        display: none;
-    }
 
     .dialog-content
     {
