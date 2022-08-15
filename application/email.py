@@ -14,6 +14,7 @@ from flask import render_template
 from flask_mail import Message
 # module import
 from application import app, mail, pool
+import datetime
 # ///////////////////////////////////////////////////////////////////////////
 
 
@@ -27,6 +28,19 @@ def send_email(user, email):
                   sender=('Miracle Factory', app.config["MAIL_USERNAME"]), \
                   recipients=[email])
     msg.html = render_template('email-confirmation.html', name = user, link = email_link)
+    try:
+        pool.submit(send_async_email, app, msg)
+        return True
+    except Exception as e:
+        print(e)
+        return False
+
+# generate and send approval email
+def send_approved_email(user, email):
+    msg = Message('Congratulations! <needaction>', \
+                  sender=('Miracle Factory', app.config["MAIL_USERNAME"]), \
+                  recipients=[email])
+    msg.html = render_template('email-approved.html', name = user, time = datetime.datetime.now())
     try:
         pool.submit(send_async_email, app, msg)
         return True
