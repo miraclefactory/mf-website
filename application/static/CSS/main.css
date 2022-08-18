@@ -5,7 +5,32 @@
 
 /* ------------------------------------------------------------------------------------------- */
 
+/* Variables */
+/* ------------------------------------------------------------------------------------------- */
 
+:root
+{
+    --mf-purple: rgb(132, 78, 235);
+    --mf-dark-gray: #444;
+    --mf-light-gray: #ddd;
+    --mf-neutral-gray: rgb(139, 139, 139);
+    --mf-background-white: rgb(248, 248, 248);
+    --mf-background-black: #1c1c1c;
+    --mf-background-dark-gray: rgb(33, 33, 33);
+    --mf-border-gray: rgb(220, 220, 220);
+    --mf-border-dark-gray: rgb(200, 200, 200);
+    --mf-border-black: rgb(50, 50, 50);
+    --mf-button-yes: rgb(83, 162, 88);
+    --mf-button-yes-border: rgb(82, 153, 87);
+    --mf-button-yes-hover: rgb(78, 149, 83);
+    --mf-button-no: rgb(186, 71, 62);
+    --mf-button-no-border: rgb(220, 96, 85);
+    --mf-button-no-hover: rgb(180, 63, 56);
+    --mf-header-purple-gradient: linear-gradient(120deg, rgb(194, 172, 233), rgb(76, 9, 234));
+    --link-blue: rgb(42, 100, 196);
+}
+
+/* ------------------------------------------------------------------------------------------- */
 
 
 
@@ -28,7 +53,7 @@ body
     scroll-behavior: smooth;
     width: 100vw;
     margin: 0;
-    color: #444;
+    color: var(--mf-dark-gray);
 }
 
 br
@@ -57,7 +82,7 @@ a
 .link
 {
     text-decoration: none;
-    color: rgb(42, 100, 196) !important;
+    color: var(--link-blue) !important;
 }
 
 .link:hover
@@ -84,7 +109,7 @@ svg
     border-left: 5px solid rgba(0, 0, 0, 0.15);
     padding-left: 20px;
     font-weight: 100;
-    color: #444; 
+    color: var(--mf-dark-gray); 
 }
 
 .box
@@ -92,7 +117,7 @@ svg
     border-radius: 24px;
     background-color: white;
     font-size: 15px;
-    color: #444;
+    color: var(--mf-dark-gray);
     width: 100%;
     font-family: Helvetica;
     overflow: hidden;
@@ -102,7 +127,7 @@ svg
 .box h1
 {
     font-family: Helvetica, sans-serif;
-    color: rgb(132, 78, 235);
+    color: var(--mf-purple);
     font-size: 20px;
     font-weight: bold;
     margin: 30px;
@@ -111,7 +136,7 @@ svg
 .box p
 {
     font-family: Helvetica, sans-serif;
-    color: #444;
+    color: var(--mf-dark-gray);
     font-size: 15px;
     margin-left: 30px;
     margin-right: 30px;
@@ -130,9 +155,9 @@ svg
 .dialog-button-yes
 {
     border-radius: 7px;
-    background-color: rgb(83, 162, 88);
+    background-color: var(--mf-button-yes);
     color: white;
-    border: 1px solid rgb(82, 153, 87);
+    border: 1px solid var(--mf-button-yes-border);
     margin: 5px;
     padding-left: 10px;
     padding-right: 10px;
@@ -143,15 +168,15 @@ svg
 
 .dialog-button-yes:hover
 {
-    background-color: rgb(78, 149, 83);
+    background-color: var(--mf-button-yes-hover);
 }
 
 .dialog-button-no
 {
     border-radius: 7px;
-    background-color: rgb(186, 71, 62);
+    background-color: var(--mf-button-no);
     color: white;
-    border: 1px solid rgb(220, 96, 85);
+    border: 1px solid var(--mf-button-no-border);
     margin: 5px;
     padding-left: 10px;
     padding-right: 10px;
@@ -162,7 +187,7 @@ svg
 
 .dialog-button-no:hover
 {
-    background-color: rgb(180, 63, 56);
+    background-color: var(--mf-button-no-hover);
 }
 
 #header
@@ -253,7 +278,7 @@ svg
     height: fit-content;
     padding: 7px;
     background-color: white;
-    border: 0.5px solid rgb(200, 200, 200);
+    border: 0.5px solid var(--mf-border-dark-gray);
     border-radius: 10px;
     z-index: 99999;
     opacity: 1;
@@ -271,8 +296,8 @@ svg
 {
     width: 100vw;
     height: fit-content;
-    background-color: rgb(248, 248, 248);
-    border-top: 1px solid rgb(220, 220, 220);
+    background-color: var(--mf-background-white);
+    border-top: 1px solid var(--mf-border-gray);
     z-index: 999;
     overflow: hidden;
     text-align: center;
@@ -334,7 +359,7 @@ svg
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
-    background-image: linear-gradient(120deg, rgb(194, 172, 233), rgb(76, 9, 234));
+    background-image: var(--mf-header-purple-gradient);
     line-height: 70px;
     width: 490px;
     text-align: center;
@@ -375,8 +400,8 @@ svg
     margin: 0;
     height: fit-content;
     padding: 24px;
-    background-color: rgb(248, 248, 248);
-    border-top: 1px dashed rgb(220, 220, 220);
+    background-color: var(--mf-background-white);
+    border-top: 1px dashed var(--mf-border-gray);
     overflow: hidden;
 }
 
@@ -397,15 +422,15 @@ svg
 
 #join-contact
 {
-    background-color: rgb(248, 248, 248);
-    border-top: 1px dashed rgb(220, 220, 220);
+    background-color: var(--mf-background-white);
+    border-top: 1px dashed var(--mf-border-gray)
 }
 
 #join-contact h1
 {
     font-family: serif;
     font-size: 18px;
-    color: rgb(139, 139, 139);
+    color: var(--mf-neutral-gray);
     margin: 24px;
     margin-bottom: 16px;
     font-style: italic;
@@ -419,9 +444,9 @@ svg
     font-family: 'Cairo', Arial, Helvetica, sans-serif;
     padding: 10px;
     border-radius: 25px;
-    border: 1px solid rgb(132, 78, 235);
+    border: 1px solid var(--mf-purple);
     background-color: transparent;
-    color: rgb(132, 78, 235);
+    color: var(--mf-purple);
     cursor: pointer;
     transition: 0.5s;
     margin: 15px;
@@ -432,7 +457,7 @@ svg
 
 #join-contact button:hover
 {
-    background-color: rgb(132, 78, 235);
+    background-color: var(--mf-purple);
     color: white;
 }
 
@@ -442,7 +467,7 @@ svg
     font-size: 12px;
     width: 100vw;
     height: fit-content;
-    border-top: 1px solid rgb(220, 220, 220);
+    border-top: 1px solid var(--mf-border-gray);
     font-family: Arial, Helvetica, sans-serif;
     padding: 26px;
     padding-top: 0;
@@ -459,7 +484,7 @@ svg
 
 #footer a:hover
 {
-    color: rgb(132, 78, 235) !important;
+    color: var(--mf-purple) !important;
 }
 
 #footer svg
@@ -470,7 +495,7 @@ svg
 
 #footer svg:hover
 {
-    color: rgb(132, 78, 235) !important;
+    color: var(--mf-purple) !important;
 }
 
 /* ------------------------------------------------------------------------------------------- */
@@ -508,14 +533,14 @@ svg
     transform: translate(-50%, -50%);
     width: 370px;
     height: fit-content;
-    background-color: rgb(248, 248, 248);
+    background-color: var(--mf-background-white);
     border-radius: 18px;
     z-index: 101;
     text-align: center;
     box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgb(200, 200, 200);
+    border: 1px solid var(--mf-border-dark-gray);
     font-family: Arial, Helvetica, sans-serif;
-    color: #444;
+    color: var(--mf-dark-gray);
     display: none;
     overflow: hidden;
     box-sizing: border-box;
@@ -557,19 +582,19 @@ input
     width: 100%;
     height: 37px;
     border-radius: 10px;
-    border: 1px solid rgb(200, 200, 200);
+    border: 1px solid var(--mf-border-dark-gray);
     padding-left: 6px;
     padding-right: 6px;
     font-size: 16px;
     background-color: rgb(253, 253, 253);
-    color:#444;
+    color:var(--mf-dark-gray);
     outline: none;
 }
 
 input:focus
 {
-    border-color: rgb(132, 78, 235);
-    box-shadow: 0px 0px 0px 2px #ddd;
+    border-color: var(--mf-purple);
+    box-shadow: 0px 0px 0px 2px var(--mf-light-gray);
 }
 
 textarea
@@ -577,7 +602,7 @@ textarea
     width: calc(85% - 10px);
     height: 140px;
     border-radius: 10px;
-    border: 1px solid rgb(200, 200, 200);
+    border: 1px solid var(--mf-border-dark-gray);
     padding: 6px;
     padding-top: 8px;
     max-width: 100%;
@@ -587,14 +612,14 @@ textarea
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(253, 253, 253);
-    color: #444;
+    color: var(--mf-dark-gray);
     outline: none;
 }
 
 textarea:focus
 {
-    border-color: rgb(132, 78, 235);
-    box-shadow: 0px 0px 0px 2px #ddd;
+    border-color: var(--mf-purple);
+    box-shadow: 0px 0px 0px 2px var(--mf-light-gray);
 }
 
 /* ------------------------------------------------------------------------------------------- */
@@ -615,29 +640,29 @@ textarea:focus
 @media (prefers-color-scheme: dark) {
     body {
         margin: 0px auto;
-        color: #ddd;
-    	background-color: #1c1c1c;
+        color: var(--mf-light-gray);
+    	background-color: var(--mf-background-black);
     }
 
     .main
     {
-    	background-color: #1c1c1c;
+    	background-color: var(--mf-background-black);
     }
 
     .para-wrapper
     {
         border-left: 5px solid rgba(255, 255, 255, 0.15);
-        color: #ddd;
+        color: var(--mf-light-gray);
     }
 
     .box
     {
-        background-color: #1c1c1c;
+        background-color: var(--mf-background-black);
     }
 
     .box p
     {
-        color: #ddd;
+        color: var(--mf-light-gray);
     }
 
     #back
@@ -653,13 +678,13 @@ textarea:focus
 
     #intro
     {
-        background-color: rgb(33, 33, 33);
-        border-top: 1px solid rgb(50, 50, 50);
+        background-color: var(--mf-background-dark-gray);
+        border-top: 1px solid var(--mf-border-black);
     }
 
     #intro-words
     {
-        color: #ddd;
+        color: var(--mf-light-gray);
     }
 
     #image-cover
@@ -669,8 +694,8 @@ textarea:focus
 
     #main-content
     {
-        border-top: 1px dashed rgb(50, 50, 50);
-        background-color: rgb(33, 33, 33);
+        border-top: 1px dashed var(--mf-border-black);
+        background-color: var(--mf-background-dark-gray);
     }
 
     #img-github
@@ -685,56 +710,56 @@ textarea:focus
 
     #join-contact
     {
-        background-color: rgb(33, 33, 33);
-        border-top: 1px dashed rgb(50, 50, 50);
+        background-color: var(--mf-background-dark-gray);
+        border-top: 1px dashed var(--mf-border-black);
     }
 
     #footer
     {
-        border-top: 1px solid rgb(50, 50, 50);
+        border-top: 1px solid var(--mf-border-black);
         color: #bbb;
     }
 
     .dialog-content
     {
         background-color: rgb(40, 40, 40);
-        border: 1px solid rgb(50, 50, 50);
-        color: #ddd;
+        border: 1px solid var(--mf-border-black);
+        color: var(--mf-light-gray);
     }
 
     .form-group
     {
-        color: #ddd;
+        color: var(--mf-light-gray);
     }
 
     input
     {
         border: 1px solid rgb(60, 60, 60) !important;
-        background-color: #1c1c1c !important;
-        color: #ddd !important;
+        background-color: var(--mf-background-black) !important;
+        color: var(--mf-light-gray) !important;
     }
 
     input:focus
     {
-        box-shadow: 0px 0px 0px 2px #444;
+        box-shadow: 0px 0px 0px 2px var(--mf-dark-gray);
     }
 
     textarea
     {
         border: 1px solid rgb(60, 60, 60) !important;
-        background-color: #1c1c1c !important;
-        color: #ddd !important;
+        background-color: var(--mf-background-black) !important;
+        color: var(--mf-light-gray) !important;
     }
 
     textarea:focus
     {
-        box-shadow: 0px 0px 0px 2px #444;
+        box-shadow: 0px 0px 0px 2px var(--mf-dark-gray);
     }
 
     .dialog-header
     {
         background-color: #212121;
-        color: #ddd
+        color: var(--mf-light-gray)
     }
 
     #window
