@@ -26,7 +26,7 @@ window.onscroll = function()
             for(let i = 1; i < children.length; i++)
             {
                 children[i].style.opacity = 0;
-                children[i].style.transform = "translateY(100px)";
+                children[i].style.transform = "translateY(25px)";
             }
         }
     }

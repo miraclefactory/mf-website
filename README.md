@@ -7,6 +7,8 @@
 You can visit our website at [**miraclefactory.co**](https://miraclefactory.co/).   
 Learn our goals and ideals, help us build a better community and a better world!  
 Feel free to join our community at the bottom of our website :)
+> **Notice:**   
+> Lastest updates and experimental features are available at [**dev.miraclefactory.co**](https://dev.miraclefactory.co).
 
 ### You Can Contribute! 🌟
 This is the public repo for the official website of Miracle Factory. We welcome every good idea, what ever the form. 
@@ -47,13 +49,13 @@ You will need to have a sqlite database matching your SQLALCHEMY_DATABASE_URI co
 > If you are using macOS Monterey or newer (macOS Ventura), please avoid using the Flask default port 5000, this will cause trouble because this port is already taken by AirPlay in these systems.   
 
 ### TO DO List ☑️
-> 1. concurrency control(Threadpool executor) ✓
-> 2. database connection and query ✓
-> 3. python file restructuring ✓
-> 4. spam protection ✓
-> 5. speed optimization
-> 6. security enhancement
-> 7. deployment ✓
-> 8. database functions(*)
-> 9. build research page(*)
-> 10. build campus page(*)
+> - [x] concurrency control(Threadpool executor)  
+> - [x] database connection and query  
+> - [x] python file restructuring  
+> - [x] spam protection  
+> - [ ] speed optimization  
+> - [ ] security enhancement  
+> - [x] deployment  
+> - [ ] database functions(*)  
+> - [ ] build research page(*)  
+> - [ ] build campus page(*)  

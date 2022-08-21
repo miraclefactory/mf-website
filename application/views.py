@@ -14,7 +14,7 @@ from flask import redirect, render_template, url_for, request
 from decouple import config
 # module import
 from application import app
-from application.email import send_email, confirm_token
+from application.email import send_email, confirm_token, send_approved_email
 from application.contacts import contacts
 # ///////////////////////////////////////////////////////////////////////////
 
@@ -116,3 +116,12 @@ def end_session():
                            headline = 'Your database session is terminated',
                            message = 'You can close this page now.',
                            button_text = 'Home')
+
+# @app.route('/send-email')
+# def test_email():
+#     send_approved_email('', '')
+#     return render_template('central-content.html',
+#                            page_title = 'Email Sent',
+#                            headline = 'Email Sent',
+#                            message = 'You can close this page now.',
+#                            button_text = 'Back')
