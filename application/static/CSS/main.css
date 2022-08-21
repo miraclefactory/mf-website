@@ -326,7 +326,7 @@ svg
 {
     transition: all 0.4s ease-in-out;
     transition-delay: 0.2s;
-    transform: translateY(100px);
+    transform: translateY(25px);
     height: fit-content;
     width: 44%;
     opacity: 0;
@@ -361,12 +361,12 @@ svg
     -webkit-background-clip: text;
     background-image: var(--mf-header-purple-gradient);
     line-height: 70px;
-    width: 490px;
+    width: fit-content;
     text-align: center;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 45px;
     user-select: none;
-    transform: translateY(100px);
+    transform: translateY(25px);
     transition: all 0.4s ease-in-out;
     transition-delay: 0.4s;
     opacity: 0;
@@ -378,7 +378,7 @@ svg
     display: inline-block;
     width: 65%;
     text-align: center;
-    transform: translateY(100px);
+    transform: translateY(25px);
     padding: 20px;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 20px;
@@ -400,6 +400,7 @@ svg
     margin: 0;
     height: fit-content;
     padding: 24px;
+    padding-bottom: 0;
     background-color: var(--mf-background-white);
     border-top: 1px dashed var(--mf-border-gray);
     overflow: hidden;
@@ -810,7 +811,7 @@ textarea:focus
     #intro-words
     {
         width: 80%;
-        transform: translateY(75px);
+        transform: translateY(25px);
         padding: 25px;
         padding-top: 5px;
         font-size: 18px;
@@ -818,7 +819,7 @@ textarea:focus
 
     #intro-title
     {
-        width: 400px;
+        /* width: 400px; */
         font-size: 50px;
         line-height: 55px;
     }
@@ -861,7 +862,7 @@ textarea:focus
 
     #intro-title
     {
-        width: 280px;
+        /* width: 280px; */
         font-size: 40px;
         line-height: 45px;
     }

@@ -35,6 +35,26 @@
     user-select: none;
 }
 
+.button:nth-of-type(1)
+{
+    background-color: rgb(236,106,94);
+    border: 0.75px solid rgb(222, 95, 84);
+}
+
+.button:nth-of-type(2)
+{
+    margin-left: 3px;
+    background-color: rgb(244,191,79);
+    border: 0.75px solid rgb(231, 178, 75);
+}
+
+.button:nth-of-type(3)
+{
+    margin-left: 3px;
+    background-color: rgb(97,197,84);
+    border: 0.75px solid rgb(94, 185, 77);
+}
+
 .macOS-window-title
 {
     display: inline-block;
