@@ -324,8 +324,8 @@ svg
 
 #window
 {
-    transition: all 0.4s ease-in-out;
-    transition-delay: 0.2s;
+    transition: all 0.3s ease-in-out;
+    transition-delay: 0.1s;
     transform: translateY(25px);
     height: fit-content;
     width: 44%;
@@ -367,8 +367,8 @@ svg
     margin-top: 45px;
     user-select: none;
     transform: translateY(25px);
-    transition: all 0.4s ease-in-out;
-    transition-delay: 0.4s;
+    transition: all 0.3s ease-in-out;
+    transition-delay: 0.2s;
     opacity: 0;
 }
 
@@ -386,8 +386,8 @@ svg
     line-height: 28px;
     margin-top: 10px;
     margin-bottom: 30px;
-    transition: all 0.4s ease-in-out;
-    transition-delay: 0.6s;
+    transition: all 0.3s ease-in-out;
+    transition-delay: 0.3s;
     opacity: 0;
     /* font-family: serif;
     font-style: italic; */
@@ -521,7 +521,7 @@ svg
     left: 0px;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 100;
     display: none;
 }
@@ -534,12 +534,12 @@ svg
     transform: translate(-50%, -50%);
     width: 370px;
     height: fit-content;
-    background-color: var(--mf-background-white);
-    border-radius: 18px;
+    background-color: transparent;
+    border-radius: 10px;
     z-index: 101;
     text-align: center;
     box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.4);
-    border: 1px solid var(--mf-border-dark-gray);
+    border: 0.5px solid var(--mf-border-dark-gray);
     font-family: Arial, Helvetica, sans-serif;
     color: var(--mf-dark-gray);
     display: none;
@@ -551,21 +551,35 @@ svg
 {
     width: calc(85% - 10px);
     height: fit-content;
-    margin-top: 10px;
     margin-left: calc((15% + 10px) / 2);
-    margin-bottom: 15px;
+    margin-top: 17px;
     text-align: left;
     box-sizing: border-box;
 }
 
 .dialog-header
 {
-    font-size: 18px;
-    font-weight: 600;
-    font-family: 'Cairo', Arial, Helvetica, sans-serif;
-    line-height: 22px;
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    line-height: 40px;
     padding: 5px;
-    background-color: #eee;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.dialog-body
+{
+    background-color: var(--mf-background-white);
+    padding-top: 1px;
+    padding-bottom: 17px;
+}
+
+.dialog-header img
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 label
@@ -575,7 +589,8 @@ label
     text-align: left !important;
     margin-top: 5px;
     margin-bottom: 5px;
-    line-height: 20px;
+    line-height: 21px;
+    color: rgb(100, 100, 100);
 }
 
 input
@@ -601,7 +616,7 @@ input:focus
 textarea
 {
     width: calc(85% - 10px);
-    height: 140px;
+    height: 100px;
     border-radius: 10px;
     border: 1px solid var(--mf-border-dark-gray);
     padding: 6px;
@@ -723,14 +738,29 @@ textarea:focus
 
     .dialog-content
     {
-        background-color: rgb(40, 40, 40);
-        border: 1px solid var(--mf-border-black);
+        border: 0.5px solid var(--mf-border-black);
         color: var(--mf-light-gray);
+    }
+
+    .dialog-header
+    {
+        background-color: rgba(30, 30, 30, 0.6);
+        color: var(--mf-light-gray)
+    }
+
+    .dialog-body
+    {
+        background-color: var(--mf-background-dark-gray);
     }
 
     .form-group
     {
         color: var(--mf-light-gray);
+    }
+
+    label
+    {
+        color: rgb(181, 181, 181);
     }
 
     input
@@ -755,12 +785,6 @@ textarea:focus
     textarea:focus
     {
         box-shadow: 0px 0px 0px 2px var(--mf-dark-gray);
-    }
-
-    .dialog-header
-    {
-        background-color: #212121;
-        color: var(--mf-light-gray)
     }
 
     #window
@@ -881,6 +905,7 @@ textarea:focus
     #main-content
     {
         padding: 16px;
+        padding-bottom: 0;
     }
 
     .box
@@ -905,7 +930,7 @@ textarea:focus
 
     .dialog-content
     {
-        width: calc(100% - 30px);
+        width: calc(100% - 32px);
     }
 
 }
