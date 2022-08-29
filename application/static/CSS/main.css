@@ -14,9 +14,12 @@
     --mf-dark-gray: #444;
     --mf-light-gray: #ddd;
     --mf-neutral-gray: rgb(139, 139, 139);
-    --mf-background-white: rgb(248, 248, 248);
+    /* --mf-background-white: rgb(248, 248, 248); */
+    --mf-background-white: rgb(246, 248, 250);
+    /* --mf-background-black: #1a1c1e; */
     --mf-background-black: #1c1c1c;
-    --mf-background-dark-gray: rgb(33, 33, 33);
+    /* --mf-background-dark-gray: rgb(33, 33, 33); */
+    --mf-background-dark-gray: rgb(32, 33, 34);
     --mf-border-gray: rgb(220, 220, 220);
     --mf-border-dark-gray: rgb(200, 200, 200);
     --mf-border-black: rgb(50, 50, 50);
@@ -190,10 +193,55 @@ svg
     background-color: var(--mf-button-no-hover);
 }
 
+.line-button
+{
+    width: 150px;
+    height: fit-content;
+    font-size: 16px;
+    font-family: 'Cairo', Arial, Helvetica, sans-serif;
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid var(--mf-purple);
+    background-color: transparent;
+    color: var(--mf-purple);
+    cursor: pointer;
+    transition: 0.5s;
+    margin: 15px;
+    margin-top: 10px;
+    margin-bottom: 35px;
+    line-height: 25px;
+}
+
+.line-button:hover
+{
+    background-color: var(--mf-purple);
+    color: white;
+}
+
 #header
 {
+    min-height: 100vh;
+    min-width: 100vw;
+    padding: 0;
+    width: 100vw; 
+    height: 100vh;
+    overflow: hidden; 
+    margin: 0px auto;
+    z-index: -1;
+    user-select: none;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-timing-function: ease-in-out;
+    text-align: center;
+}
+
+#header h1
+{
     animation: 
-        appear 2s 0.5s ease-in-out forwards;
+        appear 1s 1s ease-in-out forwards;
         /* 3.0s movement linear infinite; */
     background-color: rgb(218, 197, 243);
     background-image: 
@@ -205,32 +253,42 @@ svg
     background-size: 130vmax 130vmax, 80vmax 80vmax, 90vmax 90vmax, 110vmax 110vmax, 90vmax 90vmax;
     background-position: -80vmax -80vmax, 60vmax -30vmax, 10vmax 10vmax, -30vmax -10vmax, 50vmax 50vmax;
     background-repeat: no-repeat;
-    min-height: 100vh;
-    min-width: 100vw;
-    padding: 0;
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    width: 100vw; 
-    height: 100vh;
-    overflow: hidden; 
-    margin: 0px auto;
     font-family: 'Permanent Marker', cursive;
     /* 'Ma Shan Zheng', */
-    font-size: 110px;
+    /* font-size: 110px;
+    line-height: 110px; */
+    font-size: 75px;
+    line-height: 75px;
     font-weight: 800;
-    z-index: -1;
-    user-select: none;
+    letter-spacing: -2px;
     opacity: 0;
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition-timing-function: ease-in-out;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0;
+}
+
+#header h1 .mask
+{
+    height: 55px;
+    font-family: 'Cairo';
+    font-size: 40px;
+    line-height: 55px;
+    letter-spacing: -1px;
+    overflow: hidden;
     text-align: center;
-    line-height: 110px;
-    letter-spacing: -3px;
+    margin-top: 27px;
+}
+
+#header h1 .mask span
+{
+    color: white;
+    display: block;
+    box-sizing: border-box;
+    animation: swift-up 3.6s 2s ease-in-out forwards;
+    transform: translateY(100%);
 }
 
 #cover
@@ -261,12 +319,20 @@ svg
     left: 0px;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0);
     z-index: 1;
     user-select: none;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     animation: clear-up 1.5s 0.5s ease-in-out forwards;
+}
+
+#down
+{
+    color: white;
+    position: sticky;
+    left: calc(50% - 20px);
+    bottom: 5px;
 }
 
 #bookmark
@@ -437,31 +503,6 @@ svg
     font-style: italic;
 }
 
-#join-contact button
-{
-    width: 150px;
-    height: fit-content;
-    font-size: 16px;
-    font-family: 'Cairo', Arial, Helvetica, sans-serif;
-    padding: 10px;
-    border-radius: 25px;
-    border: 1px solid var(--mf-purple);
-    background-color: transparent;
-    color: var(--mf-purple);
-    cursor: pointer;
-    transition: 0.5s;
-    margin: 15px;
-    margin-top: 10px;
-    margin-bottom: 35px;
-    line-height: 25px;
-}
-
-#join-contact button:hover
-{
-    background-color: var(--mf-purple);
-    color: white;
-}
-
 #footer
 {
     color: #666;
@@ -567,6 +608,7 @@ svg
     background-color: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    border-bottom: 0.5px solid var(--mf-border-gray);
 }
 
 .dialog-body
@@ -681,11 +723,6 @@ textarea:focus
         color: var(--mf-light-gray);
     }
 
-    #back
-    {
-        background-color: rgb(240, 240, 240);
-    }
-
     #bookmark
     {
         background-color: rgb(55, 59, 64);
@@ -705,7 +742,7 @@ textarea:focus
 
     #image-cover
     {
-        background-color: rgba(0, 0, 0, 0.90);
+        background-color: rgba(0, 0, 0, 0);
     }
 
     #main-content
@@ -745,7 +782,8 @@ textarea:focus
     .dialog-header
     {
         background-color: rgba(30, 30, 30, 0.6);
-        color: var(--mf-light-gray)
+        color: var(--mf-light-gray);
+        border-bottom: 0.5px solid var(--mf-border-black);
     }
 
     .dialog-body
@@ -802,6 +840,11 @@ textarea:focus
     {
         color: rgb(186, 191, 197) !important;
     }
+
+    #back svg
+    {
+        color: rgba(0, 0, 0, 0.4) !important;
+    }
 }
 
 /* ------------------------------------------------------------------------------------------- */
@@ -826,10 +869,17 @@ textarea:focus
         height: fit-content !important;
     }
 
-    #header
+    #header h1
     {
-        font-size: 80px;
-        line-height: 90px;
+        font-size: 65px;
+        line-height: 70px;
+    }
+
+    #header h1 .mask
+    {
+        font-size: 35px;
+        line-height: 43px;
+        height: 43px;
     }
     
     #intro-words
@@ -843,7 +893,6 @@ textarea:focus
 
     #intro-title
     {
-        /* width: 400px; */
         font-size: 50px;
         line-height: 55px;
     }
@@ -872,10 +921,17 @@ textarea:focus
         display: none;
     }
 
-    #header
+    #header h1
     {
-        font-size: 60px;
-        line-height: 65px;
+        font-size: 55px;
+        line-height: 60px;
+    }
+
+    #header h1 .mask
+    {
+        font-size: 24px;
+        line-height: 30px;
+        height: 30px;
     }
 
     #intro-words
@@ -977,16 +1033,46 @@ textarea:focus
 @keyframes appear {
     from {
         opacity: 0;
+        letter-spacing: 3px;
     }
     to {
         opacity: 1;
+        letter-spacing: -2px;
     }
 }
 
-@keyframes swift-up {
-    to
+@keyframes swift-up 
+{
+    0% {
+        transform: translateY(100%);
+    }
+    20%
     {
-        top: 40vh;
+        transform: translateY(0%);
+    }
+    26.7%
+    {
+        transform: translateY(0%);
+    }
+    46.7%
+    {
+        transform: translateY(-100%);
+    }
+    53.3%
+    {
+        transform: translateY(-100%);
+    }
+    73.3%
+    {
+        transform: translateY(-200%);
+    }
+    80%
+    {
+        transform: translateY(-200%);
+    }
+    100%
+    {
+        transform: translateY(-300%);
     }
 }
 
@@ -1073,14 +1159,26 @@ textarea:focus
 {
     width: 100vw;
     height: 100vh;
-    border-bottom: 1px solid gray;
+    border-bottom: px solid gray;
     overflow: hidden;
     z-index: 0;
+    background-color: rgb(64, 21, 96);
+    background-image: 
+        radial-gradient(closest-side, #5c258d, rgba(235, 105, 78, 0)),
+        radial-gradient(closest-side, #7224a0, rgba(254, 234, 131, 0)),
+        radial-gradient(closest-side, #5c258d, rgba(170, 142, 245, 0)),
+        radial-gradient(closest-side, rgb(75, 36, 147), rgba(132, 78, 235, 0)),
+        radial-gradient(closest-side, #6f1f9a, rgba(248, 192, 147, 0));
+    background-size: 130vmax 130vmax, 80vmax 80vmax, 90vmax 90vmax, 110vmax 110vmax, 90vmax 90vmax;
+    background-position: -80vmax -80vmax, 60vmax -30vmax, 10vmax 10vmax, -30vmax -10vmax, 50vmax 50vmax;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    min-width: 100vw;
 }
 
 #back svg
 {
-    color: #555;
+    color: rgba(255, 255, 255, 0.4);
     transform: scale(2);
     opacity: 0;
     animation: shrink 1.5s 0.5s ease-in-out forwards;
