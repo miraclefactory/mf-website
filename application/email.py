@@ -23,7 +23,7 @@ import datetime
 def send_email(user, email):
     # send confirmation email
     token = generate_confirmation_token(email)
-    # email_link = 'https://miraclefactory/confirm/' + token   # deploy
+    # email_link = 'https://miraclefactory.co/confirm/' + token   # deploy
     email_link = 'http://localhost:9000/confirm/' + token   # debug
     msg = Message('Email Verification <noreply>', \
                   sender=('Miracle Factory', app.config["MAIL_USERNAME"]), \
