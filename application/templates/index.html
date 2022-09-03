@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The home of creators and dreamers. An AI development and research community.">
+    <meta name="description" content="An AI development and research community. The Land of Dream.">
 	<meta name="google-site-verification" content="jMgOBqBBFyfaG2rFQDOeJtQ-NSCTNWZgg5yIPA-5Bbk" />
     <title>Miracle Factory</title>
 	<!-- CSS only -->
@@ -16,10 +16,66 @@
 	<script src="../static/JS/basic.js"></script>
 </head>
 <body>
-	<h1 id="header" translate="no">
-		<!-- Miracle Factory -->
-		The Land<br/>of Dream
-	</h1>
+	<div id="nav-wrapper">
+		<div class="wrapper" style="width: 100% !important;">
+			<nav id="topbar">
+				<div id="nav-links">
+					<img src="../static/images/mf-trans.webp" width="36">
+					<a href="#">Home</a>
+					<a href="https://github.com/MiracleFactory" target="_blank">GitHub</a>
+					<a href="https://github.com/orgs/MiracleFactory/repositories" target="_blank">Projects</a>
+					<a href="{{url_for('temp')}}">Research</a>
+					<a href="{{url_for('temp')}}">Campus</a>
+				</div>
+				<div class="nav-widgets">
+					<input class="nav-email" id="desktop-email" type="email" placeholder="Your email"/>
+					<button class="nav-join" onclick="showDialog(this);">Join Us</button>
+					<button class="mobile-button hide" onclick="showMobileNav();">
+						<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+							<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+						  </svg>
+					</button>
+				</div>
+				<div id="mobile-nav" class="hide">
+					<div class="nav-widgets" id="mobile-widgets">
+						<input class="nav-email" id="mobile-email" type="email" placeholder="Your email"/>
+						<button class="nav-join" onclick="showDialog(this);">Join Us</button>
+						<button class="mobile-button" onclick="closeMobileNav();">
+							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+								<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+							</svg>
+						</button>
+					</div>
+					<div id="mobile-links">
+						<a href="#">Home</a>
+						<a href="https://github.com/MiracleFactory" target="_blank">GitHub</a>
+						<a href="https://github.com/orgs/MiracleFactory/repositories" target="_blank">Projects</a>
+						<a href="{{url_for('temp')}}">Research</a>
+						<a href="{{url_for('temp')}}">Campus</a>
+					</div>
+					<div id="mobile-support">
+						<a href="https://github.com/MiracleFactory/MF-Project-Official-Website/issues/new/choose" target="_blank">Report Problems</a>&nbsp;&nbsp;·&nbsp;&nbsp;
+						<a href="{{ url_for('temp') }}">Accessibility</a>&nbsp;&nbsp;·&nbsp;&nbsp;
+						<a href="https://github.com/MiracleFactory/.github/blob/main/CODE_OF_CONDUCT.md" target="_blank">Code of Conduct</a>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<div id="header">
+		<div>
+			<h1 translate="no">
+				Miracle Factory
+				<!-- The Land<br/>of Dream -->
+				<div class="mask">
+					<span>Research,</span>
+					<span>Develop,</span>
+					<span>Deploy,</span>
+					<span>At The Land of Dream.</span>
+				</div>
+			</h1>
+		</div>
+	</div>
 	<div id="cover">
 		<div id="image-cover"></div>
 		<div id="back">
@@ -80,6 +136,9 @@
 				<path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15Zm0-9.007c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
 			</svg>
 		</div>
+		<svg id="down" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+			<path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+		  </svg>
 	</div>
 	<div id="bookmark">
 		&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16" fill="currentColor">
@@ -236,8 +295,8 @@
 					Once more unto the breach, dear friends, once more.
 					<!-- <span>Why join the navy if you can be pirate. Why be king if you can be god.</span> -->
 				</h1>
-				<button onclick="showDialog(this);">Join Us</button>
-				<button onclick="showDialog(this);">Contact Us</button>
+				<button class="line-button" onclick="showDialog(this);">Join Us</button>
+				<button class="line-button" onclick="showDialog(this);">Contact Us</button>
 			</div>
 		</div>
 		<div id="footer">
@@ -262,8 +321,8 @@
 			</div>
 			<br/>
 			<span>
-				<a href="{{ url_for('temp') }}">Accessibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-				<a href="https://github.com/MiracleFactory/MF-Project-Official-Website/issues/new/choose" target="_blank">Report Problems</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+				<a href="https://github.com/MiracleFactory/MF-Project-Official-Website/issues/new/choose" target="_blank">Report Problems</a>&nbsp;&nbsp;•&nbsp;&nbsp;
+				<a href="{{ url_for('temp') }}">Accessibility</a>&nbsp;&nbsp;•&nbsp;&nbsp;
 				<a href="https://github.com/MiracleFactory/.github/blob/main/CODE_OF_CONDUCT.md" target="_blank">Code of Conduct</a>
 			</span>
 			<br/><br/>
@@ -281,6 +340,7 @@
 	<div class="dialog-bk" id="dialog-bk" onclick="closeDialog();"></div>
 	<div class="dialog-content" id="dialog-join">
 		<div class="dialog-header">
+			<img src="../static/images/square-logo.webp" width="50" height="50" /><br/>
 			<span class="dialog-title">Join Us</span>
 		</div>
 		<div class="dialog-body" id="join-form">
@@ -289,6 +349,7 @@
 	</div>
 	<div class="dialog-content" id="dialog-contact">
 		<div class="dialog-header">
+			<img src="../static/images/square-logo.webp" width="50" height="50" /><br/>
 			<span class="dialog-title">Contact Us</span>
 		</div>
 		<div class="dialog-body" id="contact-form">
