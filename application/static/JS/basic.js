@@ -61,16 +61,16 @@ addEventListener("scroll", function() {
         document.getElementById("down").style.transform = "rotate(180deg)";
         if(scrollTop > clientH)
         {
-            navStyle.backgroundColor = "inherit";
-            navStyle.color = "rgb(132, 78, 235)";
-            navStyle.boxShadow = "0px 0px 14px rgba(0, 0, 0, 0.3)";
+            navStyle.backgroundColor = "rgba(0, 0, 0, 0.8)";
+            navStyle.backdropFilter = "blur(20px)";
+            navStyle.webkitBackdropFilter = "blur(20px)";
             navStyle.borderBottom = "0.5px solid rgba(0, 0, 0, 0.3)";
         }
         else
         {
             navStyle.backgroundColor = "transparent";
-            navStyle.color = "white";
-            navStyle.boxShadow = "none";
+            navStyle.backdropFilter = "blur(0px)";
+            navStyle.webkitBackdropFilter = "blur(0px)";
             navStyle.borderBottom = "0.5px solid rgba(0, 0, 0, 0)";
         }
     }

@@ -13,7 +13,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from concurrent.futures import ThreadPoolExecutor
 from flask_mail import Mail
-# enviromental config import
+# environmental config import
 from decouple import config
 # ///////////////////////////////////////////////////////////////////////////
 
