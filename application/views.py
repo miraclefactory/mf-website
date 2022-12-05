@@ -10,7 +10,7 @@
 # ///////////////////////////////////////////////////////////////////////////
 # flask import
 from flask import redirect, render_template, url_for, request
-# enviromental config import
+# environmental config import
 from decouple import config
 # module import
 from application import app
