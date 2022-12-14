@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#0f0620" />
+    <meta name="description" content="An AI development and research community. The Land of Dream.">
+	<meta name="google-site-verification" content="jMgOBqBBFyfaG2rFQDOeJtQ-NSCTNWZgg5yIPA-5Bbk" />
+    <title>New Project</title>
+	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/CSS/main.css">
+    <link rel="stylesheet" href="../static/CSS/macOS-window.css">
+	<link rel="icon" href="../static/images/mf-trans.webp">
+	<script src="../static/JS/basic.js"></script>
+</head>
+<body>
+    {% include 'ui_snippets/navbar-nowidgets.html' %}
+    <!-- <div class="cover" style="width: 100vw; height: 100vh;">
+        <img src="../static/images/bk1.jpg" alt="Login Background" />
+    </div> -->
+    {% include 'ui_snippets/svg-background.html' %}
+    <div class="dialog-content" style="display: block !important;">
+		<div class="dialog-header">
+            <div class="avatar-dialog">
+                <img src="{{g.user.avatar}}"/>
+            </div>
+			<span class="dialog-title">New Project</span>
+		</div>
+		<div class="dialog-body">
+            <form action='/profile/new-project' method='post'>
+                {{ form.csrf_token }}
+                <div class='form-group'>
+                    {{ form.name(class='form-control', placeholder='Project Name') }}
+                </div>
+                <div class='form-group'>
+                    {{ form.url(class='form-control', placeholder='Project URL') }}
+                </div>
+                <div class='form-group'>
+                    {{ form.description(class='form-control', placeholder='Project Description') }}
+                </div>
+                <div class='form-group hide'>
+                    <input name='email2' type='text' maxlength='50' />
+                </div>
+                <div class="form-group">
+                    {% for error in errors %}
+                        <div class='alert alert-danger' style="padding: 8px !important; text-align: center;">
+                            {{ error[0] }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class='form-group'>
+                    <input type='submit' name='submit' id='dialog-join-submit' class='btn btn-primary' value='Create Project'>
+                </div>
+            </form>
+		</div>
+	</div>
+</body>
+</html>

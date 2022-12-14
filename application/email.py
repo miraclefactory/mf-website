@@ -20,15 +20,31 @@ import datetime
 
 
 # generate email
-def send_email(user, email):
+def send_email(user, email, type):
     # send confirmation email
     token = generate_confirmation_token(email)
-    # email_link = 'https://miraclefactory.co/confirm/' + token   # deploy
-    email_link = 'http://localhost:9000/confirm/' + token   # debug
+    # email_link = 'https://miraclefactory.co/confirm/'+token+'/'+type   # deploy
+    email_link = 'http://localhost:9000/confirm/'+token+'/'+type  # debug
     msg = Message('Email Verification <noreply>', \
                   sender=('Miracle Factory', app.config["MAIL_USERNAME"]), \
                   recipients=[email])
-    msg.html = render_template('email-confirmation.html', name = user, link = email_link)
+    msg.html = render_template('emails/confirmation.html', name = user, link = email_link)
+    try:
+        pool.submit(send_async_email, app, msg)
+        return True
+    except Exception as e:
+        print(e)
+        return False
+
+def send_change_email(user, email, type):
+    # send confirmation email
+    token = generate_confirmation_token(email)
+    # email_link = 'https://miraclefactory.co/confirm/'+token+'/'+type   # deploy
+    email_link = 'http://localhost:9000/confirm/'+token+'/'+type  # debug
+    msg = Message('Email Verification <noreply>', \
+                  sender=('Miracle Factory', app.config["MAIL_USERNAME"]), \
+                  recipients=[email])
+    msg.html = render_template('emails/change-confirmation.html', name = user, link = email_link)
     try:
         pool.submit(send_async_email, app, msg)
         return True
@@ -41,7 +57,7 @@ def send_approved_email(user, email):
     msg = Message('Congratulations! <needaction>', \
                   sender=('Miracle Factory', app.config["MAIL_USERNAME"]), \
                   recipients=[email])
-    msg.html = render_template('email-approved.html', name = user, time = datetime.datetime.now())
+    msg.html = render_template('emails/approved.html', name = user, time = datetime.datetime.now())
     try:
         pool.submit(send_async_email, app, msg)
         return True

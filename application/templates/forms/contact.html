@@ -1,0 +1,24 @@
+<form action='/contact' method='post'>
+    <div class="form-group">
+        {{ form_contact.dialog_contact_name }}
+        {% if form_contact.dialog_contact_name.errors %}
+            <ul style="color: var(--mf-button-no)">
+                {% for error in form_contact.dialog_contact_name.error %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        {{ form_contact.dialog_contact_email }}
+    </div>
+    <div class="form-group">
+        {{ form_contact.dialog_contact_message }}
+    </div>
+    <div class="form-group">
+        {{ form_contact.email2 }}
+    </div>
+    <div class='form-group'>
+        <input type='submit' name='submit' id='dialog-contact-submit' class='btn btn-primary' value='Send Message'>
+    </div>
+</form>
