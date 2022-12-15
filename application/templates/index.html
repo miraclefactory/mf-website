@@ -1,231 +1,201 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="theme-color" content="#0f0620" />
-    <meta name="description" content="An AI development and research community. The Land of Dream.">
-	<meta name="google-site-verification" content="jMgOBqBBFyfaG2rFQDOeJtQ-NSCTNWZgg5yIPA-5Bbk" />
-    <title>Miracle Factory</title>
-	<!-- CSS only -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
-		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/CSS/main.css">
-    <link rel="stylesheet" href="../static/CSS/macOS-window.css">
-	<link rel="icon" href="../static/images/mf-trans.webp">
-	<script src="../static/JS/basic.js"></script>
+{% extends "base.html" %}
+{% block title %}Miracle Factory{% endblock %}
+{% block head %}
+	{{ super() }}
+	<link rel="stylesheet" href="../static/CSS/macOS-window.css">
 	<script src="../static/JS/index.js"></script>
-</head>
-<body>
-	{% include "ui_snippets/navbar.html" %}
-	<div id="header">
-		<div>
-			<h1 translate="no">
-				Miracle Factory
-				<!-- The Land<br/>of Dream -->
-				<div class="mask">
-					<span>Research,</span>
-					<span>Develop,</span>
-					<span>Deploy,</span>
-					<span>At The Land of Dream.</span>
+{% endblock %}
+{% block content %}
+{% include "ui_snippets/navbar.html" %}
+<div id="header">
+	<div>
+		<h1 translate="no">
+			Miracle Factory
+			<!-- The Land<br/>of Dream -->
+			<div class="mask">
+				<span>Research,</span>
+				<span>Develop,</span>
+				<span>Deploy,</span>
+				<span>At The Land of Dream.</span>
+			</div>
+		</h1>
+	</div>
+</div>
+<div id="cover">
+	<div id="image-cover"></div>
+	<div id="back"></div>
+	<svg id="down" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+		<path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+		</svg>
+</div>
+<div id="bookmark">
+	&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16" fill="currentColor">
+		<path d="M305.8 2.076C314.4 5.932 320 14.52 320 24V64H336C406.7 64 464 121.3 464 192V358.7C492.3 371 512 399.2 512 432C512 476.2 476.2 512 432 512C387.8 512 352 476.2 352 432C352 399.2 371.7 371 400 358.7V192C400 156.7 371.3 128 336 128H320V168C320 177.5 314.4 186.1 305.8 189.9C297.1 193.8 286.1 192.2 279.9 185.8L199.9 113.8C194.9 109.3 192 102.8 192 96C192 89.2 194.9 82.71 199.9 78.16L279.9 6.161C286.1-.1791 297.1-1.779 305.8 2.077V2.076zM432 456C445.3 456 456 445.3 456 432C456 418.7 445.3 408 432 408C418.7 408 408 418.7 408 432C408 445.3 418.7 456 432 456zM112 358.7C140.3 371 160 399.2 160 432C160 476.2 124.2 512 80 512C35.82 512 0 476.2 0 432C0 399.2 19.75 371 48 358.7V153.3C19.75 140.1 0 112.8 0 80C0 35.82 35.82 .0004 80 .0004C124.2 .0004 160 35.82 160 80C160 112.8 140.3 140.1 112 153.3V358.7zM80 56C66.75 56 56 66.75 56 80C56 93.25 66.75 104 80 104C93.25 104 104 93.25 104 80C104 66.75 93.25 56 80 56zM80 408C66.75 408 56 418.7 56 432C56 445.3 66.75 456 80 456C93.25 456 104 445.3 104 432C104 418.7 93.25 408 80 408z"/>
+	</svg>&nbsp;&nbsp;
+	Help us build a better website!&nbsp;
+	<a href="https://github.com/MiracleFactory/MF-Project-Official-Website" target="_blank">
+		<button class="dialog-button-yes">Alright!</button>
+	</a>
+	<button class="dialog-button-no" onclick="closeBookmark();">No, thanks</button>
+</div>
+<main class="main" role="main">
+	<div id="intro">
+		<div class="wrapper" id="intro-wrapper">
+			<div id="logo-box">
+				<img alt="MF-Logo" src="../static/images/square-logo.webp" width="50px" />
+				<h4>Miracle Factory</h4>
+			</div>
+			<div id="window" class="macOS-window" translate="no">
+				<div class="macOS-window-titlebar">
+					<div class="button"></div>
+					<div class="button"></div>
+					<div class="button"></div>
+					<div class="macOS-window-title">Hello.c</div>
 				</div>
-			</h1>
+				<div class="macOS-window-content">
+					<p>
+						#include&nbsp;&lt;stdio.h&gt;<br />
+						int main( void ) {<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;printf("Hi there, welcome");<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;return 0;<br />
+						}<br />
+					</p>
+				</div>
+			</div>
+			<h1 id="intro-title">A Good Place<br/>To Dream Boldly</h1>
+			<div id="intro-words">
+				<p>
+					We are a community of creators, inventors, dreamers and artists, 
+					devoted to building software and conceptual products that enrich people's lives.
+				</p>
+				<p>
+					We are the misfits, the rebels, the trouble makers, the round pegs in the square holes, 
+					the ones who see things differently.
+				</p>
+				<p>
+					We are the believers of our own ideas, the missionaries of knowledge and science, 
+					the sailors on the ship of discoveries.
+				</p>
+				<p>
+					We were born to change the world.
+				</p>
+				<p>
+					The one and only Miracle Factory.
+				</p>
+				<p>
+					<a class="link" href="#join-contact">
+						Become one of us<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+						<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+					</svg></a>
+				</p>
+			</div>
 		</div>
 	</div>
-	<div id="cover">
-		<div id="image-cover"></div>
-		<div id="back"></div>
-		<svg id="down" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-			<path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-		  </svg>
-	</div>
-	<div id="bookmark">
-		&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16" fill="currentColor">
-			<path d="M305.8 2.076C314.4 5.932 320 14.52 320 24V64H336C406.7 64 464 121.3 464 192V358.7C492.3 371 512 399.2 512 432C512 476.2 476.2 512 432 512C387.8 512 352 476.2 352 432C352 399.2 371.7 371 400 358.7V192C400 156.7 371.3 128 336 128H320V168C320 177.5 314.4 186.1 305.8 189.9C297.1 193.8 286.1 192.2 279.9 185.8L199.9 113.8C194.9 109.3 192 102.8 192 96C192 89.2 194.9 82.71 199.9 78.16L279.9 6.161C286.1-.1791 297.1-1.779 305.8 2.077V2.076zM432 456C445.3 456 456 445.3 456 432C456 418.7 445.3 408 432 408C418.7 408 408 418.7 408 432C408 445.3 418.7 456 432 456zM112 358.7C140.3 371 160 399.2 160 432C160 476.2 124.2 512 80 512C35.82 512 0 476.2 0 432C0 399.2 19.75 371 48 358.7V153.3C19.75 140.1 0 112.8 0 80C0 35.82 35.82 .0004 80 .0004C124.2 .0004 160 35.82 160 80C160 112.8 140.3 140.1 112 153.3V358.7zM80 56C66.75 56 56 66.75 56 80C56 93.25 66.75 104 80 104C93.25 104 104 93.25 104 80C104 66.75 93.25 56 80 56zM80 408C66.75 408 56 418.7 56 432C56 445.3 66.75 456 80 456C93.25 456 104 445.3 104 432C104 418.7 93.25 408 80 408z"/>
-		</svg>&nbsp;&nbsp;
-		Help us build a better website!&nbsp;
-		<a href="https://github.com/MiracleFactory/MF-Project-Official-Website" target="_blank">
-			<button class="dialog-button-yes">Alright!</button>
-		</a>
-		<button class="dialog-button-no" onclick="closeBookmark();">No, thanks</button>
-	</div>
-	<main class="main" role="main">
-		<div id="intro">
-			<div class="wrapper" id="intro-wrapper">
-				<div id="logo-box">
-					<img alt="MF-Logo" src="../static/images/square-logo.webp" width="50px" />
-					<h4>Miracle Factory</h4>
-				</div>
-				<div id="window" class="macOS-window" translate="no">
-					<div class="macOS-window-titlebar">
-						<div class="button"></div>
-						<div class="button"></div>
-						<div class="button"></div>
-						<div class="macOS-window-title">Hello.c</div>
-					</div>
-					<div class="macOS-window-content">
+	<div id="main-content">
+		<div class="wrapper">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="box">
+						<h1>Project and Passion Driven Development</h1>
 						<p>
-							#include&nbsp;&lt;stdio.h&gt;<br />
-							int main( void ) {<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;printf("Hi there, welcome");<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;return 0;<br />
-							}<br />
+							Here at Miracle Factory, we are pushing the idea of project driven development. 
+							Every project is the result of a passion and an idea. 
+							Apart from following a simple <a href="https://github.com/MiracleFactory/.github/blob/main/CODE_OF_CONDUCT.md" target="_blank"><i>Code of Conduct</i></a>, 
+							the community has no restriction on what is being built, 
+							the developers are only limited by their own imagination. 
+							We are trying to build an open, enthusiastic and equal atmosphere where everyone can create their own project and are welcomed to contribute to other projects.
+						</p>
+						<p>
+							<a class="link" href="https://github.com/MiracleFactory" target="_blank">
+								GitHub Homepage<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+								<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+							</svg></a>
+						</p>
+						<img id="img-github" name="img-github" />
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+					<div class="box" style="height: calc(100% - 24px);">
+						<h1>Popular Public Projects</h1>
+						<p>
+							Though the development of our community is still in its early stage, 
+							Miracle Factory has already incubated some exciting public projects. 
+							Project Submarine is a computer motherboard defect detection and analysis system. 
+							Powered by YOLOv5, it is a fast-responding and powerful defect detection system 
+							that allows manufacturers to test their products and analyse the results in real-time. 
+							Combined with other machine learning algorithms, it will also be able to forecast critical defects way before they occur.
+						</p>
+						<p>
+							<a class="link" href="https://github.com/MiracleFactory/MF-Project-Submarine-HSAOIS" target="_blank">
+								View Repository<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+								<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+							</svg></a>
+						</p>
+						<img id="img-project" name="img-project" />
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+					<div class="box" style="height: calc(54% - 24px);">
+						<h1>State of the Art AI Research</h1>
+						<p>
+							Besides AI software development, Miracle Factory is also the home of some of the most exciting and leading AI research projects. 
+							Miracle Factory and her current research fellows are working on a number of promising projects that can potentially be of use to all walks of life, 
+							and we are waiting for more aspiring researchers to join our cause.
+							<div class="para-wrapper" style="margin-left: 30px; margin-right: 30px;">
+								Our Latest Research Project:<br />
+								<a href="https://github.com/MiracleFactory/MF-Research-2SDS" target="_blank">
+									<i>
+										Scene Separation & Data Selection: Temporal Segmentation Algorithm for Real-time Video Stream Analysis
+									</i>
+								</a>
+							</div>
+						</p>
+						<p>
+							<a class="link" href="{{ url_for('temp') }}">
+								Research Page<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+								<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+							</svg></a>
+						</p>
+					</div>
+					<div class="box" style="height: calc(46% - 24px);">
+						<h1>Campus Experts Support & Seminars</h1>
+						<p>
+							Inspired by the <a href="https://education.github.com/experts" target="_blank"><i>GitHub Campus Expert project</i></a>, 
+							we are also trying to gather a community of campus and academic leaders who can support the university communities and their students. 
+							The form of this support is elaborate and is built around the needs of the students. 
+							We are also trying to provide a platform for Campus Experts to share their knowledge and experience with other students 
+							through <a href="{{ url_for('temp') }}"><i>Campus Expert Seminars</i></a>.
+						</p>
+						<p>
+							<a class="link" href="{{ url_for('temp') }}">
+								Campus Page<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+								<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+							</svg></a>
 						</p>
 					</div>
 				</div>
-				<h1 id="intro-title">A Good Place<br/>To Dream Boldly</h1>
-				<div id="intro-words">
-					<p>
-						We are a community of creators, inventors, dreamers and artists, 
-						devoted to building software and conceptual products that enrich people's lives.
-					</p>
-					<p>
-						We are the misfits, the rebels, the trouble makers, the round pegs in the square holes, 
-						the ones who see things differently.
-					</p>
-					<p>
-						We are the believers of our own ideas, the missionaries of knowledge and science, 
-						the sailors on the ship of discoveries.
-					</p>
-					<p>
-						We were born to change the world.
-					</p>
-					<p>
-						The one and only Miracle Factory.
-					</p>
-					<p>
-						<a class="link" href="#join-contact">
-							Become one of us<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-							<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-						</svg></a>
-					</p>
-				</div>
 			</div>
-		</div>
-		<div id="main-content">
-			<div class="wrapper">
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<div class="box">
-							<h1>Project and Passion Driven Development</h1>
-							<p>
-								Here at Miracle Factory, we are pushing the idea of project driven development. 
-								Every project is the result of a passion and an idea. 
-								Apart from following a simple <a href="https://github.com/MiracleFactory/.github/blob/main/CODE_OF_CONDUCT.md" target="_blank"><i>Code of Conduct</i></a>, 
-								the community has no restriction on what is being built, 
-								the developers are only limited by their own imagination. 
-								We are trying to build an open, enthusiastic and equal atmosphere where everyone can create their own project and are welcomed to contribute to other projects.
-							</p>
-							<p>
-								<a class="link" href="https://github.com/MiracleFactory" target="_blank">
-									GitHub Homepage<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-									<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-								</svg></a>
-							</p>
-							<img id="img-github" name="img-github" />
-						</div>
-					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-						<div class="box" style="height: calc(100% - 24px);">
-							<h1>Popular Public Projects</h1>
-							<p>
-								Though the development of our community is still in its early stage, 
-								Miracle Factory has already incubated some exciting public projects. 
-								Project Submarine is a computer motherboard defect detection and analysis system. 
-								Powered by YOLOv5, it is a fast-responding and powerful defect detection system 
-								that allows manufacturers to test their products and analyse the results in real-time. 
-								Combined with other machine learning algorithms, it will also be able to forecast critical defects way before they occur.
-							</p>
-							<p>
-								<a class="link" href="https://github.com/MiracleFactory/MF-Project-Submarine-HSAOIS" target="_blank">
-									View Repository<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-									<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-								</svg></a>
-							</p>
-							<img id="img-project" name="img-project" />
-						</div>
-					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-						<div class="box" style="height: calc(54% - 24px);">
-							<h1>State of the Art AI Research</h1>
-							<p>
-								Besides AI software development, Miracle Factory is also the home of some of the most exciting and leading AI research projects. 
-								Miracle Factory and her current research fellows are working on a number of promising projects that can potentially be of use to all walks of life, 
-								and we are waiting for more aspiring researchers to join our cause.
-								<div class="para-wrapper" style="margin-left: 30px; margin-right: 30px;">
-									Our Latest Research Project:<br />
-									<a href="https://github.com/MiracleFactory/MF-Research-2SDS" target="_blank">
-										<i>
-											Scene Separation & Data Selection: Temporal Segmentation Algorithm for Real-time Video Stream Analysis
-										</i>
-									</a>
-								</div>
-							</p>
-							<p>
-								<a class="link" href="{{ url_for('temp') }}">
-									Research Page<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-									<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-								</svg></a>
-							</p>
-						</div>
-						<div class="box" style="height: calc(46% - 24px);">
-							<h1>Campus Experts Support & Seminars</h1>
-							<p>
-								Inspired by the <a href="https://education.github.com/experts" target="_blank"><i>GitHub Campus Expert project</i></a>, 
-								we are also trying to gather a community of campus and academic leaders who can support the university communities and their students. 
-								The form of this support is elaborate and is built around the needs of the students. 
-								We are also trying to provide a platform for Campus Experts to share their knowledge and experience with other students 
-								through <a href="{{ url_for('temp') }}"><i>Campus Expert Seminars</i></a>.
-							</p>
-							<p>
-								<a class="link" href="{{ url_for('temp') }}">
-									Campus Page<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-									<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-								</svg></a>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		{% if not g.user %}
-		<div id="join-contact">
-			<div class="wrapper" style="text-align: center;">
-				<!-- <h1 translate="no">
-					Once more unto the breach, dear friends, once more.
-					<span>Why join the navy if you can be pirate. Why be king if you can be god.</span>
-				</h1> -->
-				<h1 translate="no">
-					Join the world's most<br/>talented dreamers.
-				</h1>
-				<button class="rect-button" style="background-color: white; color: black;" onclick="showDialog(this);">Join Us</button>
-				<button class="rect-button" style="background-color: rgba(255,255,255,0.3); color: white;" onclick="showDialog(this);">Contact Us</button>
-			</div>
-		</div>
-		{% endif %}
-		{% include 'ui_snippets/footer.html' %}
-	</main>
-	<div class="dialog-bk" id="dialog-bk" onclick="closeDialog();"></div>
-	<div class="dialog-content" id="dialog-join">
-		<div class="dialog-header">
-			<img src="../static/images/square-logo.webp" width="50" height="50" /><br/>
-			<span class="dialog-title">Join Us</span>
-		</div>
-		<div class="dialog-body" id="join-form">
-			<!-- dynamically allocated (anti-spam) -->
-			{% include 'forms/join.html' %}
 		</div>
 	</div>
-	<div class="dialog-content" id="dialog-contact">
-		<div class="dialog-header">
-			<img src="../static/images/square-logo.webp" width="50" height="50" /><br/>
-			<span class="dialog-title">Contact Us</span>
-		</div>
-		<div class="dialog-body" id="contact-form">
-			<!-- dynamically allocated (anti-spam) -->
-			{% include 'forms/contact.html' %}
+	{% if not g.user %}
+	<div id="join-contact">
+		<div class="wrapper" style="text-align: center;">
+			<!-- <h1 translate="no">
+				Once more unto the breach, dear friends, once more.
+				<span>Why join the navy if you can be pirate. Why be king if you can be god.</span>
+			</h1> -->
+			<h1 translate="no">
+				Join the world's most<br/>talented dreamers.
+			</h1>
+			<a href="{{url_for('join')}}">
+				<button class="rect-button" style="background-color: white; color: black;">Join Us</button>
+			</a>
+			<a href="{{url_for('contact')}}">
+				<button class="rect-button" style="background-color: rgba(255,255,255,0.3); color: white;">Contact Us</button>
+			</a>
 		</div>
 	</div>
-</body>
-</html>
+	{% endif %}
+	{% include 'ui_snippets/footer.html' %}
+</main>
+{% endblock %}

@@ -48,11 +48,7 @@ def index():
     # check if the user is logged in
     # if g.user:
     #     return redirect(url_for('profile'))
-    form_join = JoinForm()
-    form_contact = ContactForm()
-    return render_template('index.html', 
-                           form_join = form_join, 
-                           form_contact = form_contact)
+    return render_template('index.html')
 
 # render temp
 @app.route('/temp')
@@ -66,7 +62,7 @@ def temp():
 # the url for joining
 @app.route('/join', methods=['POST', 'GET'])
 def join():
-    form = JoinForm(request.form)
+    form = JoinForm()
     if request.method == 'POST' and form.validate():
         user = request.form['dialog_join_name']
         email = request.form['dialog_join_email']
@@ -79,24 +75,25 @@ def join():
             join = joins(user, email, type, password)
             join.add_user()
             return redirect(url_for('verification', user = user, email = email, type = type))
-    else:
-        flash(form.errors)
-        return redirect(url_for('index'))
+    return render_template('forms/join.html', form = form)
 
 # the url for contact
 @app.route('/contact', methods=['POST', 'GET'])
 def contact():
-    user = request.form['dialog_contact_name']
-    email = request.form['dialog_contact_email']
-    type = 'contact'
-    message = request.form['dialog_contact_message']
-    email2 = request.form['email2']
-    if email2:
-        return 'spam'
-    else:
-        contact = contacts(user, email, type, message)
-        contact.add_user()
-        return redirect(url_for('verification', user = user, email = email, type = type))
+    form = ContactForm()
+    if request.method == 'POST' and form.validate():
+        user = request.form['dialog_contact_name']
+        email = request.form['dialog_contact_email']
+        type = 'contact'
+        message = request.form['dialog_contact_message']
+        email2 = request.form['email2']
+        if email2:
+            return 'spam'
+        else:
+            contact = contacts(user, email, type, message)
+            contact.add_user()
+            return redirect(url_for('verification', user = user, email = email, type = type))
+    return render_template('forms/contact.html', form = form)
 
 # send email and render verification.html if the user info is successfully processed
 @app.route('/verification/name=<user>_email=<email>_type=<type>')

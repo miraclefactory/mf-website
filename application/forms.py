@@ -87,21 +87,21 @@ class JoinForm(FlaskForm):
                    "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"})
     email1 = StringField('Email1', [Length(min=0, max=50)], render_kw={"class": "hide"})
 
-    def validate_name(self, dialog_join_name):
+    def validate_dialog_join_name(form, self):
         excluded_chars = " *?!'^+%&/()=}][{$#"
-        for char in dialog_join_name.data:
+        for char in form.dialog_join_name.data:
             if char in excluded_chars:
                 raise ValidationError(f"Character {char} is not allowed in username.")
 
-    def validate_email(self, dialog_join_email):
-        email = joins.query.filter_by(email=dialog_join_email.data).first()
+    def validate_dialog_join_email(form, self):
+        email = joins.query.filter_by(email=form.dialog_join_email.data).first()
         if email is not None:
             raise ValidationError('This email is already registered.')
 
-    def validate_password(self, dialog_join_password, dialog_join_password_confirm):
+    def validate_dialog_join_password(form, self):
         # must contain at least 1 uppercase, 1 lowercase, 1 number, at least 8 characters
-        password = dialog_join_password.data
-        password_confirm = dialog_join_password_confirm.data
+        password = form.dialog_join_password.data
+        password_confirm = form.dialog_join_password_confirm.data
         regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
         if not search(regex, password):
             raise ValidationError('Password must be at least 8 characters, 1 uppercase, 1 lowercase, 1 number')

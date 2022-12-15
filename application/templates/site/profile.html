@@ -1,142 +1,129 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="theme-color" content="#0f0620" />
-    <meta name="description" content="An AI development and research community. The Land of Dream.">
-	<meta name="google-site-verification" content="jMgOBqBBFyfaG2rFQDOeJtQ-NSCTNWZgg5yIPA-5Bbk" />
-    <title>{{g.user.name}}'s MF Profile</title>
-	<!-- CSS only -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
-		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/CSS/main.css">
+{% extends 'base.html' %}
+{% block title %}{{g.user.name}}'s MF Profile{% endblock %}
+{% block head %}
+    {{ super() }}
     <link rel="stylesheet" href="../static/CSS/profile.css">
-	<link rel="icon" href="../static/images/mf-trans.webp">
-	<script src="../static/JS/basic.js"></script>
-</head>
-<body>
-    {% include 'ui_snippets/navbar.html' %}
-    <div class="container rounded mt-4 mb-4">
-        <div class="row">
-            <div class="col-md-3 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                    <div class="mt-4 avatar">
-                        <img src="{{g.user.avatar}}" alt="avatar">
-                    </div>
-                    <br/>
-                    <h3>{{g.user.name}}</h3>
-                    <h6 style="color: gray;">{{g.user.email}}</h6>
-                    <h6 style="color: gray;">Member #{{g.user.id}}</h6>
-                    {% if g.user.is_admin %}
-                        <span class="badge-admin">Admin</span>
-                    {% else %}
-                        <span class="badge-member">Member</span>
-                    {% endif %}
-                    <div class="mt-3 mb-3">
-                        <a href="{{url_for('edit_profile')}}">
-                            <button class="btn btn-primary profile-button" type="button">Edit Profile</button>
-                        </a>
-                    </div>
-                    <span style="color: white !important;">
-                        <a href="{{url_for('logout')}}">
-                            <button class="border-0 btn-transition btn btn-outline-danger">Logout</button>
-                        </a>
-                    </span>
+{% endblock %}
+{% block content %}
+{% include 'ui_snippets/navbar.html' %}
+<div class="container rounded mt-4 mb-4">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <div class="mt-4 avatar">
+                    <img src="{{g.user.avatar}}" alt="avatar">
                 </div>
+                <br/>
+                <h3>{{g.user.name}}</h3>
+                <h6 style="color: gray;">{{g.user.email}}</h6>
+                <h6 style="color: gray;">Member #{{g.user.id}}</h6>
+                {% if g.user.is_admin %}
+                    <span class="badge-admin">Admin</span>
+                {% else %}
+                    <span class="badge-member">Member</span>
+                {% endif %}
+                <div class="mt-3 mb-3">
+                    <a href="{{url_for('edit_profile')}}">
+                        <button class="btn btn-primary profile-button" type="button">Edit Profile</button>
+                    </a>
+                </div>
+                <span style="color: white !important;">
+                    <a href="{{url_for('logout')}}">
+                        <button class="border-0 btn-transition btn btn-outline-danger">Logout</button>
+                    </a>
+                </span>
             </div>
-            <div class="col-md-5 border-right">
-                <div class="p-3 py-4">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h4 class="text-right">My Miracle Factory</h4>
-                    </div>
-                    <div class="card-header-tab card-header mb-2">
-                        <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
-                            <input type="radio" name="toggle" checked class="toggle" id="project-toggle" onclick="toggle();"/>
-                            <label for="project-toggle">My Projects</label>
-                            <input type="radio" name="toggle" class="toggle" id="team-toggle" onclick="toggle();"/>
-                            <label for="team-toggle">My Teams</label>
-                        </div>
-                    </div>
-                    <div id="projects">
-                        {% for project in g.user.projects %}
-                            {% include 'ui_snippets/project-card.html' %}
-                        {% endfor %}
-                        <a href="{{url_for('new_project')}}">
-                            <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">New Project</button></div>
-                        </a>
-                    </div>
-                    <div id="teams" class="hide">
-                        {% for team in g.user.teams %}
-                            {% include 'ui_snippets/team-card.html' %}
-                        {% endfor %}
-                        <a href="{{url_for('new_team')}}">
-                            <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">New Team</button></div>
-                        </a>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="text-right">My Miracle Factory</h4>
+                </div>
+                <div class="card-header-tab card-header mb-2">
+                    <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
+                        <input type="radio" name="toggle" checked class="toggle" id="project-toggle" onclick="toggle();"/>
+                        <label for="project-toggle">My Projects</label>
+                        <input type="radio" name="toggle" class="toggle" id="team-toggle" onclick="toggle();"/>
+                        <label for="team-toggle">My Teams</label>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="p-3 py-4">
-                    <div class="d-flex justify-content-between align-items-center experience"><span>Customize Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
-                    <p>
-                        <small>
-                            At Miracle Factory, we value the experience of our members. 
-                            We want to make sure that you are getting the most out of your membership. 
-                            Please toggle the options below to customize your experience.
-                        </small>
-                    </p>
-                    <form action="/profile/save-settings" method="post" id="user-settings">
-                        <div class="form-check form-switch">
-                            <label class="form-check-label" for="email-feed" onclick="showSaveButton();">
-                                Receive our email feed
-                            </label>
-                            {% if g.user.email_feed is true %}
-                                <input class="form-check-input" type="checkbox" role="switch" id="email-feed" name="email-feed" checked onclick="showSaveButton();"/>
-                            {% else %}
-                                <input class="form-check-input" type="checkbox" role="switch" id="email-feed" name="email-feed" onclick="showSaveButton();"/>
-                            {% endif %}
-                        </div>
-                        <div class="form-check form-switch">
-                            <label class="form-check-label" for="public-member" onclick="showSaveButton();">
-                                Mark as public member
-                            </label>
-                            {% if g.user.public_member is true %}
-                                <input class="form-check-input" type="checkbox" role="switch" id="public-member" name="public-member" checked onclick="showSaveButton();"/>
-                            {% else %}
-                                <input class="form-check-input" type="checkbox" role="switch" id="public-member" name="public-member" onclick="showSaveButton();"/>
-                            {% endif %}
-                        </div>
-                        <div class="form-check form-switch">
-                            <label class="form-check-label" for="active-contributor" onclick="showSaveButton();">
-                                Mark as an active contributor
-                            </label>
-                            {% if g.user.active_contributor is true %}
-                                <input class="form-check-input" type="checkbox" role="switch" id="active-contributor" name="active-contributor" checked onclick="showSaveButton();"/>
-                            {% else %}
-                                <input class="form-check-input" type="checkbox" role="switch" id="active-contributor" name="active-contributor" onclick="showSaveButton();"/>
-                            {% endif %}
-                        </div>
-                        <div class="form-check form-switch">
-                            <label class="form-check-label" for="code-reviewer" onclick="showSaveButton();">
-                                Mark as a code reviewer
-                            </label>
-                            {% if g.user.code_reviewer is true %}
-                                <input class="form-check-input" type="checkbox" role="switch" id="code-reviewer" name="code-reviewer" checked onclick="showSaveButton();"/>
-                            {% else %}
-                                <input class="form-check-input" type="checkbox" role="switch" id="code-reviewer" name="code-reviewer" onclick="showSaveButton();"/>
-                            {% endif %}
-                        </div>
-                        <div class="mt-3 hide" id="form-button">
-                            <button class="btn btn-primary profile-button" type="submit">Save Settings</button>
-                        </div>
-                    </form>
-                    {% include 'ui_snippets/message-box.html' %}
+                <div id="projects">
+                    {% for project in g.user.projects %}
+                        {% include 'ui_snippets/project-card.html' %}
+                    {% endfor %}
+                    <a href="{{url_for('new_project')}}">
+                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">New Project</button></div>
+                    </a>
+                </div>
+                <div id="teams" class="hide">
+                    {% for team in g.user.teams %}
+                        {% include 'ui_snippets/team-card.html' %}
+                    {% endfor %}
+                    <a href="{{url_for('new_team')}}">
+                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">New Team</button></div>
+                    </a>
                 </div>
             </div>
         </div>
+        <div class="col-md-4">
+            <div class="p-3 py-4">
+                <div class="d-flex justify-content-between align-items-center experience"><span>Customize Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
+                <p>
+                    <small>
+                        At Miracle Factory, we value the experience of our members. 
+                        We want to make sure that you are getting the most out of your membership. 
+                        Please toggle the options below to customize your experience.
+                    </small>
+                </p>
+                <form action="/profile/save-settings" method="post" id="user-settings">
+                    <div class="form-check form-switch">
+                        <label class="form-check-label" for="email-feed" onclick="showSaveButton();">
+                            Receive our email feed
+                        </label>
+                        {% if g.user.email_feed is true %}
+                            <input class="form-check-input" type="checkbox" role="switch" id="email-feed" name="email-feed" checked onclick="showSaveButton();"/>
+                        {% else %}
+                            <input class="form-check-input" type="checkbox" role="switch" id="email-feed" name="email-feed" onclick="showSaveButton();"/>
+                        {% endif %}
+                    </div>
+                    <div class="form-check form-switch">
+                        <label class="form-check-label" for="public-member" onclick="showSaveButton();">
+                            Mark as public member
+                        </label>
+                        {% if g.user.public_member is true %}
+                            <input class="form-check-input" type="checkbox" role="switch" id="public-member" name="public-member" checked onclick="showSaveButton();"/>
+                        {% else %}
+                            <input class="form-check-input" type="checkbox" role="switch" id="public-member" name="public-member" onclick="showSaveButton();"/>
+                        {% endif %}
+                    </div>
+                    <div class="form-check form-switch">
+                        <label class="form-check-label" for="active-contributor" onclick="showSaveButton();">
+                            Mark as an active contributor
+                        </label>
+                        {% if g.user.active_contributor is true %}
+                            <input class="form-check-input" type="checkbox" role="switch" id="active-contributor" name="active-contributor" checked onclick="showSaveButton();"/>
+                        {% else %}
+                            <input class="form-check-input" type="checkbox" role="switch" id="active-contributor" name="active-contributor" onclick="showSaveButton();"/>
+                        {% endif %}
+                    </div>
+                    <div class="form-check form-switch">
+                        <label class="form-check-label" for="code-reviewer" onclick="showSaveButton();">
+                            Mark as a code reviewer
+                        </label>
+                        {% if g.user.code_reviewer is true %}
+                            <input class="form-check-input" type="checkbox" role="switch" id="code-reviewer" name="code-reviewer" checked onclick="showSaveButton();"/>
+                        {% else %}
+                            <input class="form-check-input" type="checkbox" role="switch" id="code-reviewer" name="code-reviewer" onclick="showSaveButton();"/>
+                        {% endif %}
+                    </div>
+                    <div class="mt-3 hide" id="form-button">
+                        <button class="btn btn-primary profile-button" type="submit">Save Settings</button>
+                    </div>
+                </form>
+                {% include 'ui_snippets/message-box.html' %}
+            </div>
+        </div>
     </div>
-    {% include 'ui_snippets/footer.html' %}
-</body>
-</html>
+</div>
+{% include 'ui_snippets/footer.html' %}
+{% endblock %}
