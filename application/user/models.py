@@ -36,8 +36,8 @@ class joins(db.Model):
     public_member = db.Column(db.Boolean, default=False)        # user_public_member: True / False
     active_contributor = db.Column(db.Boolean, default=False)   # user_active_contributor: True / False
     code_reviewer = db.Column(db.Boolean, default=False)        # user_code_reviewer: True / False
-    avatar = db.Column(db.String(60),                           # user_avatar
-                       default='../../static/images/default-avatar.png')
+    avatar = db.Column(db.String(120),                           # user_avatar
+                       default='../../static/images/default-avatar.webp')
     projects = db.relationship('projects', secondary=users_projects, 
                                          backref='members')
     teams = db.relationship('teams', secondary=users_teams, 
@@ -54,7 +54,7 @@ class joins(db.Model):
                  public_member=False,
                  active_contributor=False,
                  code_reviewer=False,
-                 avatar='../../static/images/caltech.jpg'):
+                 avatar='../../static/images/default-avatar.webp'):
         self.name = name
         self.email = email
         self.type = type
@@ -155,8 +155,8 @@ class contacts(db.Model):
 class projects(db.Model):
     id = db.Column(db.Integer, primary_key=True)                # project_id
     name = db.Column(db.String(60), nullable=False)             # project_name
-    description = db.Column(db.String(1000), nullable=False)    # project_description
-    url = db.Column(db.String(1000), nullable=False)            # project_url
+    description = db.Column(db.String(500), nullable=False)     # project_description
+    url = db.Column(db.String(500), nullable=False)             # project_url
     owner = db.Column(db.Integer, nullable=False)               # project_owner: user_id
 
     def __init__(self, name, description, url, owner):
@@ -196,7 +196,7 @@ class projects(db.Model):
 class teams(db.Model):
     id = db.Column(db.Integer, primary_key=True)                # team_id
     name = db.Column(db.String(60), nullable=False)             # team_name
-    description = db.Column(db.String(1000), nullable=False)    # team_description
+    description = db.Column(db.String(500), nullable=False)    # team_description
     owner = db.Column(db.Integer, nullable=False)               # team_owner: user_id
 
     def __init__(self, name, description, owner):

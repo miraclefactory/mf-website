@@ -39,8 +39,11 @@ import os
 import random
 import string
 import uuid as uuid
+import logging
 # ///////////////////////////////////////////////////////////////////////////
 
+
+logger = logging.getLogger(__name__)
 
 # render default index.html
 @app.route('/')
@@ -74,6 +77,7 @@ def join():
         else:
             join = joins(user, email, type, password)
             join.add_user()
+            logger.debug(f'new user {user} added')
             return redirect(url_for('verification', user = user, email = email, type = type))
     return render_template('forms/join.html', form = form)
 
@@ -92,6 +96,7 @@ def contact():
         else:
             contact = contacts(user, email, type, message)
             contact.add_user()
+            logger.debug(f'new contact {user} added')
             return redirect(url_for('verification', user = user, email = email, type = type))
     return render_template('forms/contact.html', form = form)
 
@@ -100,6 +105,7 @@ def contact():
 def verification(user, email, type):
     # generate and send email
     send_email(user, email, type)
+    logger.debug(f'verification email sent to {email}')
     # render verification.html
     return render_template('central-content.html',
                            page_title = 'Email Verification', 
@@ -112,6 +118,7 @@ def verification(user, email, type):
 def confirm_email(token, type):
     email = confirm_token(token)
     if email:
+        logger.debug(f'email confirmed')
         if type == 'join':
             # activate the user
             user = joins.query.filter_by(email = email).first()
@@ -147,9 +154,10 @@ def confirm_email(token, type):
 @app.route('/database', methods=['POST', 'GET'])
 def database():
     if request.method == 'POST':
-        admin_name = request.form['name']
+        # admin_name = request.form['name']
         admin_password = request.form['password']
         if admin_password in config('auth_code'):
+            logger.debug(f'admin logged in')
             info = joins.query.all()
             return render_template('database/database.html', contacts = info)
         else:
@@ -196,10 +204,9 @@ def github_auth_success():
         username = account_info_json['login']
         email = account_info_json['email']
         # generate a random password
-        password = ''.join(random.choices(string.ascii_letters + string.digits, k = 16))
+        password = generate_password_hash(email)
         type = 'join'
-        message = 'GitHub Authorised'
-        user = joins(user, email, type, password, message)
+        user = joins(username, email, type, password)
         user.add_user()
         user.activate_user()
         return render_template('central-content.html',
@@ -232,6 +239,7 @@ def login():
         if user:
             if user.password == password:
                 session['user'] = user.id
+                logger.debug(f'{user.name} has logged in')
                 return redirect(url_for('profile'))
             else:
                 errors = {'Your password is incorrect'}
@@ -254,6 +262,7 @@ def profile():
 @app.route('/logout')
 def logout():
     session.pop('user', None)
+    logger.debug(f'{g.user.name} has logged out')
     return redirect(url_for('index'))
 
 @app.route('/profile/new-project', methods=['POST', 'GET'])

@@ -28,3 +28,7 @@ function toggle() {
 function showSaveButton() {
     document.getElementById("form-button").style.display = "block";
 }
+
+function closeMessage() {
+    document.getElementById("message-box").style.display = "none";
+}

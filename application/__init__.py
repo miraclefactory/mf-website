@@ -22,15 +22,18 @@ from concurrent.futures import ThreadPoolExecutor
 # log import
 import logging
 import logging.config
+from logs.config import log_config
 # python import
 import os
 # ///////////////////////////////////////////////////////////////////////////
 
 
 def create_app():
+    logger.debug('initializing app...')
     # initialize flask app
     app = Flask(__name__)
 
+    logger.debug('loading app configuration...')
     # load app configuration
     configure_app(app)
 
@@ -45,6 +48,7 @@ def create_app():
     # concurrency control (Threadpool)
     pool = ThreadPoolExecutor(max_workers=10)
 
+    logger.debug('app initialized')
     return app, mail, db, migrate, pool
 
 def configure_app(app):
@@ -79,6 +83,9 @@ def configure_app(app):
     github_blueprint = make_github_blueprint(client_id=config('github_client_id', ''), 
                                             client_secret=config('github_client_secret', ''))
     app.register_blueprint(github_blueprint)
+
+    # debug configuration
+    app.config['DEBUG'] = True
 
 # create logger
 logger = logging.getLogger(__name__)

@@ -1,12 +1,9 @@
 import pytest
 from application import create_app
+from flask import Flask
 
 
-@pytest.fixture
+@pytest.fixture(autouse=True)
 def app():
     app, mail, db, migrate, pool = create_app()
     yield app
-
-@pytest.fixture
-def client(app):
-    return app.test_client()

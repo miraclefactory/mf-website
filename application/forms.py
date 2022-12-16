@@ -94,6 +94,9 @@ class JoinForm(FlaskForm):
                 raise ValidationError(f"Character {char} is not allowed in username.")
 
     def validate_dialog_join_email(form, self):
+        regex = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+        if not search(regex, form.dialog_join_email.data):
+            raise ValidationError('Please enter a valid email address.')
         email = joins.query.filter_by(email=form.dialog_join_email.data).first()
         if email is not None:
             raise ValidationError('This email is already registered.')
