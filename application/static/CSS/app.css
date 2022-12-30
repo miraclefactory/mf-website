@@ -153,6 +153,19 @@ body
     padding-right: 5px;
 }
 
+.badge
+{
+    background-color: transparent;
+    border: 1px solid var(--mf-neutral-gray);
+    color: var(--mf-neutral-gray);
+    font-weight: normal;
+    font-size: 12px;
+    border-radius: 20px;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 .hover-card
 {
     transition: transform 0.2s ease-in-out;
@@ -168,6 +181,74 @@ body
     display: block;
 }
 
+.card
+{
+    overflow-x: scroll !important;
+}
+
+.people-table tr
+{
+    height: 50px;
+    border-bottom: 1px solid rgba(139,139,139,0.2);
+}
+
+.people-table tr:last-of-type
+{
+    border-bottom: none;
+}
+
+.people-table td
+{
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+
+.people-table th
+{
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+
+.people-table thead
+{
+    border-bottom: 1px solid rgba(139,139,139,0.2);
+}
+
+#people-header
+{
+    height: 400px;
+    text-align: center;
+    background-image: url('../images/bk6.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#people-header h1
+{
+    font-family: 'Cairo', sans-serif;
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#people-header h1 .mask
+{
+    overflow: hidden;
+}
+
+#people-header h1 img
+{
+    user-select: none;
+}
 
 
 @media (prefers-color-scheme: dark) {

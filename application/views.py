@@ -51,7 +51,7 @@ def index():
     # check if the user is logged in
     # if g.user:
     #     return redirect(url_for('profile'))
-    return render_template('index.html')
+    return render_template('site/index.html')
 
 # render temp
 @app.route('/temp')
@@ -318,8 +318,12 @@ def edit_profile():
             unique_filename = str(uuid.uuid1()) + "_" + secure_filename(image.filename)
             image.save(os.path.join(app.config['UPLOAD_FOLDER'], unique_filename))
             user.avatar = "../" + config('upload_folder') + unique_filename
-        user.update_user_profile(user.name, user.email, user.password, user.avatar)
-        return redirect(url_for('profile'))
+        try:
+            user.update_user_profile(user.name, user.email, user.password, user.avatar)
+            return redirect(url_for('profile'))
+        except Exception as e:
+            errors = {e}
+            return render_template('forms/edit-profile.html', form = form, errors = errors)
     errors = form.errors.values()
     return render_template('forms/edit-profile.html', form = form, errors = errors)
 
@@ -341,11 +345,22 @@ def save_settings():
                 active_contributor = True
             elif item == 'code-reviewer':
                 code_reviewer = True
-        g.user.update_user_settings(email_feed, public_member, active_contributor, code_reviewer)
+        try:
+            g.user.update_user_settings(email_feed, public_member, 
+                                        active_contributor, code_reviewer)
+        except Exception as e:
+            logger.error(f'Failed to update user settings: {e}')
     return redirect(url_for('profile'))
+
+# url for people page
+@app.route('/people')
+def people():
+    info = joins.query.all()
+    return render_template('site/people.html', users = info)
 
 # @app.route('/send-email')
 # def test_email():
+#     # param1 = name, param2 = email
 #     send_approved_email('', '')
 #     return render_template('central-content.html',
 #                            page_title = 'Email Sent',

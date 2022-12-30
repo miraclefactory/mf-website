@@ -3,23 +3,23 @@
         <nav id="topbar">
             <div id="nav-links">
                 <a href="{{url_for('index')}}"><img src="../static/images/mf-trans.webp" width="32" alt="mf-logo" /></a>
-                <a class="mobile-hide" href="{{url_for('index')}}">Home</a>
                 <a class="mobile-hide" href="https://github.com/MiracleFactory" target="_blank">GitHub</a>
                 <a class="mobile-hide" href="https://github.com/orgs/MiracleFactory/repositories" target="_blank">Projects</a>
+                <a class="mobile-hide" href="{{url_for('people')}}">People</a>
                 <a class="mobile-hide" href="{{url_for('temp')}}">Research</a>
                 <a class="mobile-hide" href="{{url_for('temp')}}">Campus</a>
             </div>
             <div class="nav-widgets">
+                <input class="nav-search" id="desktop-search" type="text" placeholder="Search"/>
                 {% if g.user %}
-                    <a id="desktop-username" href="{{url_for('profile')}}">{{g.user.name}}</a>
-                    <a href="{{url_for('profile')}}">
+                    <a id="desktop-username" href="{{url_for('profile')}}" class="nav-username">{{g.user.name}}</a>
+                    <a href="{{url_for('profile')}}" class="nav-avatar">
                         <div class="avatar-tiny">
                             <img src="{{g.user.avatar}}" alt="avatar" />
                         </div>
                     </a>
                 {% else %}
-                    <input class="nav-email" id="desktop-email" type="email" placeholder="Your email"/>
-                    <a href="{{url_for('login')}}" id="desktop-login" class="nav-login">Login</a>
+                    <a href="{{url_for('login')}}" id="desktop-login" class="nav-login">Sign in</a>
                     <a href="{{url_for('join')}}"><button class="nav-join">Join Us</button></a>
                 {% endif %}
                 <button class="mobile-button hide" onclick="showMobileNav();">
@@ -28,36 +28,39 @@
                     </svg>
                 </button>
             </div>
-            <div id="mobile-nav" class="hide">
-                <div class="nav-widgets" id="mobile-widgets">
-                    {% if not g.user %}
-                    <input class="nav-email" id="mobile-email" type="email" placeholder="Your email"/>
-                    <a href="{{url_for('join')}}"><button class="nav-join">Join Us</button></a>
-                    {% endif %}
-                    <button class="mobile-button" onclick="closeMobileNav();">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                        </svg>
-                    </button>
-                </div>
-                <div id="mobile-links">
-                    <a href="{{url_for('index')}}">Home</a>
-                    <a href="https://github.com/MiracleFactory" target="_blank">GitHub</a>
-                    <a href="https://github.com/orgs/MiracleFactory/repositories" target="_blank">Projects</a>
-                    <a href="{{url_for('temp')}}">Research</a>
-                    <a href="{{url_for('temp')}}">Campus</a>
-                    {% if g.user %}
-                        <a href="{{url_for('logout')}}" id="mobile-logout">Logout</a>
-                    {% else %}
-                        <a href="{{url_for('login')}}" id="mobile-login">Login</a>
-                    {% endif %}
-                </div>
-                <div id="mobile-support">
-                    <a href="https://github.com/MiracleFactory/MF-Project-Official-Website/issues/new/choose" target="_blank">Report Problems</a>&nbsp;&nbsp;·&nbsp;&nbsp;
-                    <a href="{{ url_for('temp') }}">Accessibility</a>&nbsp;&nbsp;·&nbsp;&nbsp;
-                    <a href="https://github.com/MiracleFactory/.github/blob/main/CODE_OF_CONDUCT.md" target="_blank">Code of Conduct</a>
+            <div class="hide" id="mobile-nav">
+                <div class="nav-card">
+                    <div class="nav-widgets" id="mobile-widgets">
+                        {% if not g.user %}
+                        <a href="{{url_for('join')}}"><button class="nav-join">Join Us</button></a>
+                        {% endif %}
+                        <button class="mobile-button" onclick="closeMobileNav();">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="mobile-links">
+                        <a href="https://github.com/MiracleFactory" target="_blank">GitHub</a>
+                        <a href="https://github.com/orgs/MiracleFactory/repositories" target="_blank">Projects</a>
+                        <a href="{{url_for('people')}}">People</a>
+                        <a href="{{url_for('temp')}}">Research</a>
+                        <a href="{{url_for('temp')}}">Campus</a>
+                        <input class="nav-search" id="mobile-search" type="text" placeholder="Search"/>
+                        {% if g.user %}
+                            <a href="{{url_for('logout')}}" id="mobile-logout">Sign out</a>
+                        {% else %}
+                            <a href="{{url_for('login')}}" id="mobile-login">Sign in</a>
+                        {% endif %}
+                    </div>
+                    <div id="mobile-support">
+                        <a href="https://github.com/MiracleFactory/MF-Project-Official-Website/issues/new/choose" target="_blank">Report Problems</a>&nbsp;&nbsp;·&nbsp;&nbsp;
+                        <a href="{{ url_for('temp') }}">Accessibility</a>&nbsp;&nbsp;·&nbsp;&nbsp;
+                        <a href="https://github.com/MiracleFactory/.github/blob/main/CODE_OF_CONDUCT.md" target="_blank">Code of Conduct</a>
+                    </div>
                 </div>
             </div>
         </nav>
     </div>
 </div>
+<img src="../static/images/hat.svg" alt="christmas" width="32" style="position: absolute; left: 10px; top: 0; z-index: 9999;"/>

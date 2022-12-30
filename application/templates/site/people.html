@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}People{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="../static/CSS/app.css">
+{% endblock %}
+{% block content %}
+{% include 'ui_snippets/navbar.html' %}
+<div id="people-header">
+    <h1>
+        People @ 
+        <img src="../static/images/mf.svg" alt="MF" height="48" />
+        <div class="mask">
+            <span>😎</span>
+            <span>😜</span>
+            <span>🤓</span>
+            <span>😉</span>
+        </div>
+    </h1>
+</div>
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-12 card">
+            <table class="people-table">
+                <thead>
+                    <tr>
+                        <th>People</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Badges</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td style="display: flex; flex-direction: row; align-items: center; height: 50px;">
+                                <div class="avatar-tiny">
+                                    <img src="{{ user.avatar }}" alt="avatar" />
+                                </div>
+                                <span style="line-height: 32px; margin-left: 10px;">
+                                    {{ user.name }}
+                                </span>
+                            </td>
+                            <td>
+                                <a href="mailto:{{ user.email }}" class="no-color-link">
+                                    {{ user.email }}
+                                </a>
+                                {% if user.activated is true %}
+                                    <span style="color: rgb(107, 205, 99);">✓</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if user.is_admin %}
+                                    <span class="badge-admin">Admin</span>
+                                {% else %}
+                                    <span class="badge-member">Member</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if user.public_member %}
+                                    <span class="badge">Public</span>
+                                {% endif %}
+                                {% if user.active_contributor %}
+                                    <span class="badge">Active</span>
+                                {% endif %}
+                                {% if user.code_reviewer %}
+                                    <span class="badge">Review</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% include 'ui_snippets/footer.html' %}
+{% endblock %}

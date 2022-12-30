@@ -50,8 +50,8 @@ function showDialog(obj)
 {
     document.getElementById("dialog-bk").style.display = "block";
     document.body.style.overflowY = "hidden";
-    let desktopEmail = document.getElementById("desktop-email");
-    let mobileEmail = document.getElementById("mobile-email"); 
+    let desktopEmail = document.getElementById("desktop-search");
+    let mobileEmail = document.getElementById("mobile-search"); 
     let email = document.getElementById("dialog_join_email");
     email.value = desktopEmail.value || mobileEmail.value;
     desktopEmail.value = "";

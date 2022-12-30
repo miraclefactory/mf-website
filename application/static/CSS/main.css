@@ -267,14 +267,24 @@ svg
     object-fit: cover;
 }
 
+.nav-username
+{
+    margin-right: 10px;
+}
+
+.nav-avatar
+{
+    margin-right: 20px;
+}
+
 .avatar-tiny
 {
     width: 32px;
     height: 32px;
     border-radius: 50%;
     background-color: gray;
-    margin: 10px;
     overflow: hidden;
+    border: 0.5px solid var(--mf-neutral-gray);
 }
 
 .avatar-tiny img
@@ -380,19 +390,19 @@ nav
     margin-right: 20px;
 }
 
-.nav-email
+.nav-search
 {
     font-family: Arial, Helvetica, sans-serif;
     width: 220px;
     color: inherit;
-    border: 1px solid rgba(200, 200, 200, 0.3) !important;
+    border: 1px solid rgba(200, 200, 200, 0.4) !important;
     border-radius: 6px !important;
     padding-left: 14px;
     padding-right: 14px;
     padding-top: 4px;
     padding-bottom: 4px;
     margin-right: 20px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .mobile-button svg
@@ -431,7 +441,7 @@ nav
     animation: 
         appear 1s 1s ease-in-out forwards;
         /* 3.0s movement linear infinite; */
-    background-color: rgb(218, 197, 243);
+    /* background-color: rgb(218, 197, 243);
     background-image: 
         radial-gradient(closest-side, rgba(235, 105, 78, 1), rgba(235, 105, 78, 0)),
         radial-gradient(closest-side, rgb(133, 255, 214), rgba(254, 234, 131, 0)),
@@ -440,7 +450,7 @@ nav
         radial-gradient(closest-side, rgb(250, 171, 107), rgba(248, 192, 147, 0));
     background-size: 130vmax 130vmax, 80vmax 80vmax, 90vmax 90vmax, 110vmax 110vmax, 90vmax 90vmax;
     background-position: -80vmax -80vmax, 60vmax -30vmax, 10vmax 10vmax, -30vmax -10vmax, 50vmax 50vmax;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -456,6 +466,10 @@ nav
     padding-left: 20px;
     padding-right: 20px;
     margin: 0;
+    background-image: url(../images/snowing.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #header h1 .mask
@@ -714,7 +728,7 @@ nav
     border-top: 1px solid var(--mf-border-gray);
     font-family: Arial, Helvetica, sans-serif;
     /* padding: 26px; */
-    padding: 50px;
+    padding: 36px;
     padding-top: 20px;
     text-align: center;
     z-index: 1000;
@@ -1143,7 +1157,7 @@ textarea:focus
         display: none;
     }
 
-    #desktop-email
+    #desktop-search
     {
         display: none;
     }
@@ -1180,7 +1194,24 @@ textarea:focus
         overflow: hidden;
         transition: all 0.4s ease-in-out;
         text-align: left;
-        background-color: rgb(5, 5, 5);
+        /* background-color: rgb(5, 5, 5); */
+        background-color: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+    }
+
+    #mobile-nav .nav-card
+    {
+        max-width: 400px;
+        width: 90%;
+        height: fit-content;
+        position: fixed;
+        top: 60px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        border-radius: 7px;
+        border: 1px solid var(--mf-border-black);
+        background-color: rgb(5,5,5);
     }
 
     #mobile-widgets
@@ -1189,7 +1220,7 @@ textarea:focus
         justify-content: flex-end;
     }
 
-    #mobile-widgets .nav-email
+    #mobile-widgets .nav-search
     {
         width: calc(100% - 203px);
         max-width: 220px;
@@ -1200,10 +1231,18 @@ textarea:focus
         width: calc(100% - 100px);
         display: block;
         margin-left: 50px;
-        margin-right: 40px;
+        margin-right: 50px;
         padding-top: 10px;
         padding-bottom: 10px;
         border-bottom: #444 1px solid;
+    }
+
+    #mobile-links input
+    {
+        width: calc(100% - 100px);
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-top: 30px;
     }
 
     #mobile-support

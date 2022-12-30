@@ -2,7 +2,7 @@
 {% block title %}{{g.user.name}}'s MF Profile{% endblock %}
 {% block head %}
     {{ super() }}
-    <link rel="stylesheet" href="../static/CSS/profile.css">
+    <link rel="stylesheet" href="../static/CSS/app.css">
 {% endblock %}
 {% block content %}
 {% include 'ui_snippets/navbar.html' %}
@@ -15,7 +15,14 @@
                 </div>
                 <br/>
                 <h3>{{g.user.name}}</h3>
-                <h6 style="color: gray;">{{g.user.email}}</h6>
+                <h6 style="color: gray;">
+                    <a href="mailto:{{g.user.email}}" class="no-color-link">
+                        {{g.user.email}}
+                    </a>
+                    {% if g.user.activated is true %}
+                        <span style="color: rgb(107, 205, 99);">✓</span>
+                    {% endif %}
+                </h6>
                 <h6 style="color: gray;">Member #{{g.user.id}}</h6>
                 {% if g.user.is_admin %}
                     <span class="badge-admin">Admin</span>
@@ -29,7 +36,7 @@
                 </div>
                 <span style="color: white !important;">
                     <a href="{{url_for('logout')}}">
-                        <button class="border-0 btn-transition btn btn-outline-danger">Logout</button>
+                        <button class="border-0 btn-transition btn btn-outline-danger">Sign out</button>
                     </a>
                 </span>
             </div>

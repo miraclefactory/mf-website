@@ -4,4 +4,5 @@ application/database/site.db
 application/static/user_assets/avatars/*
 !application/static/user_assets/avatars/.gitkeep
 *__pycache__
-logs/*.log
+logs/*
+!logs/*.py
