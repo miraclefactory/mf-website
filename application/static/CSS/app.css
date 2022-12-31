@@ -3,7 +3,7 @@
     position: relative;
     background-color: white;
     color: black;
-    border-bottom: 1px solid rgba(139,139,139,0.2);
+    border-bottom: 1px solid var(--mf-neutral-gray-2);
 }
 
 body
@@ -14,7 +14,7 @@ body
 
 .border-right
 {
-    border-right: 1px solid rgba(139,139,139,0.2) !important;
+    border-right: 1px solid var(--mf-neutral-gray-2) !important;
 }
 
 .container
@@ -26,7 +26,7 @@ body
 {
     width: 240px;
     height: 240px;
-    box-shadow: 0 0 7px 0 rgba(139,139,139,0.6);
+    box-shadow: 0 0 7px 0 var(--mf-neutral-gray-6);
     /* border: 1px rgba(139,139,139,0.2); */
     border-radius: 50%;
     background-color: gray;
@@ -54,7 +54,7 @@ body
 .profile-button {
     background: rgb(243, 244, 246);
     color: var(--mf-dark-gray);
-    border: 1px solid rgba(139,139,139,0.3);
+    border: 1px solid var(--mf-neutral-gray-3);
 }
 
 /* .profile-button:hover {
@@ -111,7 +111,7 @@ body
 
 .toggle:checked + label {
     /* border-bottom: 2px solid var(--mf-purple); */
-    background-color: rgba(139,139,139,0.3);
+    background-color: var(--mf-neutral-gray-3);
 }
 
 .toggle + label {
@@ -124,7 +124,7 @@ body
 
 .toggle + label:hover {
     cursor: pointer;
-    background-color: rgba(139,139,139,0.3);
+    background-color: var(--mf-neutral-gray-3);
 }
 
 .badge-member
@@ -189,7 +189,7 @@ body
 .people-table tr
 {
     height: 50px;
-    border-bottom: 1px solid rgba(139,139,139,0.2);
+    border-bottom: 1px solid var(--mf-neutral-gray-2);
 }
 
 .people-table tr:last-of-type
@@ -215,7 +215,7 @@ body
 
 .people-table thead
 {
-    border-bottom: 1px solid rgba(139,139,139,0.2);
+    border-bottom: 1px solid var(--mf-neutral-gray-2);
 }
 
 #people-header
