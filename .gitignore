@@ -6,3 +6,4 @@ application/static/user_assets/avatars/*
 *__pycache__
 logs/*
 !logs/*.py
+/migrations
