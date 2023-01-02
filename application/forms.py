@@ -89,10 +89,10 @@ class JoinForm(FlaskForm):
     email1 = StringField('Email1', [Length(min=0, max=50)], render_kw={"class": "hide"})
 
     def validate_dialog_join_name(form, self):
-        excluded_chars = " *?!'^+%&/()=}][{$#"
+        excluded_chars = " _*?!'^+%&/()=}][{$#"
         for char in form.dialog_join_name.data:
             if char in excluded_chars:
-                raise ValidationError(f"Character {char} is not allowed in username.")
+                raise ValidationError(f"Character \"{char}\" is not allowed in username.")
 
     def validate_dialog_join_email(form, self):
         regex = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
@@ -143,6 +143,20 @@ class EditProfileForm(FlaskForm):
     new_password = PasswordField('New Password', validators=[])
     confirm_new_password = PasswordField('Confirm New Password', validators=[])
     avatar = FileField('Update Avatar', validators=[FileAllowed(['jpg', 'jpeg', 'png', 'webp'])])
+
+    def validate_username(form, self):
+        excluded_chars = " _*?!'^+%&/()=}][{$#"
+        for char in form.username.data:
+            if char in excluded_chars:
+                raise ValidationError(f"Character \"{char}\" is not allowed in username.")
+    
+    def validate_email(form, self):
+        regex = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+        if not search(regex, form.email.data):
+            raise ValidationError('Please enter a valid email address.')
+        email = joins.query.filter_by(email=form.email.data).first().email
+        if email is not None and email != g.user.email:
+            raise ValidationError('This email is already taken.')
 
     def validate_confirm_new_password(form, self):
         # must contain at least 1 uppercase, 1 lowercase, 1 number, at least 8 characters

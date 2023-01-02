@@ -1,38 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="theme-color" content="#0f0620" />
-    <meta name="description" content="An AI development and research community. The Land of Dream.">
-	<meta name="google-site-verification" content="jMgOBqBBFyfaG2rFQDOeJtQ-NSCTNWZgg5yIPA-5Bbk" />
-    <title>{{page_title}}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/main.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/central-content.css')}}">
-	<link rel="icon" href="{{ url_for('static', filename='images/mf-trans.webp')}}">
-</head>
-<body>
-    {% include 'ui_snippets/svg-background.html' %}
-    <div style="text-align: center; padding: 30px;">
-        <h2>{{headline}}</h2>
-        <p>
-            {{message}}
-        </p>
-        <br/>
-            {% if button_text == "Close" %}
-            <a href="javascript:;">
-                <button id="btn_back" onclick="window.close();">
-                    <span>{{button_text}}</span>
-                </button>
-            </a>
-            {% else %}
-            <a href="{{url_for('index')}}">
-                <button id="btn_back">
-                    <span>{{button_text}}</span>
-                </button>
-            </a>
-            {% endif %}
-    </div>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}{{page_title}}{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="../static/CSS/central-content.css">
+{% endblock %}
+{% block content %}
+{% include 'ui_snippets/svg-background.html' %}
+<div style="text-align: center; padding: 30px;">
+    <h2>{{headline}}</h2>
+    <p>
+        {{message}}
+    </p>
+    <br/>
+        {% if button_text == "Close" %}
+        <a href="javascript:;">
+            <button id="btn_back" onclick="window.close();">
+                <span>{{button_text}}</span>
+            </button>
+        </a>
+        {% else %}
+        <a href="javascript:;" onclick="history.back();">
+            <button id="btn_back">
+                <span>{{button_text}}</span>
+            </button>
+        </a>
+        {% endif %}
+</div>
+{% endblock %}
