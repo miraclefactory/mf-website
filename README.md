@@ -24,8 +24,8 @@ If you wish to make adjustments to this repo, please fork this repo and commit y
 If you have any suggestions regarding this repo, please submit your idea via Issues.   
 Feel free to make any reasonable improvements and suggestions!
 
-## Security Notice ⚠️
-This repo does not contain any of our secret app configs, please bear that in mind when you are running the website at your local development server. 
+## Configuration Notice ⚠️
+This repo does not contain any of our app configs, please bear that in mind before running the website at your local development server. 
 If you want to test all the app config related functionalities, please config your own:   
 > * email_prefix
 > * email_server
