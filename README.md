@@ -1,7 +1,6 @@
 # <img src="https://staticfile.osl.ink/staticFiles/mf-logo.svg" height=22 /> Official Website
 
 ![www miraclefactory co_](https://user-images.githubusercontent.com/89094576/181905465-13b919fb-b708-4ab3-b7d1-cda12a4d5537.png)
----
 
 ## Visit Our Site 🌐
 You can visit our website at [**miraclefactory.co**](https://miraclefactory.co/).   
