@@ -10,6 +10,7 @@
 # ///////////////////////////////////////////////////////////////////////////
 # module import
 from application import app, db
+from werkzeug.security import generate_password_hash, check_password_hash
 # ///////////////////////////////////////////////////////////////////////////
 
 
@@ -29,7 +30,7 @@ class joins(db.Model):
     name = db.Column(db.String(60), nullable=False)             # user_name
     email = db.Column(db.String(60), nullable=False)            # user_email
     type = db.Column(db.String(10), nullable=False)             # user_type: join / contact
-    password = db.Column(db.String(60), nullable=False)         # user_password
+    password = db.Column(db.String(120), nullable=False)        # user_password_hash
     activated = db.Column(db.Boolean, default=False)            # user_activated: True / False
     is_admin = db.Column(db.Boolean, default=False)             # user_is_admin: True / False
     email_feed = db.Column(db.Boolean, default=False)           # user_email_feed: True / False
@@ -58,7 +59,7 @@ class joins(db.Model):
         self.name = name
         self.email = email
         self.type = type
-        self.password = password
+        self.password = generate_password_hash(password)
         self.activated = activated
         self.is_admin = is_admin
         self.email_feed = email_feed
@@ -66,6 +67,9 @@ class joins(db.Model):
         self.active_contributor = active_contributor
         self.code_reviewer = code_reviewer
         self.avatar = avatar
+
+    def verify_password(self, password):
+        return check_password_hash(self.password, password)
 
     # asynchronous add user
     def add_user(self):

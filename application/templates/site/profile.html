@@ -12,6 +12,11 @@
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                 <div class="mt-4 avatar">
                     <img src="{{g.user.avatar}}" alt="avatar">
+                    <div id="avatar-cover">
+                        <a href="{{url_for('edit_profile')}}">
+                            <button class="btn btn-primary profile-button" type="button">Change Avatar</button>
+                        </a>
+                    </div>
                 </div>
                 <br/>
                 <h3>{{g.user.name}}</h3>
@@ -55,20 +60,39 @@
                     </div>
                 </div>
                 <div id="projects">
-                    {% for project in g.user.projects %}
-                        {% include 'ui_snippets/project-card.html' %}
-                    {% endfor %}
-                    <a href="{{url_for('new_project')}}">
-                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">New Project</button></div>
-                    </a>
+                    {% if g.user.projects|length == 0 %}
+                        <div class="text-center card p-4">
+                            <h4><img src="../static/images/mf-robot.png" alt="robot" width="100" /></h4>
+                            <h5>Create your first project, {{g.user.name}}</h5>
+                            <p>
+                                <small>
+                                    You can create a project by clicking the button below.
+                                </small>
+                            </p>
+                            <a href="{{url_for('new_project')}}" class="text-center mt-3 mb-3">
+                                <button class="btn btn-primary profile-button" type="button">Create Project</button>
+                            </a>
+                        </div>
+                    {% else %}
+                        {% for project in g.user.projects %}
+                            {% include 'ui_snippets/project-card.html' %}
+                        {% endfor %}
+                        <div class="mt-5 text-center">
+                            <a href="{{url_for('new_project')}}">
+                                <button class="btn btn-primary profile-button" type="button">New Project</button>
+                            </a>
+                        </div>
+                    {% endif %}
                 </div>
                 <div id="teams" class="hide">
                     {% for team in g.user.teams %}
                         {% include 'ui_snippets/team-card.html' %}
                     {% endfor %}
-                    <a href="{{url_for('new_team')}}">
-                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">New Team</button></div>
-                    </a>
+                    <div class="mt-5 text-center">
+                        <a href="{{url_for('new_team')}}">
+                            <button class="btn btn-primary profile-button" type="button">New Team</button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

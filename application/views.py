@@ -36,8 +36,6 @@ from application.forms import (JoinForm,
                                EditProfileForm)
 # python import
 import os
-import random
-import string
 import uuid as uuid
 import logging
 # ///////////////////////////////////////////////////////////////////////////
@@ -76,6 +74,9 @@ def join():
             return 'spam'
         else:
             join = joins(user, email, type, password)
+            root_team = teams.query.filter_by(name='Miracle Factory Root', owner=1).first()
+            if join.id != root_team.owner:
+                join.teams.append(root_team)
             join.add_user()
             logger.debug(f'new user {user} added')
             return redirect(url_for('verification', user = user, email = email, type = type))
@@ -237,7 +238,8 @@ def login():
         password = form.password.data
         user = joins.query.filter_by(email=email).first()
         if user:
-            if user.password == password:
+            if user.verify_password(password):
+                # add user to session if verified
                 session['user'] = user.id
                 logger.debug(f'{user.name} has logged in')
                 return redirect(url_for('profile'))
@@ -311,8 +313,8 @@ def edit_profile():
             user.email = form.email.data
             user.activated = False
             send_change_email(user.name, user.email, 'join')
-        if user.password != form.new_password.data and form.new_password.data != '':
-            user.password = form.new_password.data
+        if not user.verify_password(form.new_password.data) and form.new_password.data != '':
+            user.password = generate_password_hash(form.new_password.data)
         if form.avatar.data:
             image = form.avatar.data
             unique_filename = str(uuid.uuid1()) + "_" + secure_filename(image.filename)

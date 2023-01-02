@@ -9,6 +9,7 @@
 
 # ///////////////////////////////////////////////////////////////////////////
 # flask import
+from flask import g
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileAllowed
 from wtforms import (StringField, 
@@ -27,7 +28,7 @@ from wtforms.validators import (ValidationError,
 # environmental config import
 from decouple import config
 # module import
-from application.user.models import contacts, joins
+from application.user.models import contacts, joins, projects, teams
 from re import search
 # ///////////////////////////////////////////////////////////////////////////
 
@@ -164,7 +165,19 @@ class NewProjectForm(FlaskForm):
     url = StringField('Project URL', validators=[DataRequired(), Length(min=2, max=200)])
     description = TextAreaField('Description', validators=[DataRequired(), Length(min=10, max=500)])
 
+    def validate_name(form, self):
+        # check if project name is already taken
+        project = projects.query.filter_by(name=form.name.data, owner=g.user.id).first()
+        if project is not None:
+            raise ValidationError('This project name is already taken.')
+
 
 class NewTeamForm(FlaskForm):
     name = StringField('Team Name', validators=[DataRequired(), Length(min=2, max=100)])
     description = TextAreaField('Description', validators=[DataRequired(), Length(min=10, max=500)])
+
+    def validate_name(form, self):
+        # check if team name is already taken
+        team = teams.query.filter_by(name=form.name.data, owner=g.user.id).first()
+        if team is not None:
+            raise ValidationError('This team name is already taken.')
