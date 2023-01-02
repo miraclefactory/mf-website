@@ -42,7 +42,6 @@ def create_app():
 
     # database initialization
     db = SQLAlchemy(app)
-    db.create_all()
     migrate = Migrate(app, db)
 
     # concurrency control (Threadpool)
@@ -87,11 +86,30 @@ def configure_app(app):
     # debug configuration
     app.config['DEBUG'] = True
 
+def init_root(db):
+    # from application.user.models import joins, teams
+    if joins.query.filter_by(id=1, is_admin=True).first() is None:
+        root_user = joins(config('root_user_name', ''), 
+                        config('root_user_email', ''), 
+                        'join', 
+                        config('root_user_password', ''))
+        root_user.is_admin = True
+        description = 'This is the team made up by all the members of the Miracle Factory community, share your ideas with the other members!'
+        root_team = teams(name='Miracle Factory Root', description=description, owner=1)
+        root_user.teams.append(root_team)
+        db.session.add(root_user, root_team)
+        db.session.commit()
+
 # create logger
 logger = logging.getLogger(__name__)
 
 # create an instance of the app
 # along with the mail, db, and pool
 app, mail, db, migrate, pool = create_app()
+from application.user.models import *
+db.create_all()
+
+# initialize root user and root team if not exist
+init_root(db)
 
 import application.views

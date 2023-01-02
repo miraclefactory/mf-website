@@ -14,6 +14,8 @@ from flask import render_template
 from flask_mail import Message
 # module import
 from application import app, mail, pool
+# config import
+from decouple import config
 # time import
 import datetime
 # ///////////////////////////////////////////////////////////////////////////
@@ -23,8 +25,7 @@ import datetime
 def send_email(user, email, type):
     # send confirmation email
     token = generate_confirmation_token(email)
-    # email_link = 'https://miraclefactory.co/confirm/'+token+'/'+type   # deploy
-    email_link = 'http://localhost:9000/confirm/'+token+'/'+type  # debug
+    email_link = config('email_prefix', '')+'confirm/'+token+'/'+type
     msg = Message('Email Verification <noreply>', \
                   sender=('Miracle Factory', app.config["MAIL_USERNAME"]), \
                   recipients=[email])
@@ -39,8 +40,7 @@ def send_email(user, email, type):
 def send_change_email(user, email, type):
     # send confirmation email
     token = generate_confirmation_token(email)
-    # email_link = 'https://miraclefactory.co/confirm/'+token+'/'+type   # deploy
-    email_link = 'http://localhost:9000/confirm/'+token+'/'+type  # debug
+    email_link = config('email_prefix', '')+'confirm/'+token+'/'+type
     msg = Message('Email Verification <noreply>', \
                   sender=('Miracle Factory', app.config["MAIL_USERNAME"]), \
                   recipients=[email])
@@ -83,7 +83,7 @@ def confirm_token(token, expiration=3600):
         return False
     return email
 
-# send email (asychronous)
+# send email (asynchronous)
 def send_async_email(app, msg):
     with app.app_context():
         mail.send(msg)

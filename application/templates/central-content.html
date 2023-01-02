@@ -2,7 +2,7 @@
 {% block title %}{{page_title}}{% endblock %}
 {% block head %}
     {{ super() }}
-    <link rel="stylesheet" href="../static/CSS/central-content.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='CSS/central-content.css')}}">
 {% endblock %}
 {% block content %}
 {% include 'ui_snippets/svg-background.html' %}

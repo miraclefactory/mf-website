@@ -2,7 +2,7 @@
 {% block title %}People{% endblock %}
 {% block head %}
     {{ super() }}
-    <link rel="stylesheet" href="../static/CSS/app.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='CSS/app.css')}}">
 {% endblock %}
 {% block content %}
 {% include 'ui_snippets/navbar.html' %}

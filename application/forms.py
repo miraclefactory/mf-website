@@ -154,8 +154,8 @@ class EditProfileForm(FlaskForm):
         regex = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
         if not search(regex, form.email.data):
             raise ValidationError('Please enter a valid email address.')
-        email = joins.query.filter_by(email=form.email.data).first().email
-        if email is not None and email != g.user.email:
+        user = joins.query.filter_by(email=form.email.data).first()
+        if user is not None and user.email != g.user.email:
             raise ValidationError('This email is already taken.')
 
     def validate_confirm_new_password(form, self):
