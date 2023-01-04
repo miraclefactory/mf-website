@@ -2,12 +2,18 @@
 {% block title %}Miracle Factory{% endblock %}
 {% block head %}
 	{{ super() }}
+	<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="{{url_for('static', filename='CSS/macOS-window.css')}}">
 	<script src="{{url_for('static', filename='JS/index.js')}}"></script>
 	<meta name="theme-color" content="#0f0620" />
 {% endblock %}
 {% block content %}
 {% include "ui_snippets/navbar.html" %}
+
+<a href="#" class="scrolltop" id="scroll-top">
+        <i class="bx bx-chevrons-up scrolltop__icon"></i> 
+</a>
+
 <div id="header">
 	<div>
 		<h1 translate="no">

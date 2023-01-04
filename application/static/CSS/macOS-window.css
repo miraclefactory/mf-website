@@ -82,3 +82,32 @@
 {
     display: none;
 }
+.scrolltop{
+    position: fixed;
+    right: 1rem;
+    bottom: -20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+    background: #000;
+    border-radius: .4rem;
+    z-index: 10;
+    transition: .4s;
+    visibility: hidden;
+    text-decoration: none;
+}
+
+.scrolltop:hover{
+    background-color: rgb(35, 34, 34);
+}
+
+.scrolltop__icon{
+    font-size: 1.8rem;
+    color: #fbfbfe;
+}
+
+.scroll-top{
+    visibility: visible;
+    bottom: 1.5rem;
+}

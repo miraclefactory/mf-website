@@ -82,3 +82,13 @@ function closeBookmark()
     bookmark.opacity = 0;
     bookmark.transform = "translateX(100%)";
 }
+
+function scrollTop(){
+    const scrollTop = document.getElementById('scroll-top')
+
+    if(this.scrollY >= 560)
+    scrollTop.classList.add("scroll-top");
+    else scrollTop.classList.remove("scroll-top")
+}
+
+window.addEventListener("scroll", scrollTop)
