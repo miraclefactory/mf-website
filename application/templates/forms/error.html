@@ -1,0 +1,7 @@
+<div class="form-group">
+    {% for error in errors %}
+        <div class='alert alert-danger' style="padding: 8px !important; text-align: center;">
+            {{ error[0] }}
+        </div>
+    {% endfor %}
+</div>

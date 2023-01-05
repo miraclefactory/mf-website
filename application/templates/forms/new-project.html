@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}New Project{% endblock %}
+{% block content %}
+{% include 'ui_snippets/navbar-nowidgets.html' %}
+<!-- <div class="cover" style="width: 100vw; height: 100vh;">
+    <img src="../static/images/bk1.jpg" alt="Login Background" />
+</div> -->
+{% include 'ui_snippets/svg-background.html' %}
+<div class="dialog-content" style="display: block !important;">
+    <div class="dialog-header">
+        <div class="avatar-dialog">
+            <img src="{{g.user.avatar}}"/>
+        </div>
+        <span class="dialog-title">New Project</span>
+    </div>
+    <div class="dialog-body">
+        <form action='/profile/new-project' method='post'>
+            {{ form.csrf_token }}
+            <div class='form-group'>
+                {{ form.name(class='form-control', placeholder='Project Name') }}
+            </div>
+            <div class='form-group'>
+                {{ form.url(class='form-control', placeholder='Project URL') }}
+            </div>
+            <div class='form-group'>
+                {{ form.description(class='form-control', placeholder='Project Description') }}
+            </div>
+            <div class='form-group hide'>
+                <input name='email2' type='text' maxlength='50' />
+            </div>
+            <div class="form-group">
+                {% for error in errors %}
+                    <div class='alert alert-danger' style="padding: 8px !important; text-align: center;">
+                        {{ error[0] }}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class='form-group'>
+                <input type='submit' name='submit' id='dialog-join-submit' class='btn btn-primary' value='Create Project'>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

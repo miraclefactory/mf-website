@@ -1,0 +1,293 @@
+#nav-wrapper
+{
+    position: relative;
+    background-color: white;
+    color: black;
+    border-bottom: 1px solid var(--mf-neutral-gray-2);
+}
+
+body
+{
+    background-color: white;
+    color: black;
+}
+
+.border-right
+{
+    border-right: 1px solid var(--mf-neutral-gray-2) !important;
+}
+
+.container
+{
+    border: 1px rgb(46, 51, 58) !important;
+}
+
+.avatar 
+{
+    width: 240px;
+    height: 240px;
+    box-shadow: 0 0 7px 0 var(--mf-neutral-gray-6);
+    /* border: 1px rgba(139,139,139,0.2); */
+    border-radius: 50%;
+    background-color: gray;
+}
+
+.avatar img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar:hover #avatar-cover
+{
+    opacity: 1;
+}
+
+#avatar-cover
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--mf-neutral-gray-6);
+    transform: translateY(-100%);
+    opacity: 0;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    transition: 0.3s ease-in-out;
+}
+
+.form-check-input
+{
+    border-radius: 12px !important;
+    height: 24px;
+    width: 44px !important;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(243, 244, 246);
+    color: var(--mf-dark-gray);
+    border: 1px solid var(--mf-neutral-gray-3);
+}
+
+/* .profile-button:hover {
+    background: var(--mf-button-yes);
+} */
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}
+
+.card-header.card-header-tab .card-header-title {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    border-bottom-width: 1px;
+    padding-top: 0;
+    padding-bottom: 0;
+    /* padding-right: 0.625rem; */
+    /* padding: 7px; */
+    height: 3rem;
+    background-color: transparent;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.card-header.card-header-tab .card-header-title {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0;
+}
+
+.toggle {
+    display: none;
+}
+
+.toggle:checked + label {
+    /* border-bottom: 2px solid var(--mf-purple); */
+    background-color: var(--mf-neutral-gray-3);
+}
+
+.toggle + label {
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 10px;
+    margin-left: 0;
+    outline: none;
+}
+
+.toggle + label:hover {
+    cursor: pointer;
+    background-color: var(--mf-neutral-gray-3);
+}
+
+.badge-member
+{
+    background-color: transparent;
+    border: 1px solid rgb(107, 205, 99);
+    color: rgb(107, 205, 99);
+    /* font-weight: 100; */
+    font-size: 12px;
+    border-radius: 20px;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.badge-admin
+{
+    background-color: transparent;
+    border: 1px solid var(--mf-purple);
+    color: var(--mf-purple);
+    /* font-weight: 100; */
+    font-size: 12px;
+    border-radius: 20px;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.badge
+{
+    background-color: transparent;
+    border: 1px solid var(--mf-neutral-gray);
+    color: var(--mf-neutral-gray);
+    font-weight: normal;
+    font-size: 12px;
+    border-radius: 20px;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.hover-card
+{
+    transition: transform 0.2s ease-in-out;
+}
+
+.hover-card:hover
+{
+    transform: scale(1.04);
+}
+
+.form-check-input:focus .form-button
+{
+    display: block;
+}
+
+.card
+{
+    overflow-x: scroll !important;
+}
+
+.people-table tr
+{
+    height: 50px;
+    border-bottom: 1px solid var(--mf-neutral-gray-2);
+}
+
+.people-table tr:last-of-type
+{
+    border-bottom: none;
+}
+
+.people-table td
+{
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+
+.people-table th
+{
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+
+.people-table thead
+{
+    border-bottom: 1px solid var(--mf-neutral-gray-2);
+}
+
+#people-header
+{
+    height: 400px;
+    text-align: center;
+    background-image: url('../images/bk6.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#people-header h1
+{
+    font-family: 'Cairo', sans-serif;
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#people-header h1 .mask
+{
+    overflow: hidden;
+}
+
+#people-header h1 img
+{
+    user-select: none;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    body
+    {
+        background-color: black;
+        color: white;
+    }
+
+    #nav-wrapper
+    {
+        background-color: black;
+        color: white;
+    }
+
+    .profile-button {
+        background: var(--mf-background-dark-gray);
+        color: white;
+    }
+}
+
