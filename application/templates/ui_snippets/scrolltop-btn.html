@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}Miracle Factory{% endblock %}
+{% block head %}
+	{{ super() }}
+	<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="{{url_for('static', filename='CSS/macOS-window.css')}}">
+	<script src="{{url_for('static', filename='JS/index.js')}}"></script>
+	<meta name="theme-color" content="#0f0620" />
+{% endblock %}
+{% block content %}
+{% include "ui_snippets/navbar.html" %}
+{% include "ui_snippets/scrolltop-btn.html" %}
+
+<div class="header">
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+        
+        .scrolltop {
+        position: fixed;
+        left: 15px;
+        bottom: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: .5rem;
+        background: inherit;
+        border: 1px solid var(--mf-neutral-gray-6);
+        border-radius: .4rem;
+        z-index: 10;
+        transition: .4s;
+        visibility: hidden;
+        text-decoration: none;
+        opacity: 0;
+    }
+
+    .scrolltop:hover {
+        opacity: 1;
+    }
+
+    .scrolltop__icon {
+        font-size: 1.8rem;
+        color: inherit;
+    }
+
+    .scroll-top {
+        visibility: visible;
+        opacity: 0.75;
+        transform: translateY(-10px);
+    }
+    </style>
+    
+    <a href="#" class="scrolltop" id="scroll-top" aria-label="top">
+        <i class="bx bx-chevrons-up scrolltop__icon"></i> 
+    </a>
+
+    <script>
+        function scrollTop(){
+        const scrollTop = document.getElementById('scroll-top')
+        if(this.scrollY >= 560)
+            scrollTop.classList.add("scroll-top");
+        else scrollTop.classList.remove("scroll-top")
+    }
+    window.addEventListener("scroll", scrollTop)
+    </script>
+</div>
+{% endblock %}
+
