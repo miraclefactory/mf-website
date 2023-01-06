@@ -1,17 +1,14 @@
-{% extends "base.html" %}
-{% block title %}Miracle Factory{% endblock %}
-{% block head %}
-	{{ super() }}
-	<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-	<link rel="stylesheet" href="{{url_for('static', filename='CSS/macOS-window.css')}}">
-	<script src="{{url_for('static', filename='JS/index.js')}}"></script>
-	<meta name="theme-color" content="#0f0620" />
-{% endblock %}
-{% block content %}
-{% include "ui_snippets/navbar.html" %}
-{% include "ui_snippets/scrolltop-btn.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
 
-<div class="header">
     <style>
         html{
             scroll-behavior: smooth;
@@ -64,6 +61,5 @@
     }
     window.addEventListener("scroll", scrollTop)
     </script>
-</div>
-{% endblock %}
-
+</body>
+</html>
