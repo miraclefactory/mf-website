@@ -82,3 +82,4 @@ function closeBookmark()
     bookmark.opacity = 0;
     bookmark.transform = "translateX(100%)";
 }
+
