@@ -8,4 +8,4 @@
 # ///////////////////////////////////////////////////////////////////////////
 
 export FLASK_APP=application
-flask run --port=9000 --no-debugger
+flask run --host=0.0.0.0 --port=9000 --no-debugger

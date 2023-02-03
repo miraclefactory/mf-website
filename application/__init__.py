@@ -106,10 +106,11 @@ logger = logging.getLogger(__name__)
 # create an instance of the app
 # along with the mail, db, and pool
 app, mail, db, migrate, pool = create_app()
-from application.user.models import *
-db.create_all()
+with app.app_context():
+    from application.user.models import *
+    db.create_all()
 
-# initialize root user and root team if not exist
-init_root(db)
+    # initialize root user and root team if not exist
+    init_root(db)
 
 import application.views
