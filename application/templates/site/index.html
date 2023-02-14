@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block title %}Miracle Factory{% endblock %}
 {% block head %}
-	{{ super() }}
-	<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-	<link rel="stylesheet" href="{{url_for('static', filename='CSS/macOS-window.css')}}">
-	<script src="{{url_for('static', filename='JS/index.js')}}"></script>
-	<meta name="theme-color" content="#0f0620" />
+{{ super() }}
+<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="{{url_for('static', filename='CSS/macOS-window.css')}}">
+<script src="{{url_for('static', filename='JS/index.js')}}"></script>
+<!-- <meta name="theme-color" content="#0f0620" /> -->
 {% endblock %}
 {% block content %}
 {% include "ui_snippets/navbar.html" %}
@@ -13,7 +13,8 @@
 <div id="header">
 	<div>
 		<h1 translate="no">
-			Miracle Factory
+			<nobr>Let's dream it big,</nobr><br />
+			<nobr>supercharging AI.</nobr>
 			<!-- The Land<br/>of Dream -->
 			<div class="mask">
 				<span>Research,</span>
@@ -21,25 +22,51 @@
 				<span>Deploy,</span>
 				<span>At The Land of Dream.</span>
 			</div>
+			<div class="mt-3">
+				{% if not g.user %}
+				<a href="{{url_for('join')}}">
+					<button class="btn btn-primary" style="font-size: 20px; padding-left: 25px; padding-right: 25px;">
+						Join Us
+					</button>
+				</a>
+				<a href="{{url_for('contact')}}">
+					<button class="btn btn-outline-primary"
+						style="font-size: 20px; padding-left: 25px; padding-right: 25px;">
+						Contact Us
+					</button>
+				</a>
+				{% else %}
+				<a href="{{url_for('temp')}}">
+					<button class="btn btn-outline-primary"
+						style="font-size: 20px; padding-left: 25px; padding-right: 25px;">
+						Explore Pages
+					</button>
+				</a>
+				{% endif %}
+			</div>
 		</h1>
 	</div>
 </div>
 <div id="cover">
-	<div id="image-cover"></div>
+	<!-- <div id="image-cover"></div> -->
 	<div id="back"></div>
-	<svg id="down" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-		<path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-		</svg>
+	<svg id="down" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor"
+		class="bi bi-chevron-down" viewBox="0 0 16 16">
+		<path fill-rule="evenodd"
+			d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+	</svg>
 </div>
 {% include 'ui_snippets/bookmark.html' %}
 <main class="main" role="main">
-	<div id="intro">
+	<section id="intro">
 		<div class="wrapper" id="intro-wrapper">
 			<div id="logo-box">
-				<img alt="MF-Logo" src="../static/images/square-logo.webp" width="50px" />
+				<!-- <img alt="MF-Logo" src="../static/images/square-logo.webp" width="50px" /> -->
+				<img src="{{url_for('static', filename='images/mf-color.svg')}}" height="18px" alt="MF-Logo" />
+				&nbsp;&nbsp;
 				<h4>Miracle Factory</h4>
 			</div>
-			<div id="window" class="macOS-window" translate="no">
+			<!-- <div id="window" class="macOS-window" translate="no">
 				<div class="macOS-window-titlebar">
 					<div class="button"></div>
 					<div class="button"></div>
@@ -55,22 +82,14 @@
 						}<br />
 					</p>
 				</div>
-			</div>
-			<h1 id="intro-title">A Good Place<br/>To Dream Boldly</h1>
+			</div> -->
+			<h1 id="intro-title">A Good Place<br />To Dream Boldly</h1>
 			<div id="intro-words">
 				<p>
-					We are a community of creators, inventors, dreamers and artists, 
-					devoted to building software and conceptual products that enrich people's lives.
-				</p>
-				<p>
-					We are the misfits, the rebels, the trouble makers, the round pegs in the square holes, 
-					the ones who see things differently.
-				</p>
-				<p>
-					We are the believers of our own ideas, the missionaries of knowledge and science, 
+					We are a community of creators, inventors, dreamers and artists,
+					devoted to building AI systems and conceptual products that enrich people's lives.
+					We are the believers of our own ideas, the missionaries of knowledge and science,
 					the sailors on the ship of discoveries.
-				</p>
-				<p>
 					We were born to change the world.
 				</p>
 				<p>
@@ -78,118 +97,214 @@
 				</p>
 				<p>
 					<a class="link" href="#join-contact">
-						Become one of us<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-						<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-					</svg></a>
+						Become one of us<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+							fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+							<path fill-rule="evenodd"
+								d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+						</svg></a>
 				</p>
 			</div>
 		</div>
-	</div>
-	<div id="main-content">
+	</section>
+	<section id="main-content">
 		<div class="wrapper">
-			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<div class="box">
-						<h1>Project and Passion Driven Development</h1>
+			<div class="row g-4 m-3 mb-5">
+				<div class="col-md-12">
+					<h2>
+						Your Community, Your Play.
+					</h2>
+				</div>
+				<div class="col-md-4">
+					<div class="box h-100">
+						<h1><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+							<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+						  </svg>
+						</h1>
+						<h1>GitHub-based</h1>
 						<p>
-							Here at Miracle Factory, we are pushing the idea of project driven development. 
-							Every project is the result of a passion and an idea. 
-							Apart from following a simple <a href="https://github.com/MiracleFactory/.github/blob/main/CODE_OF_CONDUCT.md" target="_blank"><i>Code of Conduct</i></a>, 
-							the community has no restriction on what is being built, 
-							the developers are only limited by their own imagination. 
-							We are trying to build an open, enthusiastic and equal atmosphere where everyone can create their own project and are welcomed to contribute to other projects.
+							Some quick example text to build on the card title and make up the bulk of the card's content.
+							Some quick example text to build on the card title and make up the bulk of the card's content.
 						</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="box h-100">
+						<h1><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-kanban-fill" viewBox="0 0 16 16">
+							<path d="M2.5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-11zm5 2h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm-5 1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm9-1h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/>
+						  </svg></h1>
+						<h1>Personal Projects</h1>
 						<p>
-							<a class="link" href="https://github.com/MiracleFactory" target="_blank">
-								GitHub Homepage<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-								<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-							</svg></a>
+							Some quick example text to build on the card title and make up the bulk of the card's content.
 						</p>
-						<img id="img-github" name="img-github" />
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="box h-100">
+						<h1>
+							<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+								<path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+							  </svg>
+						</h1>
+						<h1>Community Standards</h1>
+						<p>
+							Some quick example text to build on the card title and make up the bulk of the card's content.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="row g-4 m-3">
+				<div class="col-md-12 align-left mt-5">
+					<h2>
+						Project & Passion Driven Development
+					</h2>
+				</div>
+				<div class="col-md-12">
+					<p>
+						Here at Miracle Factory, we are pushing the idea of project driven development.
+						Every project is the result of a passion and an idea.
+						Apart from following a simple <a
+							href="https://github.com/MiracleFactory/.github/blob/main/CODE_OF_CONDUCT.md"
+							target="_blank"><i>Code of Conduct</i></a>,
+						the community has no restriction on what is being built,
+						the developers are only limited by their own imagination.
+						We are trying to build an open, enthusiastic and equal atmosphere where everyone can create
+						their own project and are welcomed to contribute to other projects.
+					</p>
+				</div>
+				<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+					<div class="box h-100 shock-box" id="passion-box">
+						<h1>
+							<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="#ffffff" class="bi bi-hearts" viewBox="0 0 16 16">
+								<path fill-rule="evenodd" d="M4.931.481c1.627-1.671 5.692 1.254 0 5.015-5.692-3.76-1.626-6.686 0-5.015Zm6.84 1.794c1.084-1.114 3.795.836 0 3.343-3.795-2.507-1.084-4.457 0-3.343ZM7.84 7.642c2.71-2.786 9.486 2.09 0 8.358-9.487-6.268-2.71-11.144 0-8.358Z"/>
+								</svg><br/>
+							Building with passion and love.
+						</h1>
+						<!-- <img id="img-github" name="img-github" /> -->
 					</div>
 				</div>
 				<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-					<div class="box" style="height: calc(100% - 24px);">
-						<h1>Popular Public Projects</h1>
+					<div class="box h-100">
+						<h1 style="color: #ea5465;">Love + AI + Team = Power AI</h1>
 						<p>
-							Though the development of our community is still in its early stage, 
-							Miracle Factory has already incubated some exciting public projects. 
-							Project Submarine is a computer motherboard defect detection and analysis system. 
-							Powered by YOLOv5, it is a fast-responding and powerful defect detection system 
-							that allows manufacturers to test their products and analyse the results in real-time. 
-							Combined with other machine learning algorithms, it will also be able to forecast critical defects way before they occur.
+							We love developing AI systems, it's a part of who we are. 
+							Through working together as a team, we were able to create 
+							some amazing AI projects, taking AI systems into the undiscovered 
+							countries. Such efforts delivered projects like Submarine HSAOIS, 
+							a powerful and flexible motherboard production defect detection 
+							and analysis system.
 						</p>
 						<p>
-							<a class="link" href="https://github.com/MiracleFactory/MF-Project-Submarine-HSAOIS" target="_blank">
-								View Repository<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-								<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-							</svg></a>
+							<a class="link" href="https://github.com/MiracleFactory" target="_blank">
+								<button class="btn btn-primary">
+									Visit GitHub Homepage
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+										<path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+									  </svg>
+								</button></a>
 						</p>
 						<img id="img-project" name="img-project" />
 					</div>
 				</div>
+			</div>
+			<div class="row g-4 m-3 mt-5">
+				<div class="col-md-12 align-left mt-5">
+					<h2>
+						State of the Art AI Research
+					</h2>
+				</div>
 				<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-					<div class="box" style="height: calc(54% - 24px);">
+					<div class="box h-100">
 						<h1>State of the Art AI Research</h1>
 						<p>
-							Besides AI software development, Miracle Factory is also the home of some of the most exciting and leading AI research projects. 
-							Miracle Factory and her current research fellows are working on a number of promising projects that can potentially be of use to all walks of life, 
+							Besides AI software development, Miracle Factory is also the home of some of the most
+							exciting and leading AI research projects.
+							Miracle Factory and her current research fellows are working on a number of promising
+							projects that can potentially be of use to all walks of life,
 							and we are waiting for more aspiring researchers to join our cause.
 							<div class="para-wrapper" style="margin-left: 30px; margin-right: 30px;">
 								Our Latest Research Project:<br />
 								<a href="https://github.com/MiracleFactory/MF-Research-2SDS" target="_blank">
 									<i>
-										Scene Separation & Data Selection: Temporal Segmentation Algorithm for Real-time Video Stream Analysis
+										Scene Separation & Data Selection: Temporal Segmentation Algorithm for Real-time
+										Video Stream Analysis
 									</i>
 								</a>
 							</div>
 						</p>
 						<p>
-							<a class="link" href="{{ url_for('temp') }}">
-								Research Page<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-								<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-							</svg></a>
+							<a class="link" href="{{ url_for('temp') }}" target="_blank">
+								<button class="btn btn-primary">
+									Research Page
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+										<path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+										<path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+									  </svg>
+								</button></a>
 						</p>
 					</div>
-					<div class="box" style="height: calc(46% - 24px);">
+				</div>
+				<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+					<div class="box h-100 shock-box" id="ai-box">
+						<h1>
+							<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="currentColor" class="bi bi-braces" viewBox="0 0 16 16">
+								<path d="M2.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C3.25 2 2.49 2.759 2.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6zM13.886 7.9v.163c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456V7.332c-1.114 0-1.49-.362-1.49-1.456V4.352C13.51 2.759 12.75 2 11.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6z"/>
+							  </svg><br/>
+							Advancing AI; line by line;
+						</h1>
+						<!-- <img id="img-github" name="img-github" /> -->
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+					<div class="box h-100">
 						<h1>Campus Experts Support & Seminars</h1>
 						<p>
-							Inspired by the <a href="https://education.github.com/experts" target="_blank"><i>GitHub Campus Expert project</i></a>, 
-							we are also trying to gather a community of campus and academic leaders who can support the university communities and their students. 
-							The form of this support is elaborate and is built around the needs of the students. 
-							We are also trying to provide a platform for Campus Experts to share their knowledge and experience with other students 
+							Inspired by the <a href="https://education.github.com/experts" target="_blank"><i>GitHub
+									Campus Expert project</i></a>,
+							we are also trying to gather a community of campus and academic leaders who can support the
+							university communities and their students.
+							The form of this support is elaborate and is built around the needs of the students.
+							We are also trying to provide a platform for Campus Experts to share their knowledge and
+							experience with other students
 							through <a href="{{ url_for('temp') }}"><i>Campus Expert Seminars</i></a>.
 						</p>
 						<p>
-							<a class="link" href="{{ url_for('temp') }}">
-								Campus Page<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-								<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-							</svg></a>
+							<a class="link" href="{{ url_for('temp') }}" target="_blank">
+								<button class="btn btn-primary">
+									Campus Page
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+										<path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+										<path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+									  </svg>
+								</button></a>
 						</p>
 					</div>
 				</div>
 			</div>
+			{% if not g.user %}
+			<div class="row m-2 mt-5">
+				<div class="col-md-12">
+					<div class="box" id="join-contact" style="text-align: center;">
+						<!-- <h1 translate="no">
+							Once more unto the breach, dear friends, once more.
+							<span>Why join the navy if you can be pirate. Why be king if you can be god.</span>
+						</h1> -->
+						<h1 translate="no">
+							Join the world's most<br />talented dreamers.
+						</h1>
+						<a href="{{url_for('join')}}">
+							<button class="rect-button" style="background-color: white; color: black;">Join Us</button>
+						</a>
+						<a href="{{url_for('contact')}}">
+							<button class="rect-button" style="background-color: rgba(255,255,255,0.3); color: white;">Contact
+								Us</button>
+						</a>
+					</div>
+				</div>
+			</div>
+			{% endif %}
 		</div>
-	</div>
-	{% if not g.user %}
-	<div id="join-contact">
-		<div class="wrapper" style="text-align: center;">
-			<!-- <h1 translate="no">
-				Once more unto the breach, dear friends, once more.
-				<span>Why join the navy if you can be pirate. Why be king if you can be god.</span>
-			</h1> -->
-			<h1 translate="no">
-				Join the world's most<br/>talented dreamers.
-			</h1>
-			<a href="{{url_for('join')}}">
-				<button class="rect-button" style="background-color: white; color: black;">Join Us</button>
-			</a>
-			<a href="{{url_for('contact')}}">
-				<button class="rect-button" style="background-color: rgba(255,255,255,0.3); color: white;">Contact Us</button>
-			</a>
-		</div>
-	</div>
-	{% endif %}
+	</section>
 	{% include 'ui_snippets/footer.html' %}
 </main>
 {% endblock %}

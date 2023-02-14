@@ -2,6 +2,7 @@
 /* ------------------------------------------------------------------------------------------- */
 
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;700&family=Ma+Shan+Zheng&family=Permanent+Marker&family=Poppins:wght@100&family=Roboto+Mono&family=Sofia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
 
 /* ------------------------------------------------------------------------------------------- */
 
@@ -68,6 +69,12 @@ br
     user-select: none;
 }
 
+p
+{
+    font-weight: 100;
+    font-family: Helvetica, sans-serif;
+}
+
 .main
 {
     background-color: white;
@@ -119,7 +126,7 @@ svg
 .wrapper
 {
     max-width: 1366px;
-    width: fit-content;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -146,7 +153,9 @@ svg
 .box h1
 {
     font-family: Helvetica, sans-serif;
-    color: var(--mf-purple);
+    /* color: var(--mf-purple); */
+    color: var(--mf-dark-gray);
+    color: inherit;
     font-size: 20px;
     font-weight: bold;
     margin: 30px;
@@ -338,7 +347,7 @@ nav
 
 #nav-wrapper
 {
-    color: white;
+    color: black;
     z-index: 9999;
     /* position: fixed; */
     position: absolute;
@@ -396,6 +405,7 @@ nav
 .nav-search
 {
     font-family: Arial, Helvetica, sans-serif;
+    height: 37px;
     width: 220px;
     color: inherit;
     border: 1px solid rgba(200, 200, 200, 0.4) !important;
@@ -405,7 +415,7 @@ nav
     padding-top: 4px;
     padding-bottom: 4px;
     margin-right: 20px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .mobile-button svg
@@ -428,9 +438,9 @@ nav
     height: 100vh;
     overflow: hidden; 
     margin: 0px auto;
-    z-index: -1;
+    /* z-index: -1; */
     user-select: none;
-    position: sticky;
+    /* position: sticky; */
     top: 0;
     display: flex;
     justify-content: center;
@@ -457,7 +467,8 @@ nav
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    font-family: 'Permanent Marker', cursive;
+    /* font-family: 'Permanent Marker', cursive; */
+    font-family: 'Cairo';
     /* 'Ma Shan Zheng', */
     /* font-size: 110px;
     line-height: 110px; */
@@ -474,6 +485,7 @@ nav
 #header h1 .mask
 {
     height: 55px;
+    font-weight: 100;
     font-family: 'Cairo';
     font-size: 40px;
     line-height: 55px;
@@ -485,7 +497,7 @@ nav
 
 #header h1 .mask span
 {
-    color: white;
+    color: var(--mf-neutral-gray);
     display: block;
     box-sizing: border-box;
     animation: swift-up 3.6s 2s ease-in-out forwards;
@@ -500,7 +512,7 @@ nav
     width: 100vw;
     height: 100vh;
     background-color: transparent;
-    z-index: -10;
+    z-index: -1;
     overflow: hidden;
 }
 
@@ -529,7 +541,7 @@ nav
 
 #down
 {
-    color: white;
+    color: inherit;
     position: sticky;
     left: calc(50% - 18px);
     bottom: 5px;
@@ -567,7 +579,7 @@ nav
     height: fit-content;
     background-color: var(--mf-background-white);
     border-top: 1px solid var(--mf-border-gray);
-    z-index: 999;
+    /* z-index: 999; */
     overflow: hidden;
     text-align: center;
 }
@@ -575,6 +587,9 @@ nav
 #logo-box
 {
     margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     /* transition: all 0.4s ease-in-out;
     transform: translateY(100px);
     opacity: 0.2; */
@@ -665,14 +680,35 @@ nav
 #main-content
 {
     width: 100vw;
-    z-index: 999;
+    /* z-index: 999; */
     margin: 0;
     height: fit-content;
     padding: 24px;
     padding-top: 48px;
     background-color: var(--mf-background-white);
-    border-top: 1px dashed var(--mf-border-gray);
+    /* border-top: 1px dashed var(--mf-border-gray); */
     overflow: hidden;
+}
+
+#passion-box
+{
+    background-color: #ea5465;
+}
+
+#ai-box
+{
+    background-image: url("../images/bk1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.shock-box h1
+{
+    color: white;
+    font-size: 90px;
+    /* font-family: 'Space Grotesk'; */
+    /* font-family: 'Cairo', Helvetica, Arial, sans-serif; */
 }
 
 #img-github
@@ -701,6 +737,7 @@ nav
     height: fit-content;
     padding-top: 100px;
     padding-bottom: 100px;
+    /* border-radius: 24px; */
 }
 
 #join-contact h1
@@ -790,13 +827,13 @@ nav
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 320px;
+    width: 340px;
     height: fit-content;
     background-color: transparent;
     border-radius: 10px;
     z-index: 10001;
     text-align: center;
-    box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.4);
+    /* box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.4); */
     border: 0.5px solid var(--mf-border-dark-gray);
     font-family: Arial, Helvetica, sans-serif;
     color: var(--mf-dark-gray);
@@ -847,6 +884,8 @@ nav
 
 .line-between
 {
+    margin-top: 25px;
+    margin-bottom: 10px;
     width: 100%;
     height: 0.5px;
     border-top: 0.5px solid rgba(139, 139, 139, 0.5);
@@ -881,8 +920,8 @@ label
 input
 {
     width: 100%;
-    height: 37px;
-    border-radius: 3px !important;
+    height: 45px;
+    border-radius: 7px !important;
     border: none !important;
     padding-left: 10px;
     padding-right: 10px;
@@ -939,6 +978,7 @@ textarea:focus
 {
     width: 100%;
     background-color: rgba(139, 139, 139, 0.15);
+    border-radius: 7px;
     /* background-image: url('../images/bk4.jpg');
     background-size: cover;
     background-position: center;
@@ -970,6 +1010,11 @@ textarea:focus
     	background-color: var(--mf-background-dark-gray);
     }
 
+    #nav-wrapper
+    {
+        color: white;
+    }
+
     .main
     {
     	/* background-color: var(--mf-background-black); */
@@ -986,6 +1031,11 @@ textarea:focus
     {
         /* background-color: var(--mf-background-black); */
         background-color: #101010;
+    }
+
+    .box h1
+    {
+        color: var(--mf-light-gray);
     }
 
     .box p
@@ -1023,7 +1073,7 @@ textarea:focus
 
     #main-content
     {
-        border-top: 1px dashed var(--mf-border-black);
+        /* border-top: 1px dashed var(--mf-border-black); */
         /* background-color: var(--mf-background-dark-gray); */
         background-color: black;
     }
@@ -1125,7 +1175,13 @@ textarea:focus
 
     #back_svg svg
     {
-        color: rgba(0, 0, 0, 0.2) !important;
+        color: rgba(0, 0, 0, 0.1) !important;
+    }
+
+    #back
+    {
+        /* background-color: rgb(24, 24, 24) !important; */
+        background-color: rgb(10, 10, 10) !important;
     }
 }
 
@@ -1146,10 +1202,10 @@ textarea:focus
 
 @media screen and (max-width: 991px) {
     
-    .box
+    /* .box
     {
         height: fit-content !important;
-    }
+    } */
 
     #nav-links .mobile-hide
     {
@@ -1324,6 +1380,11 @@ textarea:focus
         padding: 15px !important;
         font-size: 14px !important;
     }
+
+    .shock-box h1
+    {
+        font-size: 80px;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -1335,8 +1396,8 @@ textarea:focus
 
     #header h1
     {
-        font-size: 55px;
-        line-height: 60px;
+        font-size: 45px;
+        line-height: 50px;
     }
 
     #header h1 .mask
@@ -1372,7 +1433,7 @@ textarea:focus
 
     #main-content
     {
-        padding: 16px;
+        padding: 0;
         padding-bottom: 0;
     }
 
@@ -1398,9 +1459,14 @@ textarea:focus
         font-size: 45px;
         line-height: 45px;
     }
+
+    .shock-box h1
+    {
+        font-size: 55px;
+    }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 340px) {
 
     .dialog-content
     {
@@ -1598,7 +1664,7 @@ textarea:focus
     height: 100vh;
     overflow: hidden;
     z-index: 0;
-    background-color: black;
+    background-color: rgb(250, 250, 250);
     /* background-color: rgb(64, 21, 96); */
     /* background-image: 
         radial-gradient(closest-side, rgb(29, 58, 126), rgba(235, 105, 78, 0)),
@@ -1608,9 +1674,9 @@ textarea:focus
         radial-gradient(closest-side, rgb(99, 46, 102), rgba(248, 192, 147, 0));
     background-size: 130vmax 130vmax, 80vmax 80vmax, 90vmax 90vmax, 110vmax 110vmax, 90vmax 90vmax;
     background-position: -80vmax -80vmax, 60vmax -30vmax, 10vmax 10vmax, -30vmax -10vmax, 50vmax 50vmax;
-    background-repeat: no-repeat;
-    background-color: rgb(15, 6, 32); */
-    background-image: url("../images/bk2.jpg");
+    background-repeat: no-repeat; */
+    /* background-color: rgb(15, 6, 32); */
+    background-image: url("../images/flow.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1633,7 +1699,7 @@ textarea:focus
 #back_svg svg
 {
     /* color: rgba(255, 255, 255, 0.1); */
-    color: rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.05);
     /* transform: scale(2);
     opacity: 0;
     animation: shrink 1.5s 0.5s ease-in-out forwards; */
