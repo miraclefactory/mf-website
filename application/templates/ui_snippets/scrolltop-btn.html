@@ -1,8 +1,5 @@
-    <style>
-        html{
-            scroll-behavior: smooth;
-        }   
-        .scrolltop {
+<style> 
+    .scrolltop {
         position: fixed;
         left: 15px;
         bottom: 5px;
@@ -31,16 +28,16 @@
         opacity: 0.75;
         transform: translateY(-10px);
     }
-    </style>
-    <a href="#" class="scrolltop" id="scroll-top" aria-label="top">
-        <i class="bx bx-chevrons-up scrolltop__icon"></i> 
-    </a>
-    <script>
-        function scrollTop(){
+</style>
+<a href="#" class="scrolltop" id="scroll-top" aria-label="top">
+    <i class="bx bx-chevrons-up scrolltop__icon"></i> 
+</a>
+<script>
+    function scrollTop() {
         const scrollTop = document.getElementById('scroll-top')
         if(this.scrollY >= 560)
             scrollTop.classList.add("scroll-top");
         else scrollTop.classList.remove("scroll-top")
     }
     window.addEventListener("scroll", scrollTop)
-    </script>
+</script>
