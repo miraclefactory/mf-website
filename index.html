@@ -26,13 +26,12 @@
 					<a href="index.html"><img src="static/images/mf-trans.webp" width="36" alt="mf-logo" /></a>
 					<a class="mobile-hide" href="https://github.com/MiracleFactory" target="_blank">GitHub</a>
 					<a class="mobile-hide" href="https://github.com/orgs/MiracleFactory/repositories" target="_blank">Projects</a>
-					<a class="mobile-hide" href="{{url_for('people')}}">People</a>
-					<a class="mobile-hide" href="{{url_for('temp')}}">Research</a>
-					<a class="mobile-hide" href="{{url_for('temp')}}">Campus</a>
+					<a class="mobile-hide" href="temp.html">People</a>
+					<a class="mobile-hide" href="temp.html">Research</a>
+					<a class="mobile-hide" href="temp.html">Campus</a>
 				</div>
 				<div class="nav-widgets">
 					<input class="nav-search" id="desktop-search" type="text" placeholder="Search"/>
-					<!-- <a href="{{url_for('login')}}" id="desktop-login" class="nav-login">Sign in</a> -->
 					<a href="{{url_for('join')}}"><button class="nav-join">Join Us</button></a>
 					<button class="mobile-button hide" onclick="showMobileNav();">
 						<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -53,14 +52,14 @@
 						<div id="mobile-links">
 							<a href="https://github.com/MiracleFactory" target="_blank">GitHub</a>
 							<a href="https://github.com/orgs/MiracleFactory/repositories" target="_blank">Projects</a>
-							<a href="{{url_for('people')}}">People</a>
-							<a href="{{url_for('temp')}}">Research</a>
-							<a href="{{url_for('temp')}}">Campus</a>
+							<a href="temp.html">People</a>
+							<a href="temp.html">Research</a>
+							<a href="temp.html">Campus</a>
 							<input class="nav-search" id="mobile-search" type="text" placeholder="Search"/>
 						</div>
 						<div id="mobile-support">
 							<a href="https://github.com/MiracleFactory/MF-Project-Official-Website/issues/new/choose" target="_blank">Report Problems</a>&nbsp;&nbsp;·&nbsp;&nbsp;
-							<a href="{{ url_for('temp') }}">Accessibility</a>&nbsp;&nbsp;·&nbsp;&nbsp;
+							<a href="temp.html">Accessibility</a>&nbsp;&nbsp;·&nbsp;&nbsp;
 							<a href="https://github.com/MiracleFactory/.github/blob/main/CODE_OF_CONDUCT.md" target="_blank">Code of Conduct</a>
 						</div>
 					</div>
@@ -310,7 +309,7 @@
 								</div>
 							</p>
 							<p>
-								<a class="link" href="{{ url_for('temp') }}" target="_blank">
+								<a class="link" href="temp.html" target="_blank">
 									<button class="btn btn-primary">
 										Research Page
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
@@ -343,10 +342,10 @@
 								The form of this support is elaborate and is built around the needs of the students.
 								We are also trying to provide a platform for Campus Experts to share their knowledge and
 								experience with other students
-								through <a href="{{ url_for('temp') }}"><i>Campus Expert Seminars</i></a>.
+								through <a href="temp.html"><i>Campus Expert Seminars</i></a>.
 							</p>
 							<p>
-								<a class="link" href="{{ url_for('temp') }}" target="_blank">
+								<a class="link" href="temp.html" target="_blank">
 									<button class="btn btn-primary">
 										Campus Page
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
