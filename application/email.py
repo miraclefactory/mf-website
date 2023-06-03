@@ -2,9 +2,9 @@
 # @file: email.py
 # @time: 2022/07/15
 # @author: Yuelin Xin
-# @email: yuelinxin@miraclefactory.co
+# @email: yuelinxin@miraclefactory.ai
 # @organisation: Miracle Factory
-# @url: https://miraclefactory.co
+# @url: https://miraclefactory.ai
 # ///////////////////////////////////////////////////////////////////////////
 
 # ///////////////////////////////////////////////////////////////////////////

@@ -5,7 +5,7 @@
 # ///////////////////////////////////////////////////////////////////////////
 
 # base python image
-FROM python
+FROM python:3.11.2-alpine3.17
 
 # flask working directory
 WORKDIR /application

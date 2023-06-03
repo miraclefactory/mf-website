@@ -17,7 +17,7 @@
 * upload_folder (5)
 
 
-> (1) This should be your server domain, e.g. `http://localhost:5000/`, `https://miraclefactory.co/`, **don't forget the trailing slash!**
+> (1) This should be your server domain, e.g. `http://localhost:5000/`, `https://miraclefactory.ai/`, **don't forget the trailing slash!**
 
 > (2) This is a list of all the authentication codes for admin login, use the same syntax as a Python list, e.g. `["123456", "abcdef"]`.
 

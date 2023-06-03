@@ -15,7 +15,7 @@ def test_join_success():
     with app.test_client() as client:
         response = client.post('/join', data=dict(
             dialog_join_name='TestUser',
-            dialog_join_email='test@miraclefactory.co',
+            dialog_join_email='test@miraclefactory.ai',
             dialog_join_password='TestPassword123',
             dialog_join_password_confirm='TestPassword123',
             email1='',
@@ -30,7 +30,7 @@ def test_join_illegal_name():
     with app.test_client() as client:
         response = client.post('/join', data=dict(
             dialog_join_name='a%$&',
-            dialog_join_email='test@miraclefactory.co',
+            dialog_join_email='test@miraclefactory.ai',
             dialog_join_password='TestPassword123',
             dialog_join_password_confirm='TestPassword123',
             email1='',
@@ -54,7 +54,7 @@ def test_join_duplicate_email():
     with app.test_client() as client:
         response = client.post('/join', data=dict(
             dialog_join_name='TestUser',
-            dialog_join_email='yuelinxin@miraclefactory.co',
+            dialog_join_email='yuelinxin@miraclefactory.ai',
             dialog_join_password='TestPassword123',
             dialog_join_password_confirm='TestPassword123',
             email1='',
@@ -66,7 +66,7 @@ def test_join_illegal_password():
     with app.test_client() as client:
         response = client.post('/join', data=dict(
             dialog_join_name='TestUser',
-            dialog_join_email='test@miraclefactory.co',
+            dialog_join_email='test@miraclefactory.ai',
             dialog_join_password='test',
             dialog_join_password_confirm='test',
             email1='',
@@ -78,7 +78,7 @@ def test_join_password_mismatch():
     with app.test_client() as client:
         response = client.post('/join', data=dict(
             dialog_join_name='TestUser',
-            dialog_join_email='test@miraclefactory.co',
+            dialog_join_email='test@miraclefactory.ai',
             dialog_join_password='TestPassword123',
             dialog_join_password_confirm='TestPassword1234',
             email1='',
@@ -90,7 +90,7 @@ def test_join_no_confirmation_password():
     with app.test_client() as client:
         response = client.post('/join', data=dict(
             dialog_join_name='TestUser',
-            dialog_join_email='test@miraclefactory.co',
+            dialog_join_email='test@miraclefactory.ai',
             dialog_join_password='TestPassword123',
             dialog_join_password_confirm='',
             email1='',

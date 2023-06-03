@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="{{url_for('static', filename='CSS/macOS-window.css')}}">
 <script src="{{url_for('static', filename='JS/index.js')}}"></script>
 <!-- <meta name="theme-color" content="#0f0620" /> -->
+<meta name="theme-color" content="#000" />
 {% endblock %}
 {% block content %}
 {% include "ui_snippets/navbar.html" %}
@@ -25,22 +26,24 @@
 			<div class="mt-3">
 				{% if not g.user %}
 				<a href="{{url_for('join')}}">
-					<button class="btn btn-primary" style="font-size: 20px; padding-left: 25px; padding-right: 25px;">
+					<!-- <button class="btn btn-primary" style="font-size: 20px; padding-left: 25px; padding-right: 25px;">
 						Join Us
-					</button>
+					</button> -->
+					<button class="rect-button" style="background-color: white; color: black; font-size: 18px; padding-left: 25px; padding-right: 25px; line-height: 30px; width: fit-content;">Join Our Community</button>
 				</a>
-				<a href="{{url_for('contact')}}">
+				<!-- <a href="{{url_for('contact')}}">
 					<button class="btn btn-outline-primary"
 						style="font-size: 20px; padding-left: 25px; padding-right: 25px;">
 						Contact Us
 					</button>
-				</a>
+				</a> -->
 				{% else %}
 				<a href="{{url_for('temp')}}">
-					<button class="btn btn-outline-primary"
-						style="font-size: 20px; padding-left: 25px; padding-right: 25px;">
+					<button class="rect-button" style="background-color: rgba(255,255,255,0.3); color: white; padding-left: 25px; padding-right: 25px; line-height: 30px; width: fit-content;">Explore Pages</button>
+					<!-- <button class="btn btn-outline-primary"
+						style="font-size: 20px; padding-left: 25px; padding-right: 25px; ">
 						Explore Pages
-					</button>
+					</button> -->
 				</a>
 				{% endif %}
 			</div>
@@ -48,7 +51,9 @@
 	</div>
 </div>
 <div id="cover">
-	<!-- <div id="image-cover"></div> -->
+	<div id="image-cover" style="text-align: center;">
+		<img style="transform: translateY(69vh);" src="{{url_for('static', filename='images/glow_3.png')}}" alt="cover" width="1200"/>
+	</div>
 	<div id="back"></div>
 	<svg id="down" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor"
 		class="bi bi-chevron-down" viewBox="0 0 16 16">

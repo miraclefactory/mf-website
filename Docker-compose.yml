@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    container_name: official-website
+    command: sh run.sh
+    ports:
+      - 9000:9000
+    volumes:
+      - .:/application

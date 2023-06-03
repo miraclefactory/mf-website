@@ -3,11 +3,11 @@
 ![www miraclefactory co_](https://user-images.githubusercontent.com/89094576/181905465-13b919fb-b708-4ab3-b7d1-cda12a4d5537.png)
 
 ## Visit Our Site 🌐
-You can visit our website at [**miraclefactory.co**](https://miraclefactory.co/).   
+You can visit our website at [**miraclefactory.ai**](https://miraclefactory.ai/).   
 Learn our goals and ideals, help us build a better community and a better world!  
 Feel free to join our community and put your ingenuity to use :)
 > **Notice:**   
-> Latest updates and experimental features are available at [**dev.miraclefactory.co**](https://dev.miraclefactory.co).
+> Latest updates and experimental features are available at [**dev.miraclefactory.ai**](https://dev.miraclefactory.ai).
 
 ## You Can Contribute! 🌟
 This is the public repo for the official website of Miracle Factory. We welcome every good idea, what ever the form. 
