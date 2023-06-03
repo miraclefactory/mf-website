@@ -56,16 +56,23 @@ def configure_app(app):
     # app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 43200     #deploy(12 hours cache)
 
     # mail configuration
-    app.config['MAIL_SERVER'] = config('email_server', '')
-    app.config['MAIL_PORT'] = config('email_port', '')
+    app.config['MAIL_SERVER'] = config('email_server', 
+                                       default=os.environ.get('MAIL_SERVER', ''))
+    app.config['MAIL_PORT'] = config('email_port', 
+                                     default=os.environ.get('MAIL_PORT', ''))
     app.config['MAIL_USE_SSL'] = True
-    app.config['MAIL_USERNAME'] = config('email_username', '')
-    app.config['MAIL_PASSWORD'] = config('email_password', '')
-    app.config['SECRET_KEY'] = config('secret_key', '')
-    app.config['SECURITY_PASSWORD_SALT'] = config('security_password_salt', '')
+    app.config['MAIL_USERNAME'] = config('email_username', 
+                                         default=os.environ.get('MAIL_USERNAME', ''))
+    app.config['MAIL_PASSWORD'] = config('email_password', 
+                                         default=os.environ.get('MAIL_PASSWORD', ''))
+    app.config['SECRET_KEY'] = config('secret_key', 
+                                      default=os.environ.get('SECRET_KEY', ''))
+    app.config['SECURITY_PASSWORD_SALT'] = config('security_password_salt', 
+                                                  default=os.environ.get('SECURITY_PASSWORD_SALT', ''))
 
     # database configuration
-    app.config['SQLALCHEMY_DATABASE_URI'] = config('database_uri', '')
+    app.config['SQLALCHEMY_DATABASE_URI'] = config('database_uri', 
+                                                   default=os.environ.get('SQLALCHEMY_DATABASE_URI', ''))
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     # save uploaded files configuration
@@ -79,8 +86,10 @@ def configure_app(app):
     # flask_sijax.Sijax(app)
 
     # github oauth configuration
-    github_blueprint = make_github_blueprint(client_id=config('github_client_id', ''), 
-                                            client_secret=config('github_client_secret', ''))
+    github_blueprint = make_github_blueprint(client_id=config('github_client_id', 
+                                                              default=os.environ.get('GITHUB_CLIENT_ID', '')), 
+                                             client_secret=config('github_client_secret', 
+                                                                  default=os.environ.get('GITHUB_CLIENT_SECRET', '')))
     app.register_blueprint(github_blueprint)
 
     # debug configuration
@@ -89,10 +98,10 @@ def configure_app(app):
 def init_root(db):
     # from application.user.models import joins, teams
     if joins.query.filter_by(id=1, is_admin=True).first() is None:
-        root_user = joins(config('root_user_name', ''), 
-                        config('root_user_email', ''), 
+        root_user = joins(config('root_user_name', default=os.environ.get('ROOT_USER_NAME', '')), 
+                        config('root_user_email', default=os.environ.get('ROOT_USER_EMAIL', '')), 
                         'join', 
-                        config('root_user_password', ''))
+                        config('root_user_password', default=os.environ.get('ROOT_USER_PASSWORD', '')))
         root_user.is_admin = True
         description = 'This is the team made up by all the members of the Miracle Factory community, share your ideas with the other members!'
         root_team = teams(name='Miracle Factory Root', description=description, owner=1)
