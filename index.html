@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An AI development and research community. The Land of Dream.">
+	<meta name="google-site-verification" content="jMgOBqBBFyfaG2rFQDOeJtQ-NSCTNWZgg5yIPA-5Bbk" />
+    <title>Miracle Factory</title>
+	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/main.css">
+	<link rel="icon" href="static/images/mf-trans.webp">
+	<script src="static/js/basic.js"></script>
+	<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="static/css/macOS-window.css">
+	<script src="static/js/index.js"></script>
+	<meta name="theme-color" content="#000" />
+</head>
+<body>
+	<div id="nav-wrapper">
+		<div class="wrapper" style="width: 100% !important;">
+			<nav id="topbar">
+				<div id="nav-links">
+					<a href="index.html"><img src="static/images/mf-trans.webp" width="36" alt="mf-logo" /></a>
+					<a class="mobile-hide" href="https://github.com/MiracleFactory" target="_blank">GitHub</a>
+					<a class="mobile-hide" href="https://github.com/orgs/MiracleFactory/repositories" target="_blank">Projects</a>
+					<a class="mobile-hide" href="{{url_for('people')}}">People</a>
+					<a class="mobile-hide" href="{{url_for('temp')}}">Research</a>
+					<a class="mobile-hide" href="{{url_for('temp')}}">Campus</a>
+				</div>
+				<div class="nav-widgets">
+					<input class="nav-search" id="desktop-search" type="text" placeholder="Search"/>
+					<!-- <a href="{{url_for('login')}}" id="desktop-login" class="nav-login">Sign in</a> -->
+					<a href="{{url_for('join')}}"><button class="nav-join">Join Us</button></a>
+					<button class="mobile-button hide" onclick="showMobileNav();">
+						<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+							<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+						</svg>
+					</button>
+				</div>
+				<div class="hide" id="mobile-nav">
+					<div class="nav-card">
+						<div class="nav-widgets" id="mobile-widgets">
+							<a href="{{url_for('join')}}"><button class="nav-join">Join Us</button></a>
+							<button class="mobile-button" onclick="closeMobileNav();">
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+									<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+								</svg>
+							</button>
+						</div>
+						<div id="mobile-links">
+							<a href="https://github.com/MiracleFactory" target="_blank">GitHub</a>
+							<a href="https://github.com/orgs/MiracleFactory/repositories" target="_blank">Projects</a>
+							<a href="{{url_for('people')}}">People</a>
+							<a href="{{url_for('temp')}}">Research</a>
+							<a href="{{url_for('temp')}}">Campus</a>
+							<input class="nav-search" id="mobile-search" type="text" placeholder="Search"/>
+						</div>
+						<div id="mobile-support">
+							<a href="https://github.com/MiracleFactory/MF-Project-Official-Website/issues/new/choose" target="_blank">Report Problems</a>&nbsp;&nbsp;·&nbsp;&nbsp;
+							<a href="{{ url_for('temp') }}">Accessibility</a>&nbsp;&nbsp;·&nbsp;&nbsp;
+							<a href="https://github.com/MiracleFactory/.github/blob/main/CODE_OF_CONDUCT.md" target="_blank">Code of Conduct</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<style> 
+		.scrolltop {
+			position: fixed;
+			left: 15px;
+			bottom: 5px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: .5rem;
+			background: inherit;
+			border: 1px solid var(--mf-neutral-gray-6);
+			border-radius: .4rem;
+			z-index: 10;
+			transition: .4s;
+			visibility: hidden;
+			text-decoration: none;
+			opacity: 0;
+		}
+		.scrolltop:hover {
+			opacity: 1;
+		}
+		.scrolltop__icon {
+			font-size: 1.8rem;
+			color: inherit;
+		}
+		.scroll-top {
+			visibility: visible;
+			opacity: 0.75;
+			transform: translateY(-10px);
+		}
+	</style>
+	<a href="#" class="scrolltop" id="scroll-top" aria-label="top">
+		<i class="bx bx-chevrons-up scrolltop__icon"></i> 
+	</a>
+	<script>
+		function scrollTop() {
+			const scrollTop = document.getElementById('scroll-top')
+			if(this.scrollY >= 560)
+				scrollTop.classList.add("scroll-top");
+			else scrollTop.classList.remove("scroll-top")
+		}
+		window.addEventListener("scroll", scrollTop)
+	</script>
+	<div id="header">
+		<div>
+			<h1 translate="no">
+				<nobr>Let's dream it big,</nobr><br />
+				<nobr>supercharging AI.</nobr>
+				<!-- The Land<br/>of Dream -->
+				<div class="mask">
+					<span>Research,</span>
+					<span>Develop,</span>
+					<span>Deploy,</span>
+					<span>At The Land of Dream.</span>
+				</div>
+				<div class="mt-3">
+					<a href="{{url_for('join')}}">
+						<button class="rect-button" style="background-color: white; color: black; font-size: 18px; padding-left: 25px; padding-right: 25px; line-height: 30px; width: fit-content;">Join Our Community</button>
+					</a>
+				</div>
+			</h1>
+		</div>
+	</div>
+	<div id="cover">
+		<div id="image-cover" style="text-align: center;">
+			<img style="transform: translateY(69vh);" src="static/images/glow_3.png" alt="cover" width="1200"/>
+		</div>
+		<div id="back"></div>
+		<svg id="down" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor"
+			class="bi bi-chevron-down" viewBox="0 0 16 16">
+			<path fill-rule="evenodd"
+				d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+		</svg>
+	</div>
+	<div id="bookmark">
+		&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16" fill="currentColor">
+			<path d="M305.8 2.076C314.4 5.932 320 14.52 320 24V64H336C406.7 64 464 121.3 464 192V358.7C492.3 371 512 399.2 512 432C512 476.2 476.2 512 432 512C387.8 512 352 476.2 352 432C352 399.2 371.7 371 400 358.7V192C400 156.7 371.3 128 336 128H320V168C320 177.5 314.4 186.1 305.8 189.9C297.1 193.8 286.1 192.2 279.9 185.8L199.9 113.8C194.9 109.3 192 102.8 192 96C192 89.2 194.9 82.71 199.9 78.16L279.9 6.161C286.1-.1791 297.1-1.779 305.8 2.077V2.076zM432 456C445.3 456 456 445.3 456 432C456 418.7 445.3 408 432 408C418.7 408 408 418.7 408 432C408 445.3 418.7 456 432 456zM112 358.7C140.3 371 160 399.2 160 432C160 476.2 124.2 512 80 512C35.82 512 0 476.2 0 432C0 399.2 19.75 371 48 358.7V153.3C19.75 140.1 0 112.8 0 80C0 35.82 35.82 .0004 80 .0004C124.2 .0004 160 35.82 160 80C160 112.8 140.3 140.1 112 153.3V358.7zM80 56C66.75 56 56 66.75 56 80C56 93.25 66.75 104 80 104C93.25 104 104 93.25 104 80C104 66.75 93.25 56 80 56zM80 408C66.75 408 56 418.7 56 432C56 445.3 66.75 456 80 456C93.25 456 104 445.3 104 432C104 418.7 93.25 408 80 408z"/>
+		</svg>&nbsp;&nbsp;
+		Help us build a better website!&nbsp;
+		<a href="https://github.com/MiracleFactory/MF-Project-Official-Website" target="_blank">
+			<button class="dialog-button-yes">Alright!</button>
+		</a>
+		<button class="dialog-button-no" onclick="closeBookmark();">No, thanks</button>
+	</div>
+	<main class="main" role="main">
+		<section id="intro">
+			<div class="wrapper" id="intro-wrapper">
+				<div id="logo-box">
+					<img src="static/images/mf-color.svg" height="18px" alt="MF-Logo" />
+					&nbsp;&nbsp;
+					<h4>Miracle Factory</h4>
+				</div>
+				<h1 id="intro-title">A Good Place<br />To Dream Boldly</h1>
+				<div id="intro-words">
+					<p>
+						We are a community of creators, inventors, dreamers and artists,
+						devoted to building AI systems and conceptual products that enrich people's lives.
+						We are the believers of our own ideas, the missionaries of knowledge and science,
+						the sailors on the ship of discoveries.
+						We were born to change the world.
+					</p>
+					<p>
+						The one and only Miracle Factory.
+					</p>
+					<p>
+						<a class="link" href="#join-contact">
+							Become one of us<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+								fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+								<path fill-rule="evenodd"
+									d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+							</svg></a>
+					</p>
+				</div>
+			</div>
+		</section>
+		<section id="main-content">
+			<div class="wrapper">
+				<div class="row g-4 m-3 mb-5">
+					<div class="col-md-12">
+						<h2>
+							Your Community, Your Play.
+						</h2>
+					</div>
+					<div class="col-md-4">
+						<div class="box h-100">
+							<h1><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+								<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+							  </svg>
+							</h1>
+							<h1>GitHub-based</h1>
+							<p>
+								Some quick example text to build on the card title and make up the bulk of the card's content.
+								Some quick example text to build on the card title and make up the bulk of the card's content.
+							</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="box h-100">
+							<h1><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-kanban-fill" viewBox="0 0 16 16">
+								<path d="M2.5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-11zm5 2h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm-5 1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm9-1h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/>
+							  </svg></h1>
+							<h1>Personal Projects</h1>
+							<p>
+								Some quick example text to build on the card title and make up the bulk of the card's content.
+							</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="box h-100">
+							<h1>
+								<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+									<path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+								  </svg>
+							</h1>
+							<h1>Community Standards</h1>
+							<p>
+								Some quick example text to build on the card title and make up the bulk of the card's content.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="row g-4 m-3">
+					<div class="col-md-12 align-left mt-5">
+						<h2>
+							Project & Passion Driven Development
+						</h2>
+					</div>
+					<div class="col-md-12">
+						<p>
+							Here at Miracle Factory, we are pushing the idea of project driven development.
+							Every project is the result of a passion and an idea.
+							Apart from following a simple <a
+								href="https://github.com/MiracleFactory/.github/blob/main/CODE_OF_CONDUCT.md"
+								target="_blank"><i>Code of Conduct</i></a>,
+							the community has no restriction on what is being built,
+							the developers are only limited by their own imagination.
+							We are trying to build an open, enthusiastic and equal atmosphere where everyone can create
+							their own project and are welcomed to contribute to other projects.
+						</p>
+					</div>
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+						<div class="box h-100 shock-box" id="passion-box">
+							<h1>
+								<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="#ffffff" class="bi bi-hearts" viewBox="0 0 16 16">
+									<path fill-rule="evenodd" d="M4.931.481c1.627-1.671 5.692 1.254 0 5.015-5.692-3.76-1.626-6.686 0-5.015Zm6.84 1.794c1.084-1.114 3.795.836 0 3.343-3.795-2.507-1.084-4.457 0-3.343ZM7.84 7.642c2.71-2.786 9.486 2.09 0 8.358-9.487-6.268-2.71-11.144 0-8.358Z"/>
+									</svg><br/>
+								Building with passion and love.
+							</h1>
+							<!-- <img id="img-github" name="img-github" /> -->
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+						<div class="box h-100">
+							<h1 style="color: #ea5465;">Love + AI + Team = Power AI</h1>
+							<p>
+								We love developing AI systems, it's a part of who we are. 
+								Through working together as a team, we were able to create 
+								some amazing AI projects, taking AI systems into the undiscovered 
+								countries. Such efforts delivered projects like Submarine HSAOIS, 
+								a powerful and flexible motherboard production defect detection 
+								and analysis system.
+							</p>
+							<p>
+								<a class="link" href="https://github.com/MiracleFactory" target="_blank">
+									<button class="btn btn-primary">
+										Visit GitHub Homepage
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+											<path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+											<path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+										  </svg>
+									</button></a>
+							</p>
+							<img id="img-project" name="img-project" />
+						</div>
+					</div>
+				</div>
+				<div class="row g-4 m-3 mt-5">
+					<div class="col-md-12 align-left mt-5">
+						<h2>
+							State of the Art AI Research
+						</h2>
+					</div>
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+						<div class="box h-100">
+							<h1>State of the Art AI Research</h1>
+							<p>
+								Besides AI software development, Miracle Factory is also the home of some of the most
+								exciting and leading AI research projects.
+								Miracle Factory and her current research fellows are working on a number of promising
+								projects that can potentially be of use to all walks of life,
+								and we are waiting for more aspiring researchers to join our cause.
+								<div class="para-wrapper" style="margin-left: 30px; margin-right: 30px;">
+									Our Latest Research Project:<br />
+									<a href="https://github.com/MiracleFactory/MF-Research-2SDS" target="_blank">
+										<i>
+											Scene Separation & Data Selection: Temporal Segmentation Algorithm for Real-time
+											Video Stream Analysis
+										</i>
+									</a>
+								</div>
+							</p>
+							<p>
+								<a class="link" href="{{ url_for('temp') }}" target="_blank">
+									<button class="btn btn-primary">
+										Research Page
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+											<path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+											<path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+										  </svg>
+									</button></a>
+							</p>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+						<div class="box h-100 shock-box" id="ai-box">
+							<h1>
+								<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="currentColor" class="bi bi-braces" viewBox="0 0 16 16">
+									<path d="M2.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C3.25 2 2.49 2.759 2.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6zM13.886 7.9v.163c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456V7.332c-1.114 0-1.49-.362-1.49-1.456V4.352C13.51 2.759 12.75 2 11.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6z"/>
+								  </svg><br/>
+								Advancing AI; line by line;
+							</h1>
+							<!-- <img id="img-github" name="img-github" /> -->
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+						<div class="box h-100">
+							<h1>Campus Experts Support & Seminars</h1>
+							<p>
+								Inspired by the <a href="https://education.github.com/experts" target="_blank"><i>GitHub
+										Campus Expert project</i></a>,
+								we are also trying to gather a community of campus and academic leaders who can support the
+								university communities and their students.
+								The form of this support is elaborate and is built around the needs of the students.
+								We are also trying to provide a platform for Campus Experts to share their knowledge and
+								experience with other students
+								through <a href="{{ url_for('temp') }}"><i>Campus Expert Seminars</i></a>.
+							</p>
+							<p>
+								<a class="link" href="{{ url_for('temp') }}" target="_blank">
+									<button class="btn btn-primary">
+										Campus Page
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+											<path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+											<path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+										  </svg>
+									</button></a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="row m-2 mt-5">
+					<div class="col-md-12">
+						<div class="box" id="join-contact" style="text-align: center;">
+							<!-- <h1 translate="no">
+								Once more unto the breach, dear friends, once more.
+								<span>Why join the navy if you can be pirate. Why be king if you can be god.</span>
+							</h1> -->
+							<h1 translate="no">
+								Join the world's most<br />talented dreamers.
+							</h1>
+							<a href="{{url_for('join')}}">
+								<button class="rect-button" style="background-color: white; color: black;">Join Us</button>
+							</a>
+							<a href="{{url_for('contact')}}">
+								<button class="rect-button" style="background-color: rgba(255,255,255,0.3); color: white;">Contact
+									Us</button>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<style>
+			body {
+				font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+			}
+		
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			.h1,
+			.h2,
+			.h3,
+			.h4,
+			.h5,
+			.h6 {
+				font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+			}
+		
+			a {
+				-webkit-transition: .3s all ease;
+				-o-transition: .3s all ease;
+				transition: .3s all ease;
+			}
+		
+			a,
+			a:hover {
+				text-decoration: none !important;
+			}
+		
+			.content {
+				height: 70vh;
+			}
+		
+			.footer-14398 {
+				padding: 7rem 0;
+				background: #000;
+				color: #777;
+			}
+		
+			.footer-14398 .footer-site-logo {
+				color: #fff;
+				font-size: 26px;
+				font-weight: bold;
+				margin-bottom: 30px;
+				display: block;
+			}
+		
+			.footer-14398 h3 {
+				color: #fff;
+				font-size: 16px;
+				margin-bottom: 20px;
+			}
+		
+			.footer-14398 .links li {
+				margin-bottom: 10px;
+			}
+		
+			.footer-14398 .links li a {
+				color: #999;
+			}
+		
+			.footer-14398 .links li a:hover {
+				color: #fff;
+			}
+		
+			.footer-14398 .link-menu li {
+				display: inline-block;
+			}
+		
+			.footer-14398 .link-menu li a {
+				color: #fff;
+				display: inline-block;
+				padding: 10px;
+			}
+		
+			.footer-14398 .link-menu.nav-left li:first-child a {
+				padding-left: 0;
+			}
+		
+			.footer-14398 .link-menu.nav-right li:last-child a {
+				padding-left: 0;
+			}
+		
+			.footer-14398 .social li {
+				display: inline-block;
+			}
+		
+			.footer-14398 .social li a {
+				display: inline-block;
+				padding: 10px;
+				color: #ccc;
+			}
+		
+			.footer-14398 .social li:last-child a {
+				padding-right: 0;
+			}
+		
+			.footer-14398 .line {
+				border-top: 1px solid rgba(255, 255, 255, 0.2);
+			}
+		</style>
+		<footer class="footer-14398">
+			<div class="container">
+				<div class="row mb-5">
+					<div class="col-md-4 col-sm-12">
+						<a href="index.html" class="footer-site-logo">
+							<img src="static/images/mf.svg" width="50" alt="mf-logo" />
+						</a>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit officiis corporis optio natus. </p>
+					</div>
+					<div class="col-md-2 col-sm-6">
+						<h3>Shop</h3>
+						<ul class="list-unstyled links">
+							<li><a href="#">Sell online</a></li>
+							<li><a href="#">Features</a></li>
+							<li><a href="#">Examples</a></li>
+							<li><a href="#">Website editors</a></li>
+							<li><a href="#">Online retail</a></li>
+						</ul>
+					</div>
+					<div class="col-md-2 col-sm-6">
+						<h3>Press</h3>
+						<ul class="list-unstyled links">
+							<li><a href="#">Events</a></li>
+							<li><a href="#">News</a></li>
+							<li><a href="#">Awards</a></li>
+							<li><a href="#">Testimonials</a></li>
+							<li><a href="#">Online retail</a></li>
+						</ul>
+					</div>
+					<div class="col-md-2 col-sm-6 ml-auto">
+						<h3>Press</h3>
+						<ul class="list-unstyled links">
+							<li><a href="#">Events</a></li>
+							<li><a href="#">News</a></li>
+							<li><a href="#">Awards</a></li>
+							<li><a href="#">Testimonials</a></li>
+							<li><a href="#">Online retail</a></li>
+						</ul>
+					</div>
+					<div class="col-md-2 col-sm-6 ml-auto">
+						<h3>About</h3>
+						<ul class="list-unstyled links">
+							<li><a href="#">Contact</a></li>
+							<li><a href="#">Services</a></li>
+							<li><a href="#">Team</a></li>
+							<li><a href="#">Career</a></li>
+							<li><a href="#">Contacts</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="row mb-4">
+					<div class="col-12 pb-4">
+						<div class="line"></div>
+					</div>
+					<div class="col-md-6 text-md-left">
+						<ul class="list-unstyled link-menu nav-left">
+							<li><a href="#">Privacy Policy</a></li>
+							<li><a href="#">Terms &amp; Conditions</a></li>
+							<li><a href="#">Code of Conduct</a></li>
+						</ul>
+					</div>
+					<div class="col-md-6 text-md-right">
+						<ul class="list-unstyled social nav-right">
+							<li><a name="github" href="https://github.com/MiracleFactory" target="_blank" aria-label="github">
+									<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+										class="bi bi-github" viewBox="0 0 16 16">
+										<path
+											d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+									</svg></a></li>
+							<li><a name="discord" href="https://discord.gg/q6DqD3TD" target="_blank" aria-label="discord">
+									<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+										class="bi bi-discord" viewBox="0 0 16 16">
+										<path
+											d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z" />
+									</svg></a></li>
+							<li><a name="instagram" href="https://www.instagram.com/miraclefactory.official/" target="_blank"
+									aria-label="instagram">
+									<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+										class="bi bi-instagram" viewBox="0 0 16 16">
+										<path
+											d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+									</svg></a></li>
+							<li><a name="youtube" href="https://www.youtube.com/channel/UCcyM_yc90aKUb-39CoK6QHQ"
+									target="_blank" aria-label="youtube">
+									<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+										class="bi bi-youtube" viewBox="0 0 16 16">
+										<path
+											d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
+									</svg></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-7">
+						<p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, fuga. Ex at maxime eum
+								odio
+								quibusdam pariatur expedita explicabo harum! Consectetur ducimus delectus nemo, totam
+								odit!</small></p>
+					</div>
+				</div>
+			</div>
+			</div>
+		</footer>
+	</main>
+</body>
+</html>
