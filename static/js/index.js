@@ -12,7 +12,6 @@ addEventListener("scroll", function() {
             children[i].style.opacity = 1;
             children[i].style.transform = "translateY(0)";
         }
-        document.getElementById("down").style.transform = "rotate(180deg)";
         // if(scrollTop > clientH)
         // {
         //     navStyle.backgroundColor = "rgba(0, 0, 0, 0.8)";
@@ -35,7 +34,6 @@ addEventListener("scroll", function() {
             children[i].style.opacity = 0;
             children[i].style.transform = "translateY(25px)";
         }
-        document.getElementById("down").style.transform = "rotate(0deg)";
     }
 })
 
