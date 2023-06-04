@@ -456,8 +456,8 @@ nav
 
 #header h1
 {
-    animation: 
-        appear 1s 1s ease-in-out forwards;
+    /* animation: 
+        appear 1s 1s ease-in-out forwards; */
         /* 3.0s movement linear infinite; */
     background-color: rgb(218, 197, 243);
     background-image: 
@@ -481,7 +481,7 @@ nav
     line-height: 75px;
     font-weight: 800;
     letter-spacing: -2px;
-    opacity: 0;
+    /* opacity: 0; */
     padding-left: 20px;
     padding-right: 20px;
     margin: 0;
@@ -505,7 +505,7 @@ nav
     color: var(--mf-neutral-gray);
     display: block;
     box-sizing: border-box;
-    animation: swift-up 3.6s 2s ease-in-out forwards;
+    animation: swift-up 3.6s 0.5s ease-in-out forwards;
     transform: translateY(100%);
 }
 
