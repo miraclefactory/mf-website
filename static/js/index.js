@@ -1,41 +1,41 @@
 var clientH = window.innerHeight || document.documentElement.clientHeight
 var clientW = window.innerWidth || document.documentElement.clientWidth;
 
-addEventListener("scroll", function() {
-    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    let children = document.getElementById("intro-wrapper").children;
-    // let navStyle = document.querySelector("#nav-wrapper").style;
-    if (scrollTop > clientH / 2)
-    {
-        for(let i = 1; i < children.length; i++)
-        {
-            children[i].style.opacity = 1;
-            children[i].style.transform = "translateY(0)";
-        }
-        // if(scrollTop > clientH)
-        // {
-        //     navStyle.backgroundColor = "rgba(0, 0, 0, 0.8)";
-        //     navStyle.backdropFilter = "blur(20px)";
-        //     navStyle.webkitBackdropFilter = "blur(20px)";
-        //     navStyle.borderBottom = "0.5px solid rgba(0, 0, 0, 0.3)";
-        // }
-        // else
-        // {
-        //     navStyle.backgroundColor = "transparent";
-        //     navStyle.backdropFilter = "blur(0px)";
-        //     navStyle.webkitBackdropFilter = "blur(0px)";
-        //     navStyle.borderBottom = "0.5px solid rgba(0, 0, 0, 0)";
-        // }
-    }
-    else
-    {
-        for(let i = 1; i < children.length; i++)
-        {
-            children[i].style.opacity = 0;
-            children[i].style.transform = "translateY(25px)";
-        }
-    }
-})
+// addEventListener("scroll", function() {
+//     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+//     let children = document.getElementById("intro-wrapper").children;
+//     // let navStyle = document.querySelector("#nav-wrapper").style;
+//     if (scrollTop > clientH / 2)
+//     {
+//         for(let i = 1; i < children.length; i++)
+//         {
+//             children[i].style.opacity = 1;
+//             children[i].style.transform = "translateY(0)";
+//         }
+//         // if(scrollTop > clientH)
+//         // {
+//         //     navStyle.backgroundColor = "rgba(0, 0, 0, 0.8)";
+//         //     navStyle.backdropFilter = "blur(20px)";
+//         //     navStyle.webkitBackdropFilter = "blur(20px)";
+//         //     navStyle.borderBottom = "0.5px solid rgba(0, 0, 0, 0.3)";
+//         // }
+//         // else
+//         // {
+//         //     navStyle.backgroundColor = "transparent";
+//         //     navStyle.backdropFilter = "blur(0px)";
+//         //     navStyle.webkitBackdropFilter = "blur(0px)";
+//         //     navStyle.borderBottom = "0.5px solid rgba(0, 0, 0, 0)";
+//         // }
+//     }
+//     else
+//     {
+//         for(let i = 1; i < children.length; i++)
+//         {
+//             children[i].style.opacity = 0;
+//             children[i].style.transform = "translateY(25px)";
+//         }
+//     }
+// })
 
 window.onload = function()
 {
