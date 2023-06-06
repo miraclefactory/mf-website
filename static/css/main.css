@@ -267,71 +267,6 @@ svg
     margin-right: 10px;
 }
 
-.avatar 
-{
-    width: 240px;
-    height: 240px;
-    box-shadow: 0 0 7px 0 rgba(139,139,139,0.6);
-    border-radius: 50%;
-    background-color: gray;
-    overflow: hidden;
-}
-
-.avatar img
-{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.nav-username
-{
-    margin-right: 10px;
-}
-
-.nav-avatar
-{
-    margin-right: 20px;
-}
-
-.avatar-tiny
-{
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: gray;
-    overflow: hidden;
-    /* border: 0.5px solid var(--mf-neutral-gray); */
-}
-
-.avatar-tiny img
-{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    margin: 0 !important;
-}
-
-.avatar-dialog
-{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: gray;
-    margin: 0 auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    overflow: hidden;
-}
-
-.avatar-dialog img
-{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    margin: 0 !important;
-}
-
 .gradient-svg
 {
     font-size: 40px !important;
@@ -339,7 +274,7 @@ svg
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent !important;
-    background-image: linear-gradient(135deg, rgb(155, 123, 210), rgb(76, 9, 234));
+    background-image: linear-gradient(135deg, rgb(155, 123, 210), rgb(96, 45, 216));
 }
 
 nav
@@ -487,14 +422,10 @@ nav
     color: transparent;
     /* font-family: 'Permanent Marker', cursive; */
     font-family: 'Cairo';
-    /* 'Ma Shan Zheng', */
-    /* font-size: 110px;
-    line-height: 110px; */
     font-size: 75px;
     line-height: 75px;
     font-weight: 800;
     letter-spacing: -2px;
-    /* opacity: 0; */
     padding-left: 20px;
     padding-right: 20px;
     margin: 0;
@@ -729,10 +660,11 @@ nav
 
 #ai-box
 {
-    background-image: url("../images/bk1.jpg");
-    background-size: cover;
+    /* background-image: url("../images/bk1.jpg"); */
+    /* background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
+    font-family: monospace !important;
 }
 
 .shock-box h1
@@ -762,10 +694,12 @@ nav
 {
     background-color: var(--mf-background-white);
     /* border-top: 1px transparent; */
-    background-image: url("../images/bk6.png");
+    /* background-image: url("../images/bk6.png"); */
+    background-image: linear-gradient(120deg, rgb(212,140,141), rgb(189,164,237));
+    /* background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
     height: fit-content;
     padding-top: 100px;
     padding-bottom: 100px;
@@ -1443,7 +1377,7 @@ textarea:focus
 
     #intro-words
     {
-        opacity: 0.2;
+        /* opacity: 0.2; */
         width: 100%;
     }
 
