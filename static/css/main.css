@@ -290,7 +290,6 @@ nav
     /* font-weight: bold; */
     /* font-family: Helvetica; */
     font-weight: 100;
-    /* font-size: 15px; */
     font-size: 16px;
     text-align: left;
     display: flex;
@@ -702,6 +701,7 @@ nav
 
 #join-contact
 {
+    text-align: center;
     background-color: var(--mf-background-white);
     /* border-top: 1px transparent; */
     /* background-image: url("../images/bk6.png"); */
@@ -711,12 +711,6 @@ nav
     background-position: center;
     background-repeat: no-repeat; */
     height: fit-content;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    /* border-radius: 24px; */
-    /* background-color: rgb(212,140,141);
-    opacity: 0.8;
-    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, rgb(212,140,141) 10px ), repeating-linear-gradient( #c989fa55, rgb(189,164,237) ); */
     background-color: rgb(194, 172, 233);
     opacity: 0.8;
     background-image: radial-gradient(rgb(76, 9, 234) 1px, rgb(194, 172, 233) 1px);
