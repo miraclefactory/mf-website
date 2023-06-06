@@ -1175,7 +1175,7 @@ textarea:focus
         height: fit-content !important;
     } */
 
-    #nav-links .mobile-hide
+    .mobile-hide
     {
         display: none;
     }
