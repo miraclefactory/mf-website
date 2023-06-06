@@ -665,19 +665,22 @@ nav
     background-color: #ea5465;
 }
 
-#ai-box
+#ai-box h1
 {
     /* background-image: url("../images/bk1.jpg"); */
     /* background-size: cover;
     background-position: center;
     background-repeat: no-repeat; */
-    font-family: monospace !important;
+    background-image: var(--mf-header-purple-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 .shock-box h1
 {
     color: white;
-    font-size: 90px;
+    font-size: 80px;
     /* font-family: 'Space Grotesk'; */
     /* font-family: 'Cairo', Helvetica, Arial, sans-serif; */
 }
