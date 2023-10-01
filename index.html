@@ -24,13 +24,13 @@
 <body>
 	<div id="nav-wrapper">
 		<div class="alert alert-dismissible fade show border-0 rounded-0 m-0" role="alert" style="background-color: rgb(13, 110, 253)">
-			🚧 This website is still under construction. For enquiries, please contact us at <a href="mailto:contact@miraclefactory.ai">contact@miraclefactory.ai</a>
+			🚧 Website still under construction. For enquiries, please reach out to <a href="mailto:contact@miraclefactory.ai">contact@miraclefactory.ai</a>
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
 		<div class="wrapper" style="width: 100% !important;">
 			<nav id="topbar">
+				<a href="index.html"><img src="static/images/mf-trans.webp" width="36" alt="mf-logo" style="margin-left: 20px;" /></a>
 				<div id="nav-links">
-					<a href="index.html"><img src="static/images/mf-trans.webp" width="36" alt="mf-logo" /></a>
 					<a class="mobile-hide" href="https://github.com/miraclefactory" target="_blank">GitHub</a>
 					<a class="mobile-hide" href="https://github.com/orgs/miraclefactory/repositories" target="_blank">Projects</a>
 					<!-- <a class="mobile-hide" href="temp.html">People</a> -->
@@ -38,8 +38,8 @@
 					<a class="mobile-hide" href="temp.html">Campus</a>
 				</div>
 				<div class="nav-widgets">
-					<input class="nav-search" id="desktop-search" type="text" placeholder="Search"/>
-					<a href="{{url_for('join')}}"><button class="nav-join mobile-hide">Join Us</button></a>
+					<!-- <input class="nav-search" id="desktop-search" type="text" placeholder="Search"/> -->
+					<a href="temp.html"><button class="btn btn-outline-light nav-join mobile-hide">Join us</button></a>
 					<button class="mobile-button hide" onclick="showMobileNav();">
 						<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
 							<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
@@ -49,7 +49,7 @@
 				<div class="hide" id="mobile-nav">
 					<div class="nav-card">
 						<div class="nav-widgets" id="mobile-widgets">
-							<a href="{{url_for('join')}}"><button class="nav-join">Join Us</button></a>
+							<a href="temp.html"><button class="btn btn-outline-light nav-join">Join us</button></a>
 							<button class="mobile-button" onclick="closeMobileNav();">
 								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
 									<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
@@ -62,7 +62,7 @@
 							<!-- <a href="temp.html">People</a> -->
 							<a href="temp.html">Research</a>
 							<a href="temp.html">Campus</a>
-							<input class="nav-search" id="mobile-search" type="text" placeholder="Search"/>
+							<!-- <input class="nav-search" id="mobile-search" type="text" placeholder="Search"/> -->
 						</div>
 						<div id="mobile-support">
 							<a href="https://github.com/miraclefactory/mf-website/issues/new/choose" target="_blank">Report Problems</a>&nbsp;&nbsp;·&nbsp;&nbsp;
@@ -130,7 +130,7 @@
 					<span>At The Land of Dream.</span>
 				</div>
 				<div class="mt-3">
-					<a href="{{url_for('join')}}">
+					<a href="temp.html">
 						<button class="rect-button" style="background-color: white; color: black; font-size: 18px; padding-left: 25px; padding-right: 25px; line-height: 30px; width: fit-content;">Join Our Community</button>
 					</a>
 				</div>
@@ -237,20 +237,22 @@
 						</p>
 					</div>
 					<div class="col-md-12" tg-name="opacity" tg-from="0" tg-to="3">
-						<div class="box h-100 row">
-							<div class="col-md-6 col-sm-12">
-								<h1>Love + AI + Team = Power AI</h1>
-								<p>
-									We love developing AI systems, it's a part of who we are. 
-									Through working together as a team, we were able to create 
-									some amazing AI projects, taking AI systems into the undiscovered 
-									countries. Such efforts delivered projects like Submarine HSAOIS, 
-									a powerful and flexible motherboard production defect detection 
-									and analysis system.
-								</p>
-							</div>
-							<div class="col-md-6 col-sm-12">
-								<img id="img-project" name="img-project" />
+						<div class="box h-100">
+							<div class="row">
+								<div class="col-md-6 col-sm-12">
+									<h1>Love + AI + Team = Power AI</h1>
+									<p>
+										We love developing AI systems, it's a part of who we are. 
+										Through working together as a team, we were able to create 
+										some amazing AI projects, taking AI systems into the undiscovered 
+										countries. Such efforts delivered projects like Submarine HSAOIS, 
+										a powerful and flexible motherboard production defect detection 
+										and analysis system.
+									</p>
+								</div>
+								<div class="col-md-6 col-sm-12">
+									<img id="img-project" name="img-project" />
+								</div>
 							</div>
 						</div>
 					</div>
@@ -327,7 +329,7 @@
 							<h1 translate="no" style="color: white !important;">
 								Join the world's most<br />talented dreamers.
 							</h1>
-							<a href="{{url_for('join')}}">
+							<a href="temp.html">
 								<button class="rect-button" style="background-color: white; color: black;">Join Us</button>
 							</a>
 							<a href="{{url_for('contact')}}">

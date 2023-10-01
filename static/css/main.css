@@ -318,8 +318,8 @@ nav
 }
 
 #nav-links
-{
-    margin-left: 20px;
+{ 
+    /* margin-left: 20px; */
     width: 380px;
     display: flex;
     flex-direction: row;
@@ -331,7 +331,7 @@ nav
 
 .nav-widgets
 {
-    min-width: 160px;
+    /* min-width: 160px; */
     display: flex;
     flex-direction: row;
     align-items: center;;
@@ -350,14 +350,14 @@ nav
 
 .nav-join
 {
-    color: inherit;
+    /* color: inherit;
     border: 1px solid;
     border-radius: 6px;
     background-color: transparent;
     padding-left: 14px;
     padding-right: 14px;
     padding-top: 5px;
-    padding-bottom: 5px;
+    padding-bottom: 5px; */
     margin-right: 20px;
 }
 
