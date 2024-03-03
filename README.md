@@ -1,13 +1,11 @@
-# <img src="https://staticfile.osl.ink/staticFiles/mf-logo.svg" height=22 /> Official Website
+# <img height="22" alt="mf-logo" src="https://github.com/miraclefactory/.github/assets/89094576/21774f34-ade2-45e3-966a-c2ff984af117"> Website
 
 ![www miraclefactory co_](https://user-images.githubusercontent.com/89094576/181905465-13b919fb-b708-4ab3-b7d1-cda12a4d5537.png)
 
 ## Visit Our Site 🌐
-You can visit our website at [**miraclefactory.co**](https://miraclefactory.co/).   
+You can visit our website at [**miraclefactory.ai**](https://miraclefactory.ai/).   
 Learn our goals and ideals, help us build a better community and a better world!  
 Feel free to join our community and put your ingenuity to use :)
-> **Notice:**   
-> Latest updates and experimental features are available at [**dev.miraclefactory.co**](https://dev.miraclefactory.co).
 
 ## You Can Contribute! 🌟
 This is the public repo for the official website of Miracle Factory. We welcome every good idea, what ever the form. 
@@ -54,7 +52,7 @@ $ sh run.sh
 ```
 You will need to have a sqlite database matching your SQLALCHEMY_DATABASE_URI config to access the database functionalities.
 > **Notice:**   
-> If you are using macOS Monterey or newer (macOS Ventura), please avoid using the Flask default port 5000, this will cause trouble because this port is already taken by AirPlay in these systems. 
+> If you are using macOS Monterey or newer, please avoid using the Flask default port 5000, this will cause trouble because this port is already taken by AirPlay in newer systems. 
 
 ## Deployment 🚀
 You don't need to worry about deployment, you can leave it to us :)
